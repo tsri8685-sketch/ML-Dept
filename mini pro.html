@@ -1,174 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Department of Machine Learning - Loyola Academy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department of Machine Learning - Loyola Academy</title>
 
-<style>
-body {
-  font-family: "Times New Roman", serif;
-  margin: 0;
-  padding: 0;
-  background-image: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  color: white;
-}
+  <style>
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
-}
+    body {
+      font-family: "Times New Roman", serif;
+      margin: 0;
+      padding: 0;
 
-header, footer {
-  text-align: center;
-  background: rgba(10,46,99,0.9);
-  padding: 15px;
-}
+      background-image:url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg?semt=ais_hybrid&w=740&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
 
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.45);
+      z-index: -1;
+    }
 
-.year-container {
-  display: flex;
-  gap: 40px;
-}
+    header {
+      text-align: center;
+      background-color: rgba(10, 46, 99, 0.85);
+      color: white;
+      padding: 20px 0;
+      backdrop-filter: blur(4px);
+      
+    }
 
-.year-box {
-  background: rgba(255,255,255,0.9);
-  color: #0a2e63;
-  padding: 30px;
-  width: 160px;
-  text-align: center;
-  border-radius: 8px;
-  font-weight: bold;
-  position: relative;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
 
-input {
-  display: none;
-}
+    header h2 {
+      margin-top: 5px;
+      font-weight: normal;
+      font-size: 1.2em;
+      color: #c9d5f0;
+    }
 
-label {
-  cursor: pointer;
-  display: block;
-}
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+      height: 80vh;         
+    }
 
-/* Semester box */
-.semester-box {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  margin-top: 10px;
-}
+    .year-container {
+      display: flex;
+      gap: 40px;
+    }
 
-#dcsml-toggle:checked + label + .semester-box {
-  max-height: 300px;
-}
+    .year-box {
+      background-color: rgba(255, 255, 255, 0.85);
+      border: 2px solid #0a2e63;
+      padding: 40px;
+      width: 150px;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+      backdrop-filter: blur(3px);
+    }
 
-/* Semester items */
-.semester-item {
-  margin-top: 10px;
-  background: #e6ecf7;
-  border-radius: 6px;
-  padding: 8px;
-}
+    .year-box:hover {
+      background-color: rgba(130, 165, 235, 0.95);
+      transform: scale(1.05);
+    }
 
-/* Details box */
-.details-box {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
 
-.sem-toggle:checked + label + .details-box {
-  max-height: 100px;
-}
+    .dcsml:hover .semester-box {
+      display: block;
+    }
 
-/* Links */
-.details-item a {
-  text-decoration: none;
-  color: #0a2e63;
-  font-weight: bold;
-  display: block;
-  margin-top: 8px;
-}
+    .semester-box {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid #0a2e63;
+      border-radius: 6px;
+      padding: 10px;
+      width: 150px;
+      margin-top: 10px;
+      z-index: 10;
+      backdrop-filter: blur(3px);
+    }
 
-/* Arrows */
-.arrow {
-  float: right;
-  transition: transform 0.3s;
-}
+    .semester-item {
+      padding: 8px;
+      border-bottom: 1px solid white;
+      position: relative;
+    }
 
-input:checked + label .arrow {
-  transform: rotate(90deg);
-}
-</style>
+    .semester-item:hover .details-box {
+      display: block;
+    }
+
+    .details-box {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: rgba(227, 223, 234, 0.98);
+      border: 1px solid #0a2e63;
+      border-radius: 6px;
+      padding: 10px;
+      width: 180px;
+      margin-left: 10px;
+      z-index: 20;
+    }
+
+    .details-item a {
+      color: #0a2e63;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    footer {
+      text-align: center;
+      background-color: rgba(10, 46, 99, 0.85);
+      color: white;
+      padding: 10px 0;
+      margin-top: 40px;
+      backdrop-filter: blur(4px);
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<header>
-  <h1>Department of Machine Learning</h1>
-  <h3>Loyola Academy</h3>
-</header>
+  <header>
+    <h1>Department of Machine Learning</h1>
+    <h2>Loyola Academy</h2>
+  </header>
 
-<main>
-<div class="year-container">
+  <main>
+    <div class="year-container">
+      <div class="year-box">ACSML</div>
+      <div class="year-box">NCSML</div>
 
-  <div class="year-box">ACSML</div>
-  <div class="year-box">NCSML</div>
+      <div class="year-box dcsml">
+        DCSML
 
-  <div class="year-box">
+        <div class="semester-box">
 
-    <input type="checkbox" id="dcsml-toggle">
-    <label for="dcsml-toggle">
-      DCSML <span class="arrow">▶</span>
-    </label>
-
-    <div class="semester-box">
-
-      <div class="semester-item">
-        <input type="radio" name="sem" id="sem5" class="sem-toggle">
-        <label for="sem5">
-          5th Sem <span class="arrow">▶</span>
-        </label>
-        <div class="details-box">
-          <div class="details-item">
-            <a href="./subj.html">Subjects</a>
+          <div class="semester-item">
+            5th Sem
+            <div class="details-box">
+              <div class="details-item">
+                <a href="./subj.html">Subjects</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div class="semester-item">
-        <input type="radio" name="sem" id="sem6" class="sem-toggle">
-        <label for="sem6">
-          6th Sem <span class="arrow">▶</span>
-        </label>
-        <div class="details-box">
-          <div class="details-item">
-            <a href="./subj2.html">Subjects</a>
+          <div class="semester-item">
+            6th Sem
+            <div class="details-box">
+              <div class="details-item">
+                <a href="./subj2.html">Subjects</a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
+        </div>
+
+      </div>
     </div>
-  </div>
+  </main>
 
-</div>
-</main>
-
-<footer>
-  <p>&copy; Loyola Academy - Department of Machine Learning</p>
-</footer>
+  <footer>
+    <p>&copy; Loyola Academy - Department of Machine Learning</p>
+  </footer>
 
 </body>
+
 </html>
