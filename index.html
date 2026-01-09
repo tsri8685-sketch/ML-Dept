@@ -31,26 +31,39 @@
       z-index: -1;
     }
 
-    header {
-      text-align: center;
-      background-color: rgba(10, 46, 99, 0.85);
-      color: white;
-      padding: 20px 0;
-      backdrop-filter: blur(4px);
-      
-    }
+    .header {
+  position: relative;
+  background-color: rgba(10, 46, 99, 0.85);
+  color: white;
+  padding: 20px 20px;
+  backdrop-filter: blur(4px);
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
 
-    header h2 {
-      margin-top: 5px;
-      font-weight: normal;
-      font-size: 1.2em;
-      color: #c9d5f0;
-    }
+.logo-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 100px;     
+  width: 100px;
+}
+
+.header-text {
+  text-align: center;
+}
+
+.header-text h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+.header-text h2 {
+  margin-top: 5px;
+  font-weight: normal;
+  font-size: 1.2em;
+  color: #c9d5f0;
+}
 
     main {
       display: flex;
@@ -149,10 +162,14 @@
 
 <body>
 
-  <header>
+<header class="header">
+  <img src="logo.png" alt="Loyola Academy Logo" class="logo-left">
+
+  <div class="header-text">
     <h1>Department of Machine Learning</h1>
     <h2>Loyola Academy</h2>
-  </header>
+  </div>
+</header>
 
   <main>
     <div class="year-container">
