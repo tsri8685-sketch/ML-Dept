@@ -6,6 +6,7 @@
 <title>Department of Machine Learning - Loyola Academy</title>
 
 <style>
+/* ================= BODY ================= */
 body {
   font-family: "Times New Roman", serif;
   margin: 0;
@@ -24,7 +25,7 @@ body::before {
   z-index: -1;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
   background-color: rgba(10,46,99,0.85);
   color: white;
@@ -49,7 +50,7 @@ body::before {
   font-weight: bold;
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 main {
   display: flex;
   justify-content: center;
@@ -62,7 +63,7 @@ main {
   background-color: rgba(255,255,255,0.85);
   border: 2px solid #0a2e63;
   padding: 20px;
-  width: 200px;
+  width: 220px;
   text-align: center;
   border-radius: 8px;
 }
@@ -75,26 +76,35 @@ main {
   font-size: 1.1em;
 }
 
+/* Semester container */
 .semester-box { display: none; margin-top: 10px; }
 
 .toggle-checkbox:checked + .toggle-label + .semester-box {
   display: block;
 }
 
+/* Semester item */
 .semester-item {
   background-color: #e3e0ea;
   padding: 8px;
-  margin-top: 5px;
+  margin-top: 6px;
   border-radius: 5px;
   position: relative;
+  cursor: pointer;
 }
 
+/* SIDE DETAILS BOX */
 .details-box {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 105%;
+  width: 170px;
   background-color: #f4f1f9;
-  padding: 5px;
-  border-radius: 5px;
-  margin-top: 5px;
+  border: 1px solid #0a2e63;
+  padding: 8px;
+  border-radius: 6px;
+  z-index: 10;
 }
 
 .semester-item:hover .details-box {
@@ -107,10 +117,10 @@ main {
   color: #0a2e63;
   font-weight: bold;
   font-size: 13px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
   background-color: #0a2e63;
   color: white;
@@ -156,7 +166,7 @@ footer {
 .whatsapp { background-color: #25D366; }
 .instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
 
-/* HEADER MEDIA QUERY */
+/* ================= MEDIA QUERY ================= */
 @media (max-width: 768px) {
   .header h1 { font-size: 1.5em; }
   .header h2 { font-size: 1em; }
@@ -165,6 +175,13 @@ footer {
     flex-direction: column;
     gap: 5px;
     text-align: center;
+  }
+
+  /* Stack details below on mobile */
+  .details-box {
+    position: static;
+    width: 100%;
+    margin-top: 5px;
   }
 }
 </style>
@@ -194,7 +211,7 @@ footer {
     <div class="semester-item">1st Semester
       <div class="details-box">
         <a href="asubj.html">Subjects</a>
-        <a href="aprev.html">Previous Year Papers</a>
+        <a href="aprev.html">Previous Papers</a>
         <a href="astaf.html">Staff</a>
       </div>
     </div>
@@ -202,7 +219,7 @@ footer {
     <div class="semester-item">2nd Semester
       <div class="details-box">
         <a href="asub2.html">Subjects</a>
-        <a href="aprev2.html">Previous Year Papers</a>
+        <a href="aprev2.html">Previous Papers</a>
         <a href="astaf2.html">Staff</a>
       </div>
     </div>
@@ -222,7 +239,7 @@ footer {
     <div class="semester-item">3rd Semester
       <div class="details-box">
         <a href="nsubj.html">Subjects</a>
-        <a href="aprev.html">Previous Year Papers</a>
+        <a href="aprev.html">Previous Papers</a>
         <a href="astaf.html">Staff</a>
       </div>
     </div>
@@ -230,7 +247,7 @@ footer {
     <div class="semester-item">4th Semester
       <div class="details-box">
         <a href="nsub2.html">Subjects</a>
-        <a href="aprev2.html">Previous Year Papers</a>
+        <a href="aprev2.html">Previous Papers</a>
         <a href="astaf2.html">Staff</a>
       </div>
     </div>
@@ -250,7 +267,7 @@ footer {
     <div class="semester-item">5th Semester
       <div class="details-box">
         <a href="subj.html">Subjects</a>
-        <a href="prev.html">Previous Year Papers</a>
+        <a href="prev.html">Previous Papers</a>
         <a href="staf.html">Staff</a>
       </div>
     </div>
@@ -258,7 +275,7 @@ footer {
     <div class="semester-item">6th Semester
       <div class="details-box">
         <a href="sub2.html">Subjects</a>
-        <a href="prev2.html">Previous Year Papers</a>
+        <a href="prev2.html">Previous Papers</a>
         <a href="staf2.html">Staff</a>
       </div>
     </div>
@@ -276,20 +293,19 @@ footer {
     <div class="footer-center">
       <p><strong>Loyola Academy</strong></p>
       <p>Old Alwal, Secunderabad, Hyderabad – 500010</p>
-
       <div class="footer-map">
         <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
       </div>
-
       <p>© Department of Machine Learning</p>
     </div>
 
     <div class="footer-social">
-      <a href="https://wa.me/919XXXXXXXXX" class="whatsapp" target="_blank">WhatsApp</a>
-      <a href="https://instagram.com/yourprofile" class="instagram" target="_blank">Instagram</a>
+      <a href="https://wa.me/919XXXXXXXXX" class="whatsapp">WhatsApp</a>
+      <a href="https://instagram.com/yourprofile" class="instagram">Instagram</a>
     </div>
   </div>
 </footer>
 
 </body>
 </html>
+
