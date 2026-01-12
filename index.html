@@ -1,347 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Department of Machine Learning - Loyola Academy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department of Machine Learning - Loyola Academy</title>
 
-  <style>
-    body {
-      font-family: "Times New Roman", serif;
-      margin: 0;
-      padding: 0;
-      background-image: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg?semt=ais_hybrid&w=740&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.45);
-      z-index: -1;
-    }
-
-    .header {
-      position: relative;
-      background-color: rgba(10, 46, 99, 0.85);
-      color: white;
-      padding: 20px 20px;
-      backdrop-filter: blur(4px);
-      text-align: center;
-    }
-
-    .header img {
-      width: 120px;
-      margin-bottom: 10px;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-
-    .header h2 {
-      margin-top: 5px;
-      font-weight: normal;
-      font-size: 1.2em;
-      color: #c9d5f0;
-    }
-
-    .top-header {  
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 20px;
-      font-size: 14px;
-    }
-
-    .left-info span {
-      margin-right: 15px;
-    }
-
-    .right-links a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-weight: 600;
-    }
-
-    .right-links a:hover {
-      color: #ffcc00;
-      text-decoration: underline;
-    }
-
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;   
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 50px 20px;
-    }
-
-    .year-box {
-      background-color: rgba(255, 255, 255, 0.85);
-      border: 2px solid #0a2e63;
-      padding: 20px;
-      width: 180px;
-      text-align: center;
-      font-weight: bold;
-      border-radius: 8px;
-      transition: 0.3s;
-      backdrop-filter: blur(3px);
-      cursor: pointer;
-    }
-
-    .year-box:hover {
-      background-color: rgba(130, 165, 235, 0.95);
-    }
-
-    
-    .toggle-checkbox {
-      display: none;
-    }
-
-    .toggle-label {
-      display: block;
-      cursor: pointer;
-      font-size: 1.1em;
-      padding: 10px;
-    }
-
-    .semester-box {
-      display: none;
-      background-color: rgba(255,255,255,0.95);
-      border: 1px solid #0a2e63;
-      border-radius: 6px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-
-    .toggle-checkbox:checked + .toggle-label + .semester-box {
-      display: block;
-    }
-
-    .semester-item {
-      padding: 8px;
-      border-bottom: 1px solid white;
-      position: relative;
-    }
-
-    .details-box {
-      display: none;
-      position: relative;
-      background-color: rgba(227, 223, 234, 0.98);
-      padding: 5px;
-      margin-top: 5px;
-      border-radius: 6px;
-    }
-
-    .semester-item:hover .details-box {
-      display: block;
-    }
-
-    .details-item a {
-      color: #0a2e63;
-      font-weight: bold;
-      text-decoration: none;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    footer {
-      text-align: center;
-      background-color: #0a2e63;
-      color: white;
-      padding: 25px 10px;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: #ffd966;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .footer-map-container {
-      width: 350px;      
-      max-width: 90%;     
-      margin: 10px auto;  
-    }
-
-    .footer-map-container iframe {
-      width: 100%;
-      height: 200px;
-      border: 0;
-      border-radius: 6px;
-      display: block;
-    }
-
-    .footer-social {
-  margin: 15px 0;
+<style>
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-.footer-social a {
-  margin: 0 10px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  display: inline-block;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.45);
+  z-index: -1;
+}
+
+/* HEADER */
+.header {
+  background-color: rgba(10,46,99,0.85);
   color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.header h1 { margin: 0; font-size: 2em; }
+.header h2 { margin: 5px 0; font-size: 1.2em; color: #c9d5f0; font-weight: normal; }
+.header p { font-size: 14px; }
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.top-header a {
+  color: white;
+  text-decoration: none;
   font-weight: bold;
 }
 
-.footer-social a.whatsapp {
-  background-color: #25D366;  
+/* MAIN */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 20px;
+  flex-wrap: wrap;
 }
 
-.footer-social a.instagram {
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af);
+.year-box {
+  background-color: rgba(255,255,255,0.85);
+  border: 2px solid #0a2e63;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  border-radius: 8px;
 }
 
-.footer-social a:hover {
-  opacity: 0.8;
+.toggle-checkbox { display: none; }
+
+.toggle-label {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1em;
 }
 
-  </style>
+.semester-box { display: none; margin-top: 10px; }
+
+.toggle-checkbox:checked + .toggle-label + .semester-box {
+  display: block;
+}
+
+.semester-item {
+  background-color: #e3e0ea;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.details-box {
+  display: none;
+  background-color: #f4f1f9;
+  padding: 5px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.semester-item:hover .details-box {
+  display: block;
+}
+
+.details-box a {
+  display: block;
+  text-decoration: none;
+  color: #0a2e63;
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #0a2e63;
+  color: white;
+  padding: 10px 15px;
+  font-size: 11px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-center {
+  text-align: center;
+  flex: 1;
+}
+
+.footer-center p { margin: 3px 0; }
+
+.footer-map iframe {
+  width: 220px;
+  height: 120px;
+  border: 0;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  padding: 6px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.whatsapp { background-color: #25D366; }
+.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
+
+/* HEADER MEDIA QUERY */
+@media (max-width: 768px) {
+  .header h1 { font-size: 1.5em; }
+  .header h2 { font-size: 1em; }
+  .header p { font-size: 12px; }
+  .top-header {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <header class="header">
   <h1>Department of Machine Learning</h1>
   <h2>LOYOLA ACADEMY<br>Degree & PG College (Autonomous)</h2>
-  <p>"A College with Potential For Excellence” by UGC. Affiliated to Osmania University. Established in 1978.</p>
+  <p>"A College with Potential For Excellence” by UGC</p>
 
   <div class="top-header">
-    <div class="left-info">
-      <span>✉ info@loyolaacademy.edu.in</span>
-    </div>
-    <div class="right-links">
-      <a href="https://loyolaacademy.edu.in/login/" target="_blank">ERP</a>
-    </div>
+    <span>✉ info@loyolaacademy.edu.in</span>
+    <a href="https://loyolaacademy.edu.in/login/" target="_blank">ERP</a>
   </div>
 </header>
 
 <main>
-  <!-- ACSML -->
-  <div class="year-box">
-    <input type="checkbox" id="acsml-toggle" class="toggle-checkbox">
-    <label for="acsml-toggle" class="toggle-label">ACSML</label>
 
-    <div class="semester-box">
-      <div class="semester-item">
-        1st Sem
-        <div class="details-box">
-          <div class="details-item"><a href="asubj.html">Subjects</a></div>
-          <div class="details-item"><a href="aprev.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="astaf.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        2nd Sem
-        <div class="details-box">
-          <div class="details-item"><a href="asub2.html">Subjects</a></div>
-          <div class="details-item"><a href="aprev2.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="astaf2.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        <a href="aout.html">Out Reach</a>
+<!-- ACSML -->
+<div class="year-box">
+  <input type="checkbox" id="acsml" class="toggle-checkbox">
+  <label for="acsml" class="toggle-label">ACSML</label>
+
+  <div class="semester-box">
+    <div class="semester-item">1st Semester
+      <div class="details-box">
+        <a href="asubj.html">Subjects</a>
+        <a href="aprev.html">Previous Year Papers</a>
+        <a href="astaf.html">Staff</a>
       </div>
     </div>
-  </div>
 
-  <!-- NCSML -->
-  <div class="year-box">
-    <input type="checkbox" id="ncsml-toggle" class="toggle-checkbox">
-    <label for="ncsml-toggle" class="toggle-label">NCSML</label>
-
-    <div class="semester-box">
-      <div class="semester-item">
-        3rd Sem
-        <div class="details-box">
-          <div class="details-item"><a href="nsubj.html">Subjects</a></div>
-          <div class="details-item"><a href="aprev.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="astaf.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        4th Sem
-        <div class="details-box">
-          <div class="details-item"><a href="nsub2.html">Subjects</a></div>
-          <div class="details-item"><a href="aprev2.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="astaf2.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        <a href="nout.html">Out Reach</a>
+    <div class="semester-item">2nd Semester
+      <div class="details-box">
+        <a href="asub2.html">Subjects</a>
+        <a href="aprev2.html">Previous Year Papers</a>
+        <a href="astaf2.html">Staff</a>
       </div>
     </div>
-  </div>
 
-  <!-- DCSML -->
-  <div class="year-box">
-    <input type="checkbox" id="dcsml-toggle" class="toggle-checkbox">
-    <label for="dcsml-toggle" class="toggle-label">DCSML</label>
-
-    <div class="semester-box">
-      <div class="semester-item">
-        5th Sem
-        <div class="details-box">
-          <div class="details-item"><a href="subj.html">Subjects</a></div>
-          <div class="details-item"><a href="prev.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="staf.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        6th Sem
-        <div class="details-box">
-          <div class="details-item"><a href="sub2.html">Subjects</a></div>
-          <div class="details-item"><a href="prev2.html">Previous Year Papers</a></div>
-          <div class="details-item"><a href="staf2.html">Staff</a></div>
-        </div>
-      </div>
-      <div class="semester-item">
-        <a href="dout.html">Out Reach</a>
-      </div>
+    <div class="semester-item">
+      <a href="aout.html">Out Reach</a>
     </div>
   </div>
+</div>
+
+<!-- NCSML -->
+<div class="year-box">
+  <input type="checkbox" id="ncsml" class="toggle-checkbox">
+  <label for="ncsml" class="toggle-label">NCSML</label>
+
+  <div class="semester-box">
+    <div class="semester-item">3rd Semester
+      <div class="details-box">
+        <a href="nsubj.html">Subjects</a>
+        <a href="aprev.html">Previous Year Papers</a>
+        <a href="astaf.html">Staff</a>
+      </div>
+    </div>
+
+    <div class="semester-item">4th Semester
+      <div class="details-box">
+        <a href="nsub2.html">Subjects</a>
+        <a href="aprev2.html">Previous Year Papers</a>
+        <a href="astaf2.html">Staff</a>
+      </div>
+    </div>
+
+    <div class="semester-item">
+      <a href="nout.html">Out Reach</a>
+    </div>
+  </div>
+</div>
+
+<!-- DCSML -->
+<div class="year-box">
+  <input type="checkbox" id="dcsml" class="toggle-checkbox">
+  <label for="dcsml" class="toggle-label">DCSML</label>
+
+  <div class="semester-box">
+    <div class="semester-item">5th Semester
+      <div class="details-box">
+        <a href="subj.html">Subjects</a>
+        <a href="prev.html">Previous Year Papers</a>
+        <a href="staf.html">Staff</a>
+      </div>
+    </div>
+
+    <div class="semester-item">6th Semester
+      <div class="details-box">
+        <a href="sub2.html">Subjects</a>
+        <a href="prev2.html">Previous Year Papers</a>
+        <a href="staf2.html">Staff</a>
+      </div>
+    </div>
+
+    <div class="semester-item">
+      <a href="dout.html">Out Reach</a>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <footer>
-  <p><strong>Loyola Academy</strong></p>
-  <p>Old Alwal, Secunderabad, Hyderabad, Telangana – 500010</p>
+  <div class="footer-content">
+    <div class="footer-center">
+      <p><strong>Loyola Academy</strong></p>
+      <p>Old Alwal, Secunderabad, Hyderabad – 500010</p>
 
-  
-  <h3>GOOGLE MAP</h3>
-  <div class="footer-map-container">
-    <iframe 
-      src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+      <div class="footer-map">
+        <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
+      </div>
 
+      <p>© Department of Machine Learning</p>
+    </div>
 
     <div class="footer-social">
-  <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">WhatsApp</a>
-  <a href="https://instagram.com/yourprofile" target="_blank" class="instagram">Instagram</a>
-</div>
-
-    
+      <a href="https://wa.me/919XXXXXXXXX" class="whatsapp" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/yourprofile" class="instagram" target="_blank">Instagram</a>
+    </div>
   </div>
-  <p>&copy; Loyola Academy - Department of Machine Learning</p>
 </footer>
 
 </body>
