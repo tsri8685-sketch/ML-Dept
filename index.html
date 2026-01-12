@@ -39,6 +39,12 @@
   backdrop-filter: blur(4px);
 }
 
+  .header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+
 
 .header-text {
   text-align: center;
@@ -171,6 +177,13 @@
       font-weight: bold;
     }
 
+     .footer-map iframe {
+      width: 100%;
+      height: 150px; 
+      border: 0;
+      border-radius: 6px;
+    }
+
 
 body {
   margin: 0;
@@ -210,7 +223,7 @@ body {
 </head>
 
 <body>
-
+<img src="https://upload.wikimedia.org/wikipedia/en/3/35/Loyola_Academy_Logo.png" alt="Loyola Academy Logo">
 <header class="header">
   <div class="header-text">
     <h1>Department of Machine Learning</h1>
@@ -362,9 +375,13 @@ Affiliated to Osmania University Established in 1978."</p>
 
   <p>
     
-    <a href="https://www.google.com/maps/search/?api=1&query=Loyola+Academy+Old+Alwal+Hyderabad" target="_blank">
-      View Location on Google Maps
-    </a>
+    <div class="footer-map">
+    <iframe 
+      src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
   </p>
   <p>&copy; Loyola Academy - Department of Machine Learning</p>
 
