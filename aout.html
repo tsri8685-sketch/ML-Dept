@@ -1,100 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Out Reach/title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Out Reach</title>
 
-    <style>
-    
-     body {
+  <style>
+    body {
       font-family: "Times New Roman", serif;
       margin: 0;
-      padding: 0;
+      padding: 20px;
 
-      background-image:url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg?semt=ais_hybrid&w=740&q=80');
+      background-image: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg?semt=ais_hybrid&w=740&q=80');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
 
-      position: relative;
-    }
-        body {
-            display: flex;
+      display: flex;
       justify-content: center;
-      align-items: center;   
-            text-align: center;
-            font-family: "Times New Roman", serif;
-            background-color:white
-            padding: 20px;
-        }
+      align-items: flex-start;
+    }
 
-        .sub {
-            text-align: center;
-            width: 800px;
-            background: rgb(234, 233, 235);
-            padding: 20px;
-            border: 2px solid #101112;
-            border-radius: 8px;
-        }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
 
-        h2 {
-            text-align: center;
-            color: #0f0f0f;
-        }
+    .sub {
+      max-width: 800px;
+      width: 100%;
+      background: rgb(234, 233, 235);
+      padding: 20px;
+      border: 2px solid #101112;
+      border-radius: 8px;
+    }
 
-        h4 {
-            text-align: left;
-            color: #0f0f0f;
-        }
+    h2 {
+      text-align: center;
+      color: #0f0f0f;
+    }
 
-        h3 {
-            text-align: left;
-            color: #0f0f0f;
-        }
+    h3, h4 {
+      text-align: left;
+      color: #0f0f0f;
+    }
 
-        p {
-            text-align: center;
-            display: block;
-            margin: 8px 0;
-            color: #0a2e63;
-            text-decoration: none;
-            font-size: 15px;
-        }
-        img {
-            margin-top: 10px;
-            border: 2px solid #101112;
-            border-radius: 10px;
-            height: 350px;
-            width: 650px;
-        }
+    p {
+      text-align: justify;
+      margin: 10px 0;
+      color: #0a2e63;
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-    </style>
+    img {
+      display: block;
+      margin: 15px auto;
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #101112;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="sub">
-        <h2>Out Reach</h2>
-        <h3>Coca-Cola Factory</h3>
-        <h4>Review:</h4>
-        <p>We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility. 
-           The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
-           and quality at every stage.<br>
-           During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
-           From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled
-            Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.<br>
-           The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
-            The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver a trusted 
-            product to consumers.<br>
-           At the beginning of the visit, we were warmly welcomed by the factory team and were offered 
-           refreshing welcome drinks, which added a pleasant touch to the experience. Overall, the visit provided valuable insight into 
-           large-scale beverage manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.</p>
-        <img src="acsml 1.jpeg" alt="Coca-Cola Factory" width="250" height="150">
-                   
+  <div class="sub">
+    <h2>Out Reach</h2>
 
-    </div>
+    <h3>Coca-Cola Factory</h3>
+    <h4>Review:</h4>
+
+    <p>
+      We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility.
+      The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
+      and quality at every stage.
+    </p>
+
+    <p>
+      During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
+      From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled.
+      Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.
+    </p>
+
+    <p>
+      The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
+      The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver
+      a trusted product to consumers.
+    </p>
+
+    <p>
+      At the beginning of the visit, we were warmly welcomed by the factory team and were offered refreshing welcome drinks,
+      which added a pleasant touch to the experience. Overall, the visit provided valuable insight into large-scale beverage
+      manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.
+    </p>
+
+    <img src="acsml 1.jpeg" alt="Coca-Cola Factory">
+
+  </div>
 
 </body>
 </html>
