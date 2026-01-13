@@ -221,6 +221,99 @@ main {
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+  body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6fb;
+}
+
+
+.accordion-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 10px;
+}
+
+.accordion-item {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background: #ffffff;
+  }
+
+.accordion-item input {
+  display: none;
+}
+
+.accordion-label {
+  display: block;
+  padding: 18px 20px;
+  background: #0a2e63;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+.accordion-label::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  font-size: 24px;
+}
+
+.accordion-item input:checked + .accordion-label::after {
+  content: "−";
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.accordion-item input:checked ~ .accordion-content {
+  max-height: 600px;
+  padding-bottom: 20px;
+}
+
+/* Text */
+.accordion-content p {
+  margin-top: 15px;
+  line-height: 1.7;
+}
+
+/* Lists */
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.accordion-content li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-content a {
+  color: #0a2e63;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.accordion-content a:hover {
+  text-decoration: underline;
+  color: #003caa;
+}
+
+@media (max-width: 768px) {
+  .accordion-label {
+    font-size: 16px;
+  }
+}
 
 footer {
   background: #0a2e63;
@@ -473,52 +566,45 @@ footer {
         </div>
       </div>
     </div>
-<section class="academics">
-
-  <h1>OUT REACH</h1>
-  <p>
-    The Outreach initiatives of the Department of Machine Learning aim to bridge the gap between academic learning and societal needs. 
-    Through various outreach programs, students actively engage with communities, schools, and organizations to apply their technical knowledge for social good.<br>
-
-    These activities include workshops, awareness programs, training sessions, technical assistance, and community-based projects. Outreach programs help students develop
-     leadership skills, social responsibility, teamwork, and real-world problem-solving abilities while contributing positively to society.<br>
-
-    The department strongly believes that education should not remain confined to classrooms, but should extend beyond the campus to empower communities and promote inclusive growth.
-  </p>
-
-
-  <ul>
-    <li>
-        <h2>Bsnl Industry(2024)</h2>
-      <a href="aout01" target="_blank">
-        <img src="do.jpeg" alt="bsnl IV">
-        Bsnl IV
-      </a>
-    </li>
-
-    <li>
-        <h2>Coca-Cola Factory(2025)</h2>
-      <a href="aout.html" target="_blank">
-        <img src="acsmlo3.jpeg" alt="Coca-Cola Factory">
-        Coca-Cola Factory
-      </a>
-    </li>
-
-     <li>
-        <h2>T-HUB(2025)</h2>
-      <a href="nout01.html" target="_blank">
-        <img src="nout.jpeg" alt="bsnl IV">
-        Bsnl IV
-      </a>
-    </li>
-
-
-  </ul>
-
-  
-</section>
-    
   </main>
+
+  <section class="accordion-section">
+
+  <div class="accordion-item">
+    <input type="checkbox" id="outreach">
+    <label class="accordion-label" for="outreach">OUTREACH</label>
+
+    <div class="accordion-content">
+      <p>
+        The Department of Machine Learning actively conducts outreach programs
+        to connect academic learning with industry and society.
+      </p>
+
+      <ul>
+        <li>
+          <a href="aout01.html" target="_blank">
+            BSNL Industry Visit (2024)
+          </a> – Telecom infrastructure exposure
+        </li>
+        <li>
+          <a href="aout.html" target="_blank">
+            Coca-Cola Factory Visit (2025)
+          </a> – Automation & analytics
+        </li>
+
+        <li>
+          <a href="nout01.html" target="_blank">
+            T-HUB Visit (2025)
+          </a> – Startup & AI innovation
+        </li>
+      </ul>
+    </div>
+  </div>
+
+
+
+</section>
+
 
   <footer>
   <p><strong>Loyola Academy</strong></p>
