@@ -188,6 +188,78 @@ footer {
   opacity: 0.85; 
 }
 
+    @media (max-width: 768px) {
+
+  main {
+    height: auto;
+    padding: 30px 0;
+  }
+
+  .year-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .year-box {
+    width: 85%;
+    padding: 25px;
+  }
+
+
+  .semester-box {
+    position: static;       
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .year-box:hover > .semester-box {
+    display: block;
+  }
+
+
+  .semester-item {
+    text-align: left;
+    padding: 12px;
+  }
+
+
+  .details-box {
+    position: static;
+    width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 4px;
+  }
+
+  .semester-item:hover > .details-box {
+    display: block;
+  }
+
+
+  .details-item a {
+    padding: 6px 0;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  header h2 {
+    font-size: 1em;
+  }
+
+  .footer-social {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-map-container iframe {
+    height: 180px;
+  }
+}
+
+
 </style>
 
 </head>
