@@ -1,74 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saff Details</title>
+<meta charset="UTF-8">
+<title>Faculty Accordion</title>
 
-    <style>
-    
-     body {
-      font-family: "Times New Roman", serif;
-      margin: 0;
-      padding: 0;
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+}
 
-      background-image:url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg?semt=ais_hybrid&w=740&q=80');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
 
-      position: relative;
-    }
-        body {
-            display: flex;
-      justify-content: center;
-      align-items: center;   
-            text-align: center;
-            font-family: "Times New Roman", serif;
-            background-color:white
-            padding: 20px;
-        }
+.accordion {
+  max-width: 1000px;
+  margin: 40px auto;
+}
 
-        .sub {
-            text-align: center;
-            width: 300px;
-            background: rgb(234, 233, 235);
-            padding: 20px;
-            border: 2px solid #101112;
-            border-radius: 8px;
-        }
 
-        h2 {
-            text-align: center;
-            color: #0f0f0f;
-        }
+.accordion a {
+  display: block;
+  background: #0b3c6d;
+  color: white;
+  padding: 16px;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 6px;
+}
 
-        a {
-            text-align: center;
-            display: block;
-            margin: 8px 0;
-            color: #0a2e63;
-            text-decoration: none;
-            font-size: 18px;
-        }
+.accordion a:hover {
+  background: #094070;
+}
 
-    </style>
+
+.content {
+  display: none;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+
+.content:target {
+  display: block;
+}
+
+
+.faculty-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+.faculty-card {
+  width: 230px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+
+.faculty-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .faculty-card {
+    width: 100%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="sub">
-        <h2>Staff Details</h2>
-        <h4> - Big Data Analysis</h4>
-        <h4> - Social Media Analysis</h4>
-        <h4> - Data Security</h4>
-        <h4> - Cyber Security</h4>
-        <h4> - Optimization Theory</h4>
-        <h4> - Deep Learning</h4>
-        <h4> - Cognitive Computing</h4>
-        <h4> - Natural Language Processing</h4>
+<div class="accordion">
+
+
+  <a href="#faculty">Faculty</a>
+  <div id="faculty" class="content">
+    <div class="faculty-grid">
+
+      <div class="faculty-card">
+        <img src="venugopal sir.jpeg" alt="HOD">
+        <h4>Mr. A. Venugopal</h4>
+        <p>HOD – Computer Science</p>
+      </div>
+
+      <div class="faculty-card">
+        <img src="shanthi mam.jpeg" alt="BEC">
+        <h4>Dr. Santhi</h4>
+        <p>Assistant Professor</p>
+      </div>
+
+      <div class="faculty-card">
+        <img src="kavya mam.jpeg" alt="">
+        <h4>Ms.Kavya</h4>
+        <p>Assistant Professor</p>
+      </div>
+
+      <div class="faculty-card">
+        <img src="rajini mam.jpeg" alt="">
+        <h4>Ms.Rajini</h4>
+        <p>Assistant Professor</p>
+      </div>
+
+      <div class="faculty-card">
+        <img src="naveen sir.jpeg" alt="">
+        <h4>Mr.Naveen</h4>
+        <p>Assistant Professor</p>
+      </div>
+
+      <div class="faculty-card">
+        <img src="sravani mam .jpeg" alt="">
+        <h4>Ms.Sravani</h4>
+        <p>Assistant Professor</p>
+      </div>
+
     </div>
+  </div>
+
+
+  <a href="#academics">Academics</a>
+  <div id="academics" class="content">
+    <p>Syllabus, Curriculum, Credits and Examination details.</p>
+  </div>
+
+</div>
 
 </body>
 </html>
