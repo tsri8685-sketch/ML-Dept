@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Out Reach</title>
+<meta charset="UTF-8">
+<title>Academics | Loyola Style</title>
 
-  <style>
-    body {
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+body {
       font-family: "Times New Roman", serif;
       margin: 0;
       padding: 20px;
@@ -22,103 +29,154 @@
       align-items: flex-start;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: -1;
-    }
 
-    .sub {
-      max-width: 800px;
-      width: 100%;
-      background: rgb(234, 233, 235);
-      padding: 20px;
-      border: 2px solid #101112;
-      border-radius: 8px;
-    }
+.academics {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
 
-    h2 {
-      text-align: center;
-      color: #0f0f0f;
-    }
+.academics h1 {
+  color: #0b3c6d;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 36px;
+}
 
-    h3, h4 {
-      text-align: left;
-      color: #0f0f0f;
-    }
+.academics h2 {
+  color: #0b3c6d;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 3px solid #0b3c6d;
+  display: inline-block;
+  padding-bottom: 5px;
+}
 
-    p {
-      text-align: justify;
-      margin: 10px 0;
-      color: #0a2e63;
-      font-size: 15px;
-      line-height: 1.6;
-    }
 
-    img {
-      display: block;
-      margin: 15px auto;
-      max-width: 100%;
-      height: auto;
-      border: 2px solid #101112;
-      border-radius: 10px;
-    }
+.academics p {
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
 
-      p {
-        font-size: 14px;
-      }
-    }
-  </style>
+.academics ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.academics li {
+  margin: 0;
+}
+
+
+.academics a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e8f0fb;
+  padding: 20px 15px;
+  border-radius: 10px;
+  color: #0b3c6d;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+.academics a img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #0b3c6d;
+}
+
+
+.academics a:hover {
+  background: #0b3c6d;
+  color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+@media (max-width: 768px) {
+  .academics {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+
+  .academics h1 {
+    font-size: 28px;
+  }
+
+  .academics h2 {
+    font-size: 20px;
+  }
+
+  .academics a {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .academics a img {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="sub">
-    <h2>Out Reach</h2>
+<section class="academics">
 
-    <h3>Coca-Cola Factory (2025-2026)</h3>
-    <h4>Review:</h4>
+  <h1>OUT REACH</h1>
+  <p>
+    The Outreach initiatives of the Department of Machine Learning aim to bridge the gap between academic learning and societal needs. 
+    Through various outreach programs, students actively engage with communities, schools, and organizations to apply their technical knowledge for social good.<br>
 
-    <p>
-      We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility.
-      The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
-      and quality at every stage.
-    </p>
+    These activities include workshops, awareness programs, training sessions, technical assistance, and community-based projects. Outreach programs help students develop
+     leadership skills, social responsibility, teamwork, and real-world problem-solving abilities while contributing positively to society.<br>
 
-           <img src="acsmlo2.jpeg" alt="Coca-Cola Factory">
-
-    <p>
-      During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
-      From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled.
-      Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.
-    </p>
-
-           <img src="acsmlo3.jpeg" alt="Coca-Cola Factory">
-    
-    <p>
-      The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
-      The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver
-      a trusted product to consumers.
-    </p>
+    The department strongly believes that education should not remain confined to classrooms, but should extend beyond the campus to empower communities and promote inclusive growth.
+  </p>
 
 
-             <img src="acsmlo4.jpeg" alt="Coca-Cola Factory">
-    <p>
-      At the beginning of the visit, we were warmly welcomed by the factory team and were offered refreshing welcome drinks,
-      which added a pleasant touch to the experience. Overall, the visit provided valuable insight into large-scale beverage
-      manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.
-    </p>
+  <ul>
+    <li>
+        <h2>Bsnl Industry(2024)</h2>
+      <a href="aout01" target="_blank">
+        <img src="do.jpeg" alt="bsnl IV">
+        Bsnl IV
+      </a>
+    </li>
 
-    <img src="acsml 1.jpeg" alt="Coca-Cola Factory">
+    <li>
+        <h2>Coca-Cola Factory(2025)</h2>
+      <a href="aout.html" target="_blank">
+        <img src="acsmlo3.jpeg" alt="Coca-Cola Factory">
+        Coca-Cola Factory
+      </a>
+    </li>
 
-  </div>
+  </ul>
+
+  
+</section>
 
 </body>
 </html>
