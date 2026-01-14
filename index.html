@@ -1,245 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Department of Machine Learning - Loyola Academy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department of Machine Learning - Loyola Academy</title>
 
-  <style>
+<style>
 
-   body {
+/* ---------- GLOBAL ---------- */
+body {
   font-family: "Times New Roman", serif;
   margin: 0;
-  padding: 0;
-  background-image: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
+  background: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg') center/cover fixed no-repeat;
 }
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.45);
   z-index: -1;
 }
 
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(10,46,99,0.88);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
 
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ---------- HEADER ---------- */
 header {
-  background: rgba(10,46,99,0.85);
+  background: rgba(10,46,99,0.9);
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 30px 15px;
 }
 
-header h1 {
-  margin: 0;
-}
-header h2 {
-  color: #c9d5f0; 
-}
+header h1 { margin: 0; font-size: 32px; }
+header h2 { color: #c9d5f0; margin: 8px 0; }
+header p { max-width: 900px; margin: auto; font-size: 14px; }
 
-
+/* ---------- MAIN YEAR BOXES ---------- */
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
+  padding: 60px 20px;
 }
-
 
 .year-container {
   display: flex;
   gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .year-box {
-  background-color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.93);
   border: 2px solid #0a2e63;
-  padding: 40px;
-  width: 150px;
+  padding: 35px;
+  width: 170px;
   text-align: center;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  position: relative;          
-  transition: 0.3s;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .year-box:hover {
-  background-color: rgba(130,165,235,0.95);
-  transform: scale(1.05);
+  background: rgba(130,165,235,0.95);
+  transform: translateY(-8px);
 }
 
-
-.year-box:hover > .semester-box {
-  display: block;
-}
-
-
+/* ---------- SEMESTER ---------- */
 .semester-box {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  width: 180px;
-  background-color: rgba(255,255,255,0.97);
-  border: 1px solid #0a2e63;
-  border-radius: 6px;
+  width: 200px;
+  background: white;
+  border-radius: 8px;
   margin-top: 10px;
-  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+.year-box:hover .semester-box { display: block; }
 
 .semester-item {
-  padding: 10px;
+  padding: 12px;
   border-bottom: 1px solid #ddd;
   position: relative;
 }
 
-.semester-item:last-child {
-  border-bottom: none;
-}
+.semester-item:hover { background: #e6ecfa; }
 
-.semester-item:hover {
-  background: #e6ecfa;
-}
-
-
-.semester-item:hover > .details-box {
-  display: block;
-}
-
+/* ---------- DETAILS ---------- */
 .details-box {
   display: none;
   position: absolute;
-  top: 0;
   left: 100%;
+  top: 0;
   width: 200px;
-  background-color: rgba(227,223,234,0.98);
-  border: 1px solid #0a2e63;
-  border-radius: 6px;
+  background: #eef1fb;
+  border-radius: 8px;
   padding: 10px;
-  margin-left: 10px;
-  z-index: 20;
+  margin-left: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
+.semester-item:hover .details-box { display: block; }
 
 .details-item a {
   display: block;
-  color: #0a2e63;
-  font-weight: bold;
   text-decoration: none;
-  margin-bottom: 6px;
-}
-
-.details-item a:hover {
-  text-decoration: underline;
-}
-
- .section-wrapper {
-  max-width: 1100px;
-  margin: 60px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.box {
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.box h2 {
   color: #0a2e63;
-  border-bottom: 3px solid #0a2e63;
-  padding-bottom: 6px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
-.box p {
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
+.details-item a:hover { text-decoration: underline; }
 
-.box ul {
-  list-style: none;
-  padding: 0;
-}
-
-.box li {
-  margin-bottom: 15px;
-}
-
-.box a {
-  color: #0a2e63;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.box a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-
-  
-  .accordion {
+/* ---------- ACCORDION ---------- */
+.accordion {
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-
-.accordion a {
+.accordion > a {
   display: block;
-  background: #0b3c6d;
+  background: #0a2e63;
   color: white;
   padding: 16px;
-  font-size: 18px;
   text-decoration: none;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  font-size: 18px;
 }
 
-.accordion a:hover {
-  background: #094070;
-}
-
+.accordion > a:hover { background: #093b70; }
 
 .content {
   display: none;
   background: white;
-  padding: 20px;
-  border: 1px solid #ccc;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
+.content:target { display: block; }
 
-.content:target {
-  display: block;
-}
-
-
+/* ---------- FACULTY ---------- */
 .faculty-grid {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-
 .faculty-card {
-  width: 230px;
-  border: 1px solid #ddd;
-  padding: 15px;
+  width: 220px;
   text-align: center;
-  border-radius: 6px;
-  background: #fafafa;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 
 .faculty-card img {
   width: 120px;
@@ -248,336 +211,141 @@ main {
   object-fit: cover;
 }
 
-
-@media (max-width: 768px) {
-  .faculty-card {
-    width: 100%;
-  }
-}
+/* ---------- FOOTER ---------- */
 footer {
   background: #0a2e63;
   color: white;
   text-align: center;
-  padding: 15px 10px;
-  font-size: 11px;
+  padding: 20px;
+  font-size: 13px;
 }
 
 .footer-map-container {
   width: 350px;
   max-width: 90%;
-  margin: 10px auto;
+  margin: 15px auto;
 }
 
 .footer-map-container iframe {
   width: 100%;
   height: 200px;
-  border: 0;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .footer-social {
-  margin: 10px 0;
   display: flex;
   justify-content: space-between;
-  padding: 5px 20px;
+  margin-top: 10px;
 }
 
 .footer-social a {
-  padding: 6px 10px;
-  border-radius: 6px;
   color: white;
-  font-weight: bold;
   text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
 }
 
-.footer-social a.whatsapp { 
-  background: #25D366; 
+.whatsapp { background: #25D366; }
+.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 10px; }
+  .year-container { flex-direction: column; }
+  .year-box { width: 90%; }
+  .semester-box, .details-box { position: static; width: 100%; margin-top: 10px; }
+  .footer-social { flex-direction: column; gap: 10px; }
 }
-.footer-social a.instagram { 
-  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); 
-}
-
-.footer-social a:hover { 
-  opacity: 0.85; 
-}
-
-    @media (max-width: 768px) {
-
-  main {
-    height: auto;
-    padding: 30px 0;
-  }
-
-  .year-container {
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
-  }
-
-  .year-box {
-    width: 85%;
-    padding: 25px;
-  }
-
-
-  .semester-box {
-    position: static;       
-    width: 100%;
-    margin-top: 15px;
-  }
-
-  .year-box:hover > .semester-box {
-    display: block;
-  }
-
-
-  .semester-item {
-    text-align: left;
-    padding: 12px;
-  }
-
-
-  .details-box {
-    position: static;
-    width: 100%;
-    margin: 10px 0 0 0;
-    border-radius: 4px;
-  }
-
-  .semester-item:hover > .details-box {
-    display: block;
-  }
-
-
-  .details-item a {
-    padding: 6px 0;
-    font-size: 14px;
-  }
-
-  header h1 {
-    font-size: 1.5em;
-  }
-
-  header h2 {
-    font-size: 1em;
-  }
-
-  .footer-social {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-map-container iframe {
-    height: 180px;
-  }
-}
-
 
 </style>
-
 </head>
 
 <body>
 
-<header>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Dept. of Machine Learning</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#outreach">Outreach</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header id="home">
   <h1>Department of Machine Learning</h1>
   <h2>LOYOLA ACADEMY<br>Degree & PG College (Autonomous)</h2>
-  <p>"A College with Potential For Excellence” by UGC. Affiliated to Osmania University. Established in 1978.</p>
-  <div class="top-header">
-    <span>✉ info@loyolaacademy.edu.in</span>
-    <span><a href="https://loyolaacademy.edu.in/login/" style="color:white;">ERP</a></span>
-  </div>
+  <p>"A College with Potential For Excellence” by UGC. Affiliated to Osmania University.</p>
 </header>
 
+<!-- MAIN -->
+<main>
+  <div class="year-container">
 
-  <main>
-    <div class="year-container">
-      <div class="year-box">
-        ACSML
-        <div class="semester-box">
-
-          <div class="semester-item">
-            1st Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="asubj.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="aprev.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="staf.html">Staff Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="semester-item">
-            2nd Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="asub2.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="aprev2.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="astaf2.html">Staff Details</a>
-              </div>
-            </div>
+    <div class="year-box">ACSML
+      <div class="semester-box">
+        <div class="semester-item">1st Sem
+          <div class="details-box">
+            <div class="details-item"><a href="asubj.html">Subjects</a></div>
+            <div class="details-item"><a href="aprev.html">Previous Papers</a></div>
+            <div class="details-item"><a href="staf.html">Staff</a></div>
           </div>
         </div>
-      </div>
-
-
-
-        <div class="year-box">
-          NCSML
-         <div class="semester-box">
-
-          <div class="semester-item">
-            3rd Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="nsub.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="prev.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="staf.html">Staff Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="semester-item">
-            4th Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="nsub2.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="prev2.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="staf2.html">Staff Details</a>
-              </div>
-            </div>
-          </div>
-         </div>
-      </div>
-
-
-      
-      <div class="year-box dcsml">
-        DCSML
-
-        <div class="semester-box">
-
-          <div class="semester-item">
-            5th Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="subj.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="prev.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="staf.html">Staff Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="semester-item">
-            6th Sem
-            <div class="details-box">
-              <div class="details-item">
-                <a href="subj.html">Subjects</a>
-              </div>
-               <div class="details-item">
-                <a href="prev.html">Previous Year Question Pappers</a>
-              </div>
-               <div class="details-item">
-                <a href="staf.html">Staff Details</a>
-              </div>
-            </div>
+        <div class="semester-item">2nd Sem
+          <div class="details-box">
+            <div class="details-item"><a href="asub2.html">Subjects</a></div>
+            <div class="details-item"><a href="aprev2.html">Previous Papers</a></div>
+            <div class="details-item"><a href="astaf2.html">Staff</a></div>
           </div>
         </div>
       </div>
     </div>
-  </main>
 
-  
- 
+    <div class="year-box">NCSML</div>
+    <div class="year-box">DCSML</div>
+
+  </div>
+</main>
+
+<!-- FACULTY & OUTREACH -->
 <div class="accordion">
-
 
   <a href="#faculty">Faculty</a>
   <div id="faculty" class="content">
     <div class="faculty-grid">
-
       <div class="faculty-card">
-        <img src="venugopal sir.jpeg" alt="HOD">
+        <img src="venugopal sir.jpeg">
         <h4>Mr. A. Venugopal</h4>
         <p>HOD – Computer Science</p>
       </div>
-
       <div class="faculty-card">
-        <img src="shanthi mam.jpeg" alt="BEC">
+        <img src="shanthi mam.jpeg">
         <h4>Dr. Santhi</h4>
         <p>Assistant Professor</p>
       </div>
-
-      <div class="faculty-card">
-        <img src="kavya mam.jpeg" alt="">
-        <h4>Ms.Kavya</h4>
-        <p>Assistant Professor</p>
-      </div>
-
-      <div class="faculty-card">
-        <img src="rajini mam.jpeg" alt="">
-        <h4>Ms.Rajini</h4>
-        <p>Assistant Professor</p>
-      </div>
-
-      <div class="faculty-card">
-        <img src="naveen sir.jpeg" alt="">
-        <h4>Mr.Naveen</h4>
-        <p>Assistant Professor</p>
-      </div>
-
-      <div class="faculty-card">
-        <img src="sravani mam .jpeg" alt="">
-        <h4>Ms.Sravani</h4>
-        <p>Assistant Professor</p>
-      </div>
-
     </div>
   </div>
 
-
-  <a href="#outreach">Out Reach</a>
+  <a href="#outreach">Outreach</a>
   <div id="outreach" class="content">
-    <a href="aout.html">BSNL IV (2024)</a>
-    <a href="aout01.html">Coca-Cola Factory (2025)</a>
-    <a href="nout.html">T-Hub(2025)</a>
+    <a href="aout.html">BSNL IV (2024)</a><br><br>
+    <a href="aout01.html">Coca-Cola Factory (2025)</a><br><br>
+    <a href="nout.html">T-Hub (2025)</a>
   </div>
 
 </div>
-  <footer>
+
+<!-- FOOTER -->
+<footer>
   <p><strong>Loyola Academy</strong></p>
-  <p>Old Alwal, Secunderabad, Hyderabad, Telangana – 500010</p>
+  <p>Old Alwal, Secunderabad, Hyderabad</p>
   <div class="footer-map-container">
     <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
-    <div class="footer-social">
-      <a href="https://wa.me/919XXXXXXXXX" target="_blank" class="whatsapp">WhatsApp</a>
-      <a href="https://instagram.com/yourprofile" target="_blank" class="instagram">Instagram</a>
-    </div>
   </div>
   <p>&copy; Loyola Academy - Department of Machine Learning</p>
 </footer>
-  
+
 </body>
-
 </html>
-
