@@ -211,6 +211,163 @@ main {
   object-fit: cover;
 }
 
+
+  .faculty {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+/* FACULTY CARD */
+.faculty li {
+  background: #e8f0fb;
+  border-radius: 10px;
+  padding: 20px 15px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+/* FACULTY IMAGE */
+.faculty img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #0b3c6d;
+  margin-bottom: 10px;
+}
+
+/* FACULTY NAME */
+.faculty span {
+  display: block;
+  font-weight: 600;
+  color: #0b3c6d;
+}
+
+/* HOVER EFFECT */
+.faculty li:hover {
+  background: #0b3c6d;
+  transform: translateY(-5px);
+}
+
+.faculty li:hover span {
+  color: #ffffff;
+}
+
+
+/* ===== MAIN SECTION ===== */
+.academics {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* HEADINGS */
+.academics h1 {
+  color: #0b3c6d;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 36px;
+}
+
+.academics h2 {
+  color: #0b3c6d;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 24px;
+  border-bottom: 3px solid #0b3c6d;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* PARAGRAPHS */
+.academics p {
+  line-height: 1.7;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* GRID STYLE FOR CARDS */
+.academics ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.academics li {
+  margin: 0;
+}
+
+/* CARD STYLE */
+.academics a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #e8f0fb;
+  padding: 20px 15px;
+  border-radius: 10px;
+  color: #0b3c6d;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* IMAGE INSIDE CARD */
+.academics a img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #0b3c6d;
+}
+
+/* HOVER EFFECT */
+.academics a:hover {
+  background: #0b3c6d;
+  color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .academics {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+
+  .academics h1 {
+    font-size: 28px;
+  }
+
+  .academics h2 {
+    font-size: 20px;
+  }
+
+  .academics a {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .academics a img {
+    margin-right: 15px;
+    margin-bottom: 0;
+  }
+}
+
 /* ---------- FOOTER ---------- */
 footer {
   background: #0a2e63;
@@ -340,52 +497,74 @@ footer {
 </main>
 
 <!-- FACULTY & OUTREACH -->
-<div class="accordion">
+<section class="academics">
 
-  <a href="#faculty">Faculty</a>
-  <div id="faculty" class="content">
-    <div class="faculty-grid">
-      <div class="faculty-card">
-        <img src="venugopal sir.jpeg">
-        <h4>Mr. A. Venugopal</h4>
-        <p>HOD – Computer Science</p>
-      </div>
-      <div class="faculty-card">
-        <img src="shanthi mam.jpeg">
-        <h4>Dr. Santhi</h4>
-        <p>Assistant Professor</p>
-      </div>
-        <div class="faculty-card">
-        <img src="kavya mam.jpeg">
-        <h4>Ms. Kavya</h4>
-        <p>Assistant Professor</p>
-      </div>
-        <div class="faculty-card">
-        <img src="naveen sir.jpeg">
-        <h4>Mr. Naveen</h4>
-        <p>Assistant Professor</p>
-      </div>
-        <div class="faculty-card">
-        <img src="rajini mam.jpeg">
-        <h4>Ms. Rajini</h4>
-        <p>Assistant Professor</p>
-      </div>
-        <div class="faculty-card">
-        <img src="sravani mam.jpeg">
-        <h4>Ms. Sravani</h4>
-        <p>Assistant Professor</p>
-      </div>
-    </div>
-  </div>
+  <h1>Academics</h1>
+  <p>
+    Loyola Academy offers a wide range of academic programmes with a strong
+    emphasis on quality education, research, and holistic development.
+  </p>
 
-  <a href="#outreach">Outreach</a>
-  <div id="outreach" class="content">
-    <a href="bsnlout.html">BSNL IV (2024)</a><br><br>
-    <a href="cocacola.html">Coca-Cola Factory (2025)</a><br><br>
-    <a href="thub.html">T-Hub (2025)</a>
-  </div>
+  <h2>Out Reach</h2>
+  <ul>
+    <li>
+      <a href="do.jpeg" target="_blank">
+        <img src="bsnl.html" alt="BSNL Instrumentation Visit">
+        BSNL Instrumentation Visit
+      </a>
+    </li>
 
-</div>
+    <li>
+      <a href="ascml 1.jpeg" target="_blank">
+        <img src="cocacola" alt="Coca Cola Factory">
+       Coca Cola Factory
+      </a>
+    </li>
+
+    <li>
+      <a href="nout.jpeg" target="_blank">
+        <img src="thub.html" alt="T-Hub Visit">
+        T-Hub Industrial Visit
+      </a>
+    </li>
+  </ul>
+
+  <h2>Faculty Details</h2>
+<ul class="faculty">
+  <li>
+    <img src="venugopal sir.jpeg" alt="Venugopal Sir">
+    <span>Mr. Venugopal</span>
+  </li>
+
+  <li>
+    <img src="kavya mam.jpeg" alt="Kavya Mam">
+    <span>Ms. Kavya</span>
+  </li>
+
+  <li>
+    <img src="naveen sir.jpeg" alt="Naveen Sir">
+    <span>Mr. Naveen</span>
+  </li>
+
+  <li>
+    <img src="shanthi mam.jpeg" alt="Shanthi Mam">
+    <span>Ms. Shanthi</span>
+  </li>
+
+  <li>
+    <img src="rajini mam.jpeg" alt="Rajini Mam">
+    <span>Ms. Rajini</span>
+  </li>
+
+  <li>
+    <img src="sravani mam.jpeg" alt="Sravani Mam">
+    <span>Ms. Sravani</span>
+  </li>
+</ul>
+
+
+
+</section>
 
 <!-- FOOTER -->
 <footer>
