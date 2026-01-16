@@ -259,6 +259,25 @@ main {
   color: #ffffff;
 }
 
+.achievements img {
+  width: 180px;
+  height: auto;              /* keeps full image */
+  max-height: 220px;         /* prevents overflow */
+  object-fit: contain;       /* NO CROPPING */
+  border-radius: 8px;        /* square with soft corners */
+  border: 2px solid #0b3c6d;
+  background: #ffffff;       /* fills empty space */
+  padding: 6px;
+  display: block;
+  margin: 0 auto 12px;
+}
+.achievements span {
+  display: block;
+  font-weight: 600;
+  color: #0b3c6d;
+}
+
+
 
 /* ===== MAIN SECTION ===== */
 .academics {
@@ -616,6 +635,19 @@ footer {
   </li>
   
 </ul>
+
+
+<h2>Achievements</h2>
+<ul class="achievements">
+  <li>
+    <img src="achiv.jpeg" alt="achivement 1">
+    <span>XX</span>
+  </li>
+  <li>
+    <img src="achiv1.jpeg" alt="achivement 2">
+    <span> 1st prize in Seek And Find a part of INTELLEXA-2k26 (By: Comp. Sci. and IT)</span>
+  </li>
+  </ul>
 
 
 
