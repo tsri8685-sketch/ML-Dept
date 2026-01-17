@@ -390,6 +390,79 @@ main {
   }
 }
 
+  .dropdown-section {
+  max-width: 1100px;
+  margin: 40px auto;
+  font-family: "Times New Roman", serif;
+}
+
+/* ===== DROPDOWN BOX ===== */
+details {
+  background: #ffffff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* ===== TITLE BAR ===== */
+summary {
+  padding: 18px 25px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  background: linear-gradient(90deg, #0b3c6d, #1a5fa3);
+  color: #ffffff;
+}
+
+/* Remove default arrow */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow */
+summary::after {
+  content: "▼";
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow on open */
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* ===== CONTENT ===== */
+.dropdown-content {
+  padding: 25px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  background: #f9fbfd;
+}
+
+/* Lists */
+.dropdown-content ul {
+  padding-left: 25px;
+}
+
+.dropdown-content li {
+  margin-bottom: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  summary {
+    font-size: 20px;
+  }
+
+  .dropdown-content {
+    font-size: 16px;
+  }
+}
+
+  
 /* ---------- FOOTER ---------- */
 footer {
   background: #0a2e63;
@@ -671,7 +744,53 @@ footer {
     <span> 2nd prize in Feet on Fire conducted at st.Marys college Begumpet in 2025 - Soujanya </span>
   </li>
   </ul>
+<section class="dropdown-section">
 
+  <!-- ABOUT US -->
+  <details>
+    <summary>About Us</summary>
+    <div class="dropdown-content">
+      <ul>
+      <li>
+       The B.Sc. Computer Science and Machine Learning (CSML) degree program combines the fundamentals of computer science with the principles of machine learning. 
+       Students will gain an in-depth understanding of topics such as algorithms, data structures, artificial intelligence, programming, databases, and software engineering.
+       Additionally, they will learn the foundations of machine learning, which includes recognizing how computers can learn through data. This degree sets graduates up for success in data science, 
+       software engineering, and other related fields. The skills acquired in this degree will keep them competitive in the ever-changing world of computer science. <br>
+       The program offers unique opportunities for students to gain practical exposure through workshops, industry visits, guest lectures, and seminars with industry experts. 
+       This program also provides on-the-job training, internships and hands on experience of working with various machine learning real world problems that can help develop analytical skills, team work 
+       abilities, personality development, and readies students to become employable.
+      </li>
+      <li>
+        <b>VISION:</b> 
+
+   Our goal is to become a renowned global hub by providing outstanding education in the field of Artificial Intelligence and Machine Learning, thereby pushing our society to achieve new and 
+   innovative heights.
+      </li>
+<li>
+       <b>MISSION:</b>
+       <ol>
+
+         <li>To provide students with education that is of high quality, skill oriented and focused on values in the area of Machine Learning.</li> 
+          <li>To develop the technical proficiency of students and nurture their creativity.</li>
+          <li>Aim to determine industrial needs and advance the students area of expertise.</li>
+          <li>To create a system of values that will have a positive effect on society.</li>
+        </ol>
+      </ul>
+    </div>
+  </details>
+
+  <!-- ACADEMICS -->
+  <details>
+    <summary>Corporate Collaborations</summary>
+    <div class="dropdown-content">
+      <ul>
+      </ul>
+    </div>
+  </details>
+
+
+
+</section>
 
 
 </section>
