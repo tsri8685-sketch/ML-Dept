@@ -7,6 +7,32 @@
 
 <style>
 
+  /* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== SECTION FADE ANIMATION ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to main sections */
+main,
+.academics,
+.dropdown-section,
+footer {
+  animation: fadeUp 0.9s ease forwards;
+}
+
+
 /* ---------- GLOBAL ---------- */
 body {
   font-family: "Times New Roman", serif;
@@ -23,6 +49,26 @@ body::before {
 }
 
 /* ---------- NAVBAR ---------- */
+
+.navbar ul li a {
+  position: relative;
+}
+
+.navbar ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  left: 0;
+  bottom: -4px;
+  transition: width 0.3s ease;
+}
+
+.navbar ul li a:hover::after {
+  width: 100%;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -81,6 +127,15 @@ main {
   justify-content: center;
   padding: 60px 20px;
 }
+
+.year-box {
+  background: linear-gradient(145deg, #ffffff, #e6ecfa);
+}
+
+.year-box:hover {
+  box-shadow: 0 15px 35px rgba(10,46,99,0.45);
+}
+
 
 .year-container {
   display: flex;
@@ -188,6 +243,26 @@ main {
 .content:target { display: block; }
 
 /* ---------- FACULTY ---------- */
+
+.faculty li {
+  position: relative;
+}
+
+.faculty li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b3c6d, #5fa0ff);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.faculty li:hover::before {
+  opacity: 1;
+}
+
 .faculty-grid {
   display: flex;
   gap: 25px;
@@ -257,6 +332,26 @@ main {
 
 .faculty li:hover span {
   color: #ffffff;
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.achievements li {
+  background: #f9fbff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.achievements li:hover {
+  transform: translateY(-6px);
 }
 
 .achievements img {
@@ -390,6 +485,11 @@ main {
   }
 }
 
+details[open] .dropdown-content {
+  animation: fadeUp 0.5s ease;
+}
+
+
   .dropdown-section {
   max-width: 1100px;
   margin: 40px auto;
@@ -471,6 +571,14 @@ details[open] summary::after {
   .dropdown-content p {
     font-size: 16px;
   }
+}
+
+.section-divider {
+  width: 80px;
+  height: 4px;
+  background: #0b3c6d;
+  margin: 25px auto;
+  border-radius: 5px;
 }
 
 
@@ -640,6 +748,7 @@ footer {
   </ul>
   </section>
 
+    <div class="section-divider"></div>
 
 
 <section id="faculty">
@@ -743,6 +852,7 @@ footer {
 </ul>
 </section>
 
+  <div class="section-divider"></div>
 
 <h2>Achievements</h2>
 <ul class="achievements">
@@ -764,6 +874,8 @@ footer {
     <span> 2nd prize in Feet on Fire conducted at st.Marys college Begumpet in 2025 - Soujanya </span>
   </li>
   </ul>
+
+  <div class="section-divider"></div>
 
 
   <!-- ABOUT US -->
