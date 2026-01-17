@@ -186,8 +186,70 @@ section h2 {
     color: #000;
 }
 
+/* ================= Out Reach Card ================= */
 
-/* layout */
+/* #Out-Reach {
+    display: grid;
+    gap: 40px;
+    background: #f4f6f8;
+
+} */
+
+/* Out Reach Popup Container */
+.out-reach-pop {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+
+/* Text */
+.out-reach-pop p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+
+/* Image */
+.out-reach-pop img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #101112;
+}
+
+
+.hide-display {
+  display: none;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px 25px;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-radius: 10px;
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+
+@media (max-width: 768px) {
+  .out-reach-pop {
+    grid-template-columns: 1fr;
+  }
+
+  .hide-display {
+    width: 95%;
+  }
+}
+
+
+
+/* ================= Read More ================= */
+
 .sample {
   display: flex;
   justify-content: left;
@@ -219,17 +281,19 @@ section h2 {
   border-radius: 10px;
 }
 
-/* show on click */
-#about-toggle:checked ~ #hide-display-about {
-  display: block;
-}
-
 /* content */
 .about-pop p {
   font-size: 16px;
   line-height: 1.8;
   text-align: justify;
   color: #333;
+}
+.sample img{
+            margin-top: 10px;
+            border: 2px solid #101112;
+            border-radius: 10px;
+            height: 350px;
+            width: 650px;
 }
 
 .about-title {
@@ -245,6 +309,68 @@ section h2 {
   margin-left: 20px;
 }
 
+
+/* hide checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* hidden content */
+.hide-display {
+  display: none;
+  width: 70%;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 10px;
+}
+
+
+.out-reach-pop p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #333;
+}
+
+.out-reach-pop {
+  display: block;
+}
+
+.out-reach li{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #f4f6f8;
+}
+
+.out-reach small{
+    display: flex;
+  justify-content: left;
+  gap: 80px;
+  margin-top: 30px;
+  color: #4f3ea3;
+}
+
+
+#about-toggle:checked ~ #hide-display-about {
+  display: block;
+}
+
+
+/* show content when checked */
+#toggle-coke:checked ~ .hide-display,
+#toggle-bsnl:checked ~ .hide-display,
+#toggle-thub:checked ~ .hide-display {
+  display: block;
+}
+
+
+.sample small{
+    font-size: 14px;
+    color: #325980;
+}
 
 
 /* ================= FOOTER ================= */
@@ -363,26 +489,21 @@ footer {
 <div id="hide-display-about">
   <div class="about-pop">
     <p>
-      <p>
       The <strong>B.Sc. Computer Science and Machine Learning (CSML)</strong> program
       at Loyola Academy integrates the fundamental principles of Computer Science
       with advanced Machine Learning concepts. The curriculum is designed to equip
       students with a strong foundation in algorithms, data structures, artificial
-      intelligence, programming, databases, and software engineering.
-    </p>
-
-    <p>
+      intelligence, programming, databases, and software engineering.<br>
+    
       The program enables students to understand how machines learn from data and
       apply intelligent techniques to solve real-world problems. Graduates are
       prepared for careers in data science, software development, artificial
-      intelligence, and related technological domains.
-    </p>
+      intelligence, and related technological domains.<br>
 
-    <p>
       Emphasis is placed on experiential learning through workshops, industrial
       visits, guest lectures, seminars, internships, and hands-on project work.
       These opportunities help students develop analytical skills, teamwork,
-      communication abilities, and professional confidence.
+      communication abilities, and professional confidence.<br>
     </p>
   </div>
 </div>
@@ -409,6 +530,125 @@ footer {
             </ul>
         </div>
     </section>
+
+
+    <!-- ================= Out Reach  ================= -->
+<section id="about">
+        <h2>Out Reach</h2>
+          <p>
+            The college organizes outreach programs and industrial visits to provide students with practical exposure beyond the classroom. 
+            Through these IVs, students interact with industry professionals, understand real-world applications of their subjects, and gain insights into industrial processes, 
+            technologies, and work culture. Outreach activities also help students develop social responsibility, teamwork, and professional skills while bridging the gap between academic 
+            learning and industry requirements.
+          </p><br><br>
+
+        <ul>
+        <section id="Out-Reach">
+         <li><div class="about-title">Coca-Cola Factory Visit</div><br>
+          <input type="checkbox" id="toggle-coke">
+
+            <div class="sample">
+                <label for="toggle-coke" class="about"><u><small>Read More</small></u></label>
+            </div>
+
+            <div class="hide-display">
+               <div class="out-reach-pop">
+                  <p>
+                      We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility. 
+                      The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
+                      and quality at every stage.<br>
+                      During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
+                      From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled
+                      Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.<br>
+                      The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
+                       The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver a trusted 
+                      product to consumers.<br>
+                      At the beginning of the visit, we were warmly welcomed by the factory team and were offered 
+                      refreshing welcome drinks, which added a pleasant touch to the experience. Overall, the visit provided valuable insight into 
+                     large-scale beverage manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.</p>
+
+                  </p>
+
+                  <img src="acsml 1.jpeg" alt="Coca-Cola Factory">
+              </div>
+          </div>
+        </li>
+
+         <li><div class="about-title">Bsnl Industrial Visit</div><br>
+
+            <input type="checkbox" id="toggle-bsnl">
+
+               <div class="sample">
+                  <label for="toggle-bsnl" class="about"><u><small>Read More</small></u></label>
+               </div>
+
+              <div class="hide-display">
+                <div class="out-reach-pop">
+                    <p>
+                        Through an exploration of facilities and training tools, BSNL sought to provide students with a practical grasp of the 
+                           telecommunication infrastructure. It also provided the opportunity to explore BSNL’s operations and highlight its role in preserving 
+                           and growing the country’s telecom network.<br>
+                           The first session is about the Telecommunication Networking by Mr. Ramesh from 10:00 A.M. to 11:15 A.M. During the discussion, they spoke about
+                           communication channels, or transmission media. They addressed about a variety of data transmission techniques, including satellite and terrestrial 
+                           transmission, guided and unguided media and more. During the orientation, fundamentals of landline communications, including copper and fibre optic 
+                           connections were presented.<br>
+                           And the second session is about Battery and Power Connections by Mr. Krishna Reddy from 11:15 A.M. to 12:15 P.M.
+                           The main topics of discussion at the session included current supply, different types of current, and how to connect mobile calls. The way battery’s 
+                           function and the relationship between plants and batteries.<br>
+                           In the third session it was about Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+                           varieties of routers used by business users as well as individual users.<br>
+                           And the last session is Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+                           varieties of routers used by business users as well as individual users.<br>
+                           To help students understand how RTTC, Hyderabad contributes to the skill development of telecom workers, and to introduce them to the training programs
+                           offered by the center. It was intended to bridge the gap between academic understanding and real – world applications in the ever – 
+                          evolving telecom industry
+
+                        </p>
+
+                       <img src="do.jpeg.jpeg" alt="Bsnl Industrial Visit">
+                </div>
+            </div>
+         </li>
+
+         <li><div class="about-title">T-Hub Industrial Visit</div><br>
+
+         <input type="checkbox" id="toggle-thub">
+             <div class="sample">
+                  <label for="toggle-thub" class="about"><u><small>Read More</small></u></label>
+             </div>
+
+            <div class="hide-display">
+                 <div class="out-reach-pop">
+                       <p>
+                            The Department organized an Industrial Visit (IV) to T-Hub, Hyderabad, with the objective of providing students with practical exposure to innovation,
+                             entrepreneurship, and industry-oriented learning.<br>
+                             The visit commenced at 9:00 AM, with students and faculty departing from the college campus. 
+                             The group reached T-Hub at 10:30 AM, where the participants were warmly welcomed by the T-Hub team. Upon arrival, welcome drinks were served, 
+                             creating a pleasant and engaging environment for the students.<br>
+                             The first session was delivered by Mr. Srinivas Rao Mahankali, Vice President of T-Hub. He provided valuable insights into the history, vision, and growth of T-Hub, 
+                             explaining its establishment, objectives, and role in fostering startups and innovation. The session was highly interactive, with Mr. Srinivas Rao Mahankali actively 
+                             engaging with the students, encouraging them to ask questions and think creatively about entrepreneurship and innovation.<br>
+                             Students from four different colleges—Loyola Academy, Little Flower Degree College, Mahatma Gandhi Institute, and Guru Nanak Institutions—participated in the industrial visit. 
+                             All participating colleges were actively involved throughout the event. During the interaction session, students were encouraged to share their startup ideas, and 
+                             representatives from each college enthusiastically presented their concepts, leading to productive discussions and knowledge exchange.<br>
+                             At around 1:00 PM, lunch was provided within the T-Hub office premises. Following lunch, the students were taken on a guided tour of the T-Hub facility, where they 
+                             explored each and every floor of the building. During this visit, students interacted with the staff members, gained insights into the working environment, and received 
+                             feedback and reviews about the startup ecosystem and professional opportunities available at T-Hub.<br>
+                             The Industrial Visit was both educational and enjoyable, offering students firsthand exposure to a dynamic innovation ecosystem while also providing an engaging and memorable
+                             experience. Overall, the visit greatly enhanced the students’ understanding of entrepreneurship, collaboration, and real-world industry practices, making it a highly successful
+                             and enjoyable IV.
+                        </p>
+                       <img src="nout01.jpeg" alt="Coca-Cola Factory">
+                 </div>
+             </div>
+             </li>
+             </ul>
+        </section>
+
+</section>
+
 
     <!-- ================= PROGRAMS OFFERED ================= -->
     <section id="programs">
