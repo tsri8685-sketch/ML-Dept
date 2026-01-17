@@ -1,496 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Department of Machine Learning - Loyola Academy</title>
+    <meta charset="UTF-8">
+    <title>Department of Machine Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
 
 <style>
-
-  /* ===== SMOOTH SCROLL ===== */
-html {
-  scroll-behavior: smooth;
+    
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ===== SECTION FADE ANIMATION ===== */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply animation to main sections */
-main,
-.academics,
-.dropdown-section,
-footer {
-  animation: fadeUp 0.9s ease forwards;
-}
-
-
-/* ---------- GLOBAL ---------- */
 body {
-  font-family: "Times New Roman", serif;
-  margin: 0;
-  background: url('https://img.freepik.com/free-photo/abstract-futuristic-background-with-3d-design_1361-3532.jpg') center/cover fixed no-repeat;
+    line-height: 1.6;
+    color: #333;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: -1;
-}
-
-/* ---------- NAVBAR ---------- */
-
-.navbar ul li a {
-  position: relative;
-}
-
-.navbar ul li a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #ffffff;
-  left: 0;
-  bottom: -4px;
-  transition: width 0.3s ease;
-}
-
-.navbar ul li a:hover::after {
-  width: 100%;
-}
-
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(10px);
-  background: rgba(10,46,99,0.88);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 40px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.navbar .logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: #fff;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-
-.navbar ul li a:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-/* ---------- HEADER ---------- */
+/* ================= HEADER ================= */
 header {
-  background: rgba(10,46,99,0.9);
-  color: white;
-  text-align: center;
-  padding: 30px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0a1f44;
+    color: #fff;
+    padding: 15px 40px;
 }
 
-header h1 { margin: 0; font-size: 32px; }
-header h2 { color: #c9d5f0; margin: 8px 0; }
-header p { max-width: 900px; margin: auto; font-size: 14px; }
-
-/* ---------- MAIN YEAR BOXES ---------- */
-main {
-  display: flex;
-  justify-content: center;
-  padding: 60px 20px;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.year-box {
-  background: linear-gradient(145deg, #ffffff, #e6ecfa);
+.logo img {
+    width: 50px;
 }
 
-.year-box:hover {
-  box-shadow: 0 15px 35px rgba(10,46,99,0.45);
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-
-.year-container {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.year-box {
-  background: rgba(255,255,255,0.93);
-  border: 2px solid #0a2e63;
-  padding: 35px;
-  width: 170px;
-  text-align: center;
-  font-weight: bold;
-  border-radius: 12px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+nav a:hover {
+    border-bottom: 2px solid #00c6ff;
 }
 
-.year-box:hover {
-  background: rgba(130,165,235,0.95);
-  transform: translateY(-8px);
+/* ================= HERO SECTION ================= */
+#hero {
+    position: relative;
+    height: 80vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* ---------- SEMESTER ---------- */
-.semester-box {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 200px;
-  background: white;
-  border-radius: 8px;
-  margin-top: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
 }
 
-.year-box:hover .semester-box { display: block; }
-
-.semester-item {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  position: relative;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
 }
 
-.semester-item:hover { background: #e6ecfa; }
-
-/* ---------- DETAILS ---------- */
-.details-box {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  width: 200px;
-  background: #eef1fb;
-  border-radius: 8px;
-  padding: 10px;
-  margin-left: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+#hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
 }
 
-.semester-item:hover .details-box { display: block; }
-
-.details-item a {
-  display: block;
-  text-decoration: none;
-  color: #0a2e63;
-  margin-bottom: 8px;
-  font-size: 14px;
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
 }
 
-.details-item a:hover { text-decoration: underline; }
-
-/* ---------- ACCORDION ---------- */
-.accordion {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 0 20px;
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00c6ff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-weight: bold;
 }
 
-.accordion > a {
-  display: block;
-  background: #0a2e63;
-  color: white;
-  padding: 16px;
-  text-decoration: none;
-  margin-bottom: 8px;
-  border-radius: 8px;
-  font-size: 18px;
+.btn:hover {
+    background: #009ecf;
 }
 
-.accordion > a:hover { background: #093b70; }
-
-.content {
-  display: none;
-  background: white;
-  padding: 25px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+/* ================= SECTIONS ================= */
+section {
+    padding: 60px 80px;
 }
 
-.content:target { display: block; }
-
-/* ---------- FACULTY ---------- */
-
-.faculty li {
-  position: relative;
+section h2 {
+    margin-bottom: 20px;
+    color: #0a1f44;
 }
 
-.faculty li::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #0b3c6d, #5fa0ff);
-  opacity: 0;
-  z-index: -1;
-  transition: opacity 0.3s ease;
+/* ================= VISION & MISSION ================= */
+#vision-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #f4f6f8;
 }
 
-.faculty li:hover::before {
-  opacity: 1;
+/* ================= PROGRAM CARDS ================= */
+.program-card {
+    background: #fff;
+    padding: 25px;
+    border-left: 5px solid #00c6ff;
+    width: 500px;
 }
 
-.faculty-grid {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  justify-content: center;
+.faculty_det {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
+    justify-content: center;
 }
 
+/* ================= FACULTY CARD ================= */
 .faculty-card {
-  width: 220px;
-  text-align: center;
-  background: #f9f9f9;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+
+    /* IMPORTANT FOR EQUAL HEIGHT */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+/* ================= FACULTY IMAGE ================= */
 .faculty-card img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 15px;
 }
 
-
-  .faculty {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  list-style: none;
-  padding: 0;
+/* ================= ROLE ================= */
+.role {
+    font-weight: bold;
+    color: #0a1f44;
 }
 
-/* FACULTY CARD */
-.faculty li {
-  background: #e8f0fb;
-  border-radius: 10px;
-  padding: 20px 15px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
+/* ================= VIEW ALL CARD ================= */
+.view-all-card {
+    /* background: #0a1f44; */
+    /* display: flex; */
+    padding: 30px;
+    text-align: center;
+    color: #fff;
 }
 
-/* FACULTY IMAGE */
-.faculty img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #0b3c6d;
-  margin-bottom: 10px;
-  object-fit: cover;
-  
+.view-all-card .btn {
+    margin-top: 40px;
+    background: #00c6ff;
+    color: #000;
 }
 
-/* FACULTY NAME */
-.faculty span {
-  display: block;
-  font-weight: 600;
-  color: #0b3c6d;
-}
-
-/* HOVER EFFECT */
-.faculty li:hover {
-  background: #0b3c6d;
-  transform: translateY(-5px);
-}
-
-.faculty li:hover span {
-  color: #ffffff;
-}
-
-.achievements {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  list-style: none;
-  padding: 0;
-}
-
-.achievements li {
-  background: #f9fbff;
-  border-radius: 12px;
-  padding: 15px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.achievements li:hover {
-  transform: translateY(-6px);
-}
-
-.achievements img {
-  width: 180px;
-  height: auto;              /* keeps full image */
-  max-height: 220px;         /* prevents overflow */
-  object-fit: contain;       /* NO CROPPING */
-  border-radius: 8px;        /* square with soft corners */
-  border: 2px solid #0b3c6d;
-  background: #ffffff;       /* fills empty space */
-  padding: 6px;
-  display: block;
-  margin: 0 auto 12px;
-}
-.achievements span {
-  display: block;
-  font-weight: 600;
-  color: #0b3c6d;
-  text-align: center;
-}
-
-
-
-/* ===== MAIN SECTION ===== */
-.academics {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 40px 30px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-/* HEADINGS */
-.academics h1 {
-  color: #0b3c6d;
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 36px;
-}
-
-.academics h2 {
-  color: #0b3c6d;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  font-size: 24px;
-  border-bottom: 3px solid #0b3c6d;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* PARAGRAPHS */
-.academics p {
-  line-height: 1.7;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* GRID STYLE FOR CARDS */
-.academics ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0;
-  list-style: none;
-}
-
-.academics li {
-  margin: 0;
-}
-
-/* CARD STYLE */
-.academics a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #e8f0fb;
-  padding: 20px 15px;
-  border-radius: 10px;
-  color: #0b3c6d;
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* IMAGE INSIDE CARD */
-.academics a img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #0b3c6d;
-}
-
-/* HOVER EFFECT */
-.academics a:hover {
-  background: #0b3c6d;
-  color: #ffffff;
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .academics {
-    margin: 20px;
-    padding: 30px 20px;
-  }
-
-  .academics h1 {
-    font-size: 28px;
-  }
-
-  .academics h2 {
-    font-size: 20px;
-  }
-
-  .academics a {
-    flex-direction: row;
-    justify-content: flex-start;
-    text-align: left;
-  }
-
-  .academics a img {
-    margin-right: 15px;
-    margin-bottom: 0;
-  }
-}
 
 /* layout */
 .sample {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 80px;
   margin-top: 30px;
+  color: #4f3ea3;
 }
 
 /* hide checkbox */
@@ -503,7 +206,6 @@ main {
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
-  color: rgb(224, 228, 233);
 }
 
 /* popup container */
@@ -513,7 +215,7 @@ main {
   margin: 30px auto;
   padding: 25px;
   background: #ffffff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(236, 234, 234, 0.2);
   border-radius: 10px;
 }
 
@@ -543,30 +245,15 @@ main {
   margin-left: 20px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .dropdown-content p {
-    font-size: 16px;
-  }
-}
-
-.section-divider {
-  width: 80px;
-  height: 4px;
-  background: #0b3c6d;
-  margin: 25px auto;
-  border-radius: 5px;
-}
 
 
-  
-/* ---------- FOOTER ---------- */
+/* ================= FOOTER ================= */
 footer {
-  background: #0a2e63;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 13px;
+    background: #0a1f44;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
 }
 
 .footer-map-container {
@@ -581,62 +268,95 @@ footer {
   border-radius: 8px;
 }
 
-.footer-social {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.footer-social a {
-  color: white;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.whatsapp { background: #25D366; }
-.instagram { background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af); }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-  .navbar { flex-direction: column; gap: 10px; }
-  .year-container { flex-direction: column; }
-  .year-box { width: 90%; }
-  .semester-box, .details-box { position: static; width: 100%; margin-top: 10px; }
-  .footer-social { flex-direction: column; gap: 10px; }
-}
 
 </style>
-</head>
+
+
+
+
+<script>
+    const hero = document.getElementById("hero");
+
+    const images = [
+        "images/ml1.jpg",
+        "images/ml2.jpg",
+        "images/ml3.jpg"
+    ];
+
+    let index = 0;
+
+    function changeBackground() {
+        hero.style.background =
+            `url(${images[index]}) center/cover no-repeat`;
+        index = (index + 1) % images.length;
+    }
+
+    changeBackground();
+    setInterval(changeBackground, 4000);
+</script>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">Dept. of Machine Learning</div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#faculty">Faculty</a></li>
-    <li><a href="#outreach">Outreach</a></li>
-    <li><a href="#about">About Us</a></li>
-  </ul>
-</nav>
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="dept-header">
+        <div class="dept-brand">
+            <img src="logo.png" alt="Department Logo">
+            <div>
+                <h1>Department of Machine Learning</h1>
+                <p class="college-name">Loyola Academy, Degree and PG College, Old Alwal, Secundrabad</p>
+            </div>
+        </div>
 
-<!-- HEADER -->
-<header id="home">
-  <h1>Department of Machine Learning</h1>
-  <h2>LOYOLA ACADEMY<br>Degree & PG College (Autonomous)</h2>
-  <p>"A College with Potential For Excellence” by UGC. Affiliated to Osmania University.</p>
-</header>
+        <nav class="dept-nav">
+            <ul>
+                <li><a href="#hme">Home</a></li>
+                <li><a href="#about">About Dept</a></li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#lab">Labs</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#cntacts">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- hidden checkbox -->
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="hero" class="dept-hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h2>Advancing Education in Machine Learning & AI</h2>
+            <p>
+                A dedicated academic department focusing on Machine Learning,
+                Artificial Intelligence, Data Science, and intelligent systems
+                through curriculum-driven and practical learning.
+            </p>
+
+            <a href="#" class="btn">ACSML</a>
+            <a href="#" class="btn">NCSML</a>
+            <a href="#" class="btn">DCSML</a>
+            
+        </div>
+    </section>
+
+
+
+    <!-- ================= ABOUT DEPARTMENT ================= -->
+    <section id="about">
+        <h2>About the Department</h2>
+        <p>
+            The Department of Machine Learning focuses on building strong
+            foundations in Artificial Intelligence, Data Science, and
+            intelligent systems through academic excellence and practical exposure.
+        </p>
+
+        <!-- hidden checkbox -->
 <input type="checkbox" id="about-toggle">
 
 <!-- buttons -->
 <div class="sample">
-  <label for="about-toggle" class="about"><u>About Us</u></label>
-  <div class="colab"><u>Collaboration</u></div>
+  <label for="about-toggle" class="about"><u><small>Read More</small></u></label>
 </div>
 
 <!-- popup -->
@@ -664,254 +384,168 @@ footer {
       These opportunities help students develop analytical skills, teamwork,
       communication abilities, and professional confidence.
     </p>
-
-    <div class="about-title">Vision</div>
-    <p>
-      To become a globally recognized center of excellence by offering outstanding
-      education in Artificial Intelligence and Machine Learning, fostering innovation,
-      ethical values, and societal development.
-    </p>
-
-    <div class="about-title">Mission</div>
-    <ol>
-      <li>
-        To provide high-quality, skill-oriented education with strong value systems
-        in the field of Machine Learning.
-      </li>
-      <li>
-        To enhance student's technical proficiency and encourage creativity and
-        innovation.
-      </li>
-      <li>
-        To align academic learning with industry requirements and emerging technologies.
-      </li>
-      <li>
-        To cultivate ethical, responsible, and socially conscious professionals.
-      </li>
-    </ol>
   </div>
 </div>
-
-
-<!-- MAIN -->
-<main>
-  <div class="year-container">
-
-    <div class="year-box">ACSML
-      <div class="semester-box">
-        <div class="semester-item">1st Sem
-          <div class="details-box">
-            <div class="details-item"><a href="asubj.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-        <div class="semester-item">2nd Sem
-          <div class="details-box">
-            <div class="details-item"><a href="asub2.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="year-box">NCSML
-      <div class="semester-box">
-        <div class="semester-item">3rd Sem
-          <div class="details-box">
-            <div class="details-item"><a href="nsub.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-        <div class="semester-item">4th Sem
-          <div class="details-box">
-            <div class="details-item"><a href="nsub2.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-    <div class="year-box">DCSML
-      <div class="semester-box">
-        <div class="semester-item">5th Sem
-          <div class="details-box">
-            <div class="details-item"><a href="subj.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-        <div class="semester-item">6th Sem
-          <div class="details-box">
-            <div class="details-item"><a href="subj2.html">Subjects</a></div>
-            <div class="details-item"><a href="">Previous Papers</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</main>
-
-<!-- FACULTY & OUTREACH -->
-<section class="academics">
-
-  <h1>Academics</h1>
-  <p>
-    Loyola Academy offers a wide range of academic programmes with a strong
-    emphasis on quality education, research, and holistic development.
-  </p>
-
-
-  <section id="outreach">
-  <h2>Out Reach</h2>
-  <ul>
-    <li>
-      <a href="bsnlout.html" target="_blank">
-        <img src="do.jpeg" alt="BSNL Instrumentation Visit">
-        BSNL Instrumentation Visit
-      </a>
-    </li>
-
-    <li>
-      <a href="cocacola.html" target="_blank">
-        <img src="acsmlo3.jpeg" alt="Coca Cola Factory">
-       Coca Cola Factory
-      </a>
-    </li>
-
-    <li>
-      <a href="thub.html" target="_blank">
-        <img src="nout.jpeg" alt="T-Hub Visit">
-        T-Hub Industrial Visit
-      </a>
-    </li>
-  </ul>
-  </section>
-
-    <div class="section-divider"></div>
-
-
-<section id="faculty">
-  <h2>Faculty Details</h2>
-<ul class="faculty">
-  <li>
-    <img src="venugopal sir.jpeg" alt="Venugopal">
-    <span>Mr. A. Venugopal</span>
-    <span><B>Designation:</B>Asst. Prof. in Comp. Sci. & HoD</span>
-    <span><b>Qualification:</b>M.Sc., M.Phil. (CS)., TG-SET</span>
-  </li>
-<li>
-    <img src="shanthi mam.jpeg" alt="Shanthi">
-    <span>Dr. C. Shanthi</span>
-    <span><B>Designation:</B>Asst. Prof. in Electronics</span>
-    <span><b>Qualification:</b>M.Tech, Ph.D. (MBA)</span>
-  </li>
-
-  <li>
-    <img src="rajini mam.jpeg" alt="Rajini">
-    <span>Dr. B. Rajini</span>
-    <span><B>Designation:</B>Asst. Prof. in Comp. Sci.</span>
-    <span><b>Qualification:</b>M.Sc. (CS), Ph.D. </span>
-  </li>
-   
-  <li>
-    <img src="naveen sir.jpeg" alt="Naveen">
-    <span>Mr. N. Naveen</span>
-    <span><B>Designation:</B>Asst. Prof. in Comp. Sci.</span>
-    <span><b>Qualification:</b>M.Sc. Computer Science</span>
-  </li>
-  
-  <li>
-    <img src="kavya mam.jpeg" alt="Kavya">
-    <span>Mrs. B. Kavya</span>
-    <span><B>Designation:</B>Asst. Prof. in Comp. Sci.</span>
-    <span><b>Qualification:</b>M.Sc. Computer Science</span>
-  </li>
-
-    <li>
-    <img src="os_sir.jpeg" alt="Venkata Jaya Krishna Ramana Teja">
-    <span>Mr. P. Venkata Jaya Krishna Ramana Teja</span>
-    <span><B>Designation:</B>Asst. Prof. in Comp. Sci.</span>
-    <span><b>Qualification:</b>MCA</span>
-  </li>
-
-
-  <li>
-    <img src="sravani_mam.jpeg" alt="Sravani">
-    <span>Ms. Sravani</span>
-    <span><B>Designation:</B>Asst. Prof. in Statistics</span>
-    <span><b>Qualification:</b>M.Sc. (Statistics)</span>
-  </li>
-
-  <li>
-    <img src="bindhu_mam.jpeg" alt="Bindhu">
-    <span>Mrs. Bindhu Babu</span>
-    <span><B>Designation:</B>Asst. Prof. in Mathematics</span>
-    <span><b>Qualification:</b>M.Sc. (Mathematics)</span>
-  </li>
-
-  <li>
-    <img src="kiran_sir.jpeg" alt="Kavya">
-    <span>Mr. K. Kiran Kumar</span>
-    <span><B>Designation:</B>Asst. Prof. in Mathematics</span>
-    <span><b>Qualification:</b>M.Sc, M.Phil</span>
-    </li>
-
-  <li>
-    <img src="evs.jpeg" alt="Nikhila">
-    <span>NikhilaX</span>
-    <span><B>Designation:</B></span>
-    <span><b>Qualification:</b></span>
-  </li>
-    <li>
-    <img src="pritivika_mam.jpeg" alt="Kavya">
-    <span>Dr.S. Prithvika</span>
-    <span><B>Designation:</B>Asst. Prof. in English</span>
-    <span><b>Qualification:</b>M.A, SET Ph.D</span>
-  </li>
-
-
-  
-</ul>
 </section>
 
-  <div class="section-divider"></div>
+    <!-- ================= VISION & MISSION ================= -->
+    <section id="vision-mission">
+        <div class="vision">
+            <div class="about-title">Vision</div><br>
+            <p>
+                 To become a globally recognized center of excellence by offering outstanding
+                 education in Artificial Intelligence and Machine Learning, fostering innovation,
+                 ethical values, and societal development.
+            </p>
+        </div>
 
-<h2>Achievements</h2>
-<ul class="achievements">
-  <li>
-    <img src="achiv.jpeg" alt="achivement 1">
-    <span>1st prize in Idea-Hackthon a part of INTELLEXA-2k25 (By: Comp. Sci. and AI)- J.Naga Bheema Prasadu, M.Manohar, S.Nitish Reddy</span>
-  </li>
-  <li>
-    <img src="achiv1.jpeg" alt="achivement 2">
-    <span> 1st prize in Seek And Find a part of INTELLEXA-2k26 (By: Comp. Sci. and IT)- G.ASneha</span>
-  </li>
+        <div class="mission">
+            <div class="about-title">Mission</div><br>
+            <ul>
+                <li>To provide high-quality, skill-oriented education with strong value systems in the field of Machine Learning.</li>
+                <li>To enhance student's technical proficiency and encourage creativity andinnovation.</li>
+                <li>To align academic learning with industry requirements and emerging technologies.</li>
+                <li>To cultivate ethical, responsible, and socially conscious professionals.</li>
+            </ul>
+        </div>
+    </section>
 
-  <li>
-    <img src="achiv2.jpeg" alt="achivement 3">
-    <span> Vastrakala Event in 2025 - Swasti Prasad and E.Sri Sai Pavan </span>
-  </li>
-   <li>
-    <img src="achiv3.jpeg" alt="achivement 3">
-    <span> 2nd prize in Feet on Fire conducted at st.Marys college Begumpet in 2025 - Soujanya </span>
-  </li>
-  </ul>
+    <!-- ================= PROGRAMS OFFERED ================= -->
+    <section id="programs">
+        <h2>Programs Offered</h2>
 
-  <div class="section-divider"></div>
+        <div class="program-card">
+            <h3>B.Sc Computer Science and Machine Learning</h3>
+            <p>Duration: 3 Years</p>
+            <p>Focus: AI, Data Science, Deep Learning</p>
+        </div>
+    </section>
+
+    <!-- ================= CURRICULUM HIGHLIGHTS ================= -->
+    <section id="curriculum">
+        <h2>Curriculum Highlights</h2>
+
+        <ul>
+            <li>Industry-aligned Machine Learning curriculum</li>
+            <li>Strong foundation in Python, Mathematics, and Statistics</li>
+            <li>Core concepts of Supervised and Unsupervised Learning</li>
+            <li>Hands-on training through dedicated ML laboratories</li>
+            <li>Exposure to Data Science and Data Visualization</li>
+            <li>Introduction to Artificial Intelligence and Deep Learning</li>
+            <li>Real-world projects and case-based learning</li>
+            <li>Guest lectures, workshops, and industrial visits</li>
+            <li>Internship and certification guidance</li>
+            <li>Focus on innovation, research, and employability</li>
+        </ul>
+    </section>
+
+    <!-- ================= LABS & INFRASTRUCTURE ================= -->
+    <section id="labs">
+        <h2>Laboratories & Infrastructure</h2>
+
+        <div class="lab-list">
+            <p>✔ Machine Learning Lab</p>
+            <p>✔ Artificial Intelligence Lab</p>
+            <p>✔ Data Science Lab</p>
+        </div>
+    </section>
+
+    <!-- ================= FACULTY SNAPSHOT ================= -->
+    <section id="faculty">
+        <h2>Faculty</h2>
+
+        <div class="faculty_det">
+
+            <div class="faculty-card">
+            <img src="venugopal sir.jpeg" alt="Venugopal">
+            <h3>Mr. A. Venugopal</h3>
+            <p class="role">Designation:Asst. Prof. in Comp. Sci. & HoD</p>
+            <p>Qualification:M.Sc., M.Phil. (CS)., TG-SET</p>
+            </div>
+
+            <div class="faculty-card">
+                 <img src="shanthi mam.jpeg" alt="Shanthi">
+                 <h3>Dr. C. Shanthi</h3>
+                <p class="role">Asst. Prof. in Electronics</p>
+                <p>Qualification: M.Tech, Ph.D. (MBA)</p>
+                <p> Specialization: Electronics</p>
+            </div>
+
+            <div class="faculty-card">
+                <img src="rajini mam.jpeg" alt="Rajini">
+                <h3>Dr. B. Rajini</h3>
+                <p class="role">Asst. Prof. in Comp. Sci.</p>
+                <p>Qualification: M.Sc. (CS), Ph.D.</p>
+                <p>Specialization: Deep Learning</p>
+            </div>
+
+            <div class="faculty-card">
+                 <img src="naveen sir.jpeg" alt="Naveen">
+                 <h3>Mr. N. Naveen</h3>
+                 <p class="role">Asst. Prof. in Comp. Sci.</p>
+                 <p>Qualification: M.Sc. Computer Science</p>
+                 <p>Specialization: NLP</p>
+            </div>
+
+            <div class="faculty-card">
+               <img src="kavya mam.jpeg" alt="Kavya">
+               <h3>Mrs. B. Kavya</h3>
+               <p class="role">Asst. Prof. in Comp. Sci.</p>
+               <p>Qualification: M.Sc. Computer Science</p>
+               <p>Specialization: NLP</p>
+            </div>
+
+            <!-- VIEW ALL FACULTY -->
+            <div class="view-all-card">
+                <a href="#" class="btn">View All Faculty</a>
+            </div>
+
+        </div>
+    </section>
 
 
-  
+    <!-- ================= STUDENT RESOURCES ================= -->
+    <section id="resources">
+        <h2>Student Resources</h2>
 
-<!-- FOOTER -->
-<footer>
-  <p><strong>Loyola Academy</strong></p>
-  <p>Old Alwal, Secunderabad, Hyderabad</p>
-  <div class="footer-map-container">
-    <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
-  </div>
-  <p>&copy; Loyola Academy - Department of Machine Learning</p>
-</footer>
+        <ul>
+            <li><a href="#">Study Materials</a></li>
+            <li><a href="#">Previous Question Papers</a></li>
+            <li><a href="#">Seminars & Workshops</a></li>
+            <li><a href="#">Coding Club Activities</a></li>
+        </ul>
+    </section>
+
+    <!-- ================= NEWS & EVENTS ================= -->
+    <section id="news">
+        <h2>News & Events</h2>
+
+        <article>
+            <h4>Guest Lecture on AI Trends</h4>
+            <p>Date: 10 March 2026</p>
+        </article>
+
+        <article>
+            <h4>Machine Learning Workshop</h4>
+            <p>Date: 25 February 2026</p>
+        </article>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>
+            © 2026 Department of Machine Learning<br>
+            LOYOLA ACADEMY Degree & PG College (Autonomous)
+        </p>
+
+        <div class="footer-map-container">
+           <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
+        </div>
+
+        <p>Email Id: Info@loyolaacademy.edu.in | Phone: +91 89770 12915
+        </p>
+    </footer>
 
 </body>
+
 </html>
