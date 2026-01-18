@@ -232,57 +232,73 @@ section h2 {
     border-left: 5px solid #ecf2f4;
 }
 
-.faculty_det {
-    display: grid;
-    grid-template-columns: repeat(3, 300px);
-    gap: 20px;
-    justify-content: center;
+    
+/* ================= FACULTY ================= */
+    
+.faculty_det { 
+  display:grid; 
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); 
+  gap:20px; justify-content:center;
+ }
+
+.faculty-card { 
+  background:#f9f9f9; 
+  padding:20px; 
+  border-radius:6px; 
+  box-shadow:0 2px 6px rgba(0,0,0,0.08); 
+  text-align:center; 
+  display:flex; 
+  flex-direction:column; 
+  justify-content:space-between; }
+
+.faculty-card img { 
+  width:120px; 
+  height:120px; 
+  object-fit:cover; 
+  border-radius:50%; 
+  margin:0 auto 15px; }
+
+.role { 
+  font-weight:bold; 
+  color:#0a1f44; 
 }
 
-/* ================= FACULTY CARD ================= */
-.faculty-card {
-    background: #f9f9f9;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    text-align: center;
-
-    /* IMPORTANT FOR EQUAL HEIGHT */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.view-all-card { 
+  padding:30px; 
+  text-align:center; 
 }
 
-/* ================= FACULTY IMAGE ================= */
-.faculty-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 15px;
+.view-all-card .btn { 
+  margin-top:40px; 
+  background:#00c6ff; 
+  color:#000; 
+  border:none; 
+  padding:12px 25px; 
+  border-radius:6px; 
+  cursor:pointer;
+ }
+
+.view-all-card .btn:hover { 
+  background:#009ecf; 
 }
 
-/* ================= ROLE ================= */
-.role {
-    font-weight: bold;
-    color: #0a1f44;
+.extra-faculty { 
+  display:none;
+ }
+
+.faculty_det.show-all .extra-faculty { 
+  display:block; 
 }
 
-/* ================= VIEW ALL CARD ================= */
-.view-all-card {
-    /* background: #0a1f44; */
-    /* display: flex; */
-    padding: 30px;
-    text-align: center;
-    color: #fff;
-}
 
-.view-all-card .btn {
-    margin-top: 40px;
-    background: #00c6ff;
-    color: #000;
-}
+/* Extra faculty hidden initially */
+.extra-faculty { display:none; }
+/* Show extra faculty when .show-all is active */
+.faculty_det.show-all .extra-faculty { display:block; }
+/* Hide the button when show-all */
+.faculty_det.show-all #viewAllCard { display:none; }
 
+    
 /* ================= Out Reach Card ================= */
 
 #Out-Reach {
@@ -645,6 +661,29 @@ document.querySelectorAll(".hide-display-sub")
     popup.addEventListener("click", e => e.stopPropagation());
   });
 
+    /* ---------- VIEW ALL FACULTY BUTTON ---------- */
+  document.addEventListener("DOMContentLoaded", function(){
+    const grid = document.getElementById("facultyGrid");
+    const btn = document.getElementById("viewBtn");
+    const viewCard = document.getElementById("viewAllCard");
+
+    btn.addEventListener("click", function(e){
+        e.stopPropagation();
+        grid.classList.toggle("show-all");
+    });
+
+    // Clicking outside hides extra faculty and popups
+    document.addEventListener("click", function(){
+        grid.classList.remove("show-all");
+        document.querySelectorAll(".hide-display").forEach(p=>p.classList.remove("active"));
+        document.querySelectorAll(".hide-display-sub").forEach(p=>p.classList.remove("active"));
+    });
+
+    // Stop propagation inside grid
+    grid.addEventListener("click", e=>e.stopPropagation());
+});
+
+
     
 </script>
 
@@ -999,56 +1038,62 @@ document.querySelectorAll(".hide-display-sub")
     </section>
 
     <!-- ================= FACULTY SNAPSHOT ================= -->
-    <section id="faculty">
-        <h2>Faculty</h2>
-
-        <div class="faculty_det">
-
-            <div class="faculty-card">
-            <img src="venugopal sir.jpeg" alt="Venugopal">
+<section id="faculty">
+    <h2>Faculty</h2>
+    <div class="faculty_det" id="facultyGrid">
+        <div class="faculty-card"><img src="venugopal sir.jpeg">
             <h3>Mr. A. Venugopal</h3>
-            <p class="role">Designation:Asst. Prof. in Comp. Sci. & HoD</p>
-            <p>Qualification:M.Sc., M.Phil. (CS)., TG-SET</p>
-            </div>
-
-            <div class="faculty-card">
-                 <img src="shanthi mam.jpeg" alt="Shanthi">
-                 <h3>Dr. C. Shanthi</h3>
-                <p class="role">Asst. Prof. in Electronics</p>
-                <p>Qualification: M.Tech, Ph.D. (MBA)</p>
-                <p> Specialization: Electronics</p>
-            </div>
-
-            <div class="faculty-card">
-                <img src="rajini mam.jpeg" alt="Rajini">
-                <h3>Dr. B. Rajini</h3>
-                <p class="role">Asst. Prof. in Comp. Sci.</p>
-                <p>Qualification: M.Sc. (CS), Ph.D.</p>
-                <p>Specialization: Deep Learning</p>
-            </div>
-
-            <div class="faculty-card">
-                 <img src="naveen sir.jpeg" alt="Naveen">
-                 <h3>Mr. N. Naveen</h3>
-                 <p class="role">Asst. Prof. in Comp. Sci.</p>
-                 <p>Qualification: M.Sc. Computer Science</p>
-                 <p>Specialization: NLP</p>
-            </div>
-
-            <div class="faculty-card">
-               <img src="kavya mam.jpeg" alt="Kavya">
-               <h3>Mrs. B. Kavya</h3>
-               <p class="role">Asst. Prof. in Comp. Sci.</p>
-               <p>Qualification: M.Sc. Computer Science</p>
-               <p>Specialization: NLP</p>
-            </div>
-
-            <!-- VIEW ALL FACULTY -->
-            <div class="view-all-card">
-                <a href="#" class="btn">View All Faculty</a>
-            </div>
-
+            <p class="role">HoD</p>
         </div>
+        <div class="faculty-card"><img src="shanthi mam.jpeg">
+            <h3>Dr. C. Shanthi</h3>
+            <p class="role">Asst. Prof</p>
+        </div>
+        <div class="faculty-card"><img src="rajini mam.jpeg">
+            <h3>Dr. B. Rajini</h3>
+            <p class="role">Asst. Prof</p>
+        </div>
+        <div class="faculty-card"><img src="naveen sir.jpeg">
+            <h3>Mr. N. Naveen</h3>
+            <p class="role">Asst. Prof</p>
+        </div>
+        <div class="faculty-card"><img src="kavya mam.jpeg">
+            <h3>Mrs. B. Kavya</h3>
+            <p class="role">Asst. Prof</p>
+        </div>
+
+        <div class="view-all-card" id="viewAllCard">
+            <button class="btn" id="viewBtn">View All Faculty</button>
+        </div>
+
+        <div class="faculty-card extra-faculty"><img src="os_sir.jpeg">
+            <h3>Faculty 6</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="bindhu_mam.jpeg">
+            <h3>Faculty 7</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="kiran_sir.jpeg">
+            <h3>Faculty 8</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="sravani mam.jpeg">
+            <h3>Faculty 9</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="sirisha_mam.jpeg">
+            <h3>Faculty 10</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="pritivika_mam.jpeg">
+            <h3>Faculty 11</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="evs.jpeg">
+            <h3>Faculty 12</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="evs.jpeg">
+            <h3>Faculty 12</h3>
+        </div>
+        <div class="faculty-card extra-faculty"><img src="evs.jpeg">
+            <h3>Faculty 12</h3>
+        </div>
+    </div>
     </section>
 
 
