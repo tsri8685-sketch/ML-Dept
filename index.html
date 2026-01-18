@@ -131,6 +131,7 @@ nav a:hover {
   max-width: 1000px;
   padding: 20px;
   border-radius: 12px;
+  max-height: min-content;
 }
 .hide-display-sub.active {
   display: block;
@@ -163,6 +164,18 @@ nav a:hover {
 
 .sub-btn:active {
   transform: scale(0.95);
+}
+
+
+/* ===== SUB POPUP CONTAINER (ALL POPUPS) ===== */
+.hide-display-sub{
+  display: none;
+  margin: 15px auto 0;
+  max-width: 500px;
+  max-height: 40vh;      /* reduce popup height */
+  overflow-y: auto;      /* scroll content */
+  padding: 15px;
+  border-radius: 12px;
 }
 
 
@@ -469,7 +482,6 @@ input[type="checkbox"] {
   max-width: 100%;
 }
 
-}
 
 
 
@@ -608,43 +620,30 @@ document.querySelectorAll(".about-pop, .out-reach-pop")
     pop.addEventListener("click", e => e.stopPropagation())
   );
 
-     function openPopup(event) {
-  event.stopPropagation();
-  document.getElementById("popupBox").classList.add("active");
-}
-
-// close popup when clicking outside
-document.addEventListener("click", () => {
-  document.getElementById("popupBox").classList.remove("active");
-});
-
-// prevent popup close when clicking inside
-document.getElementById("popupBox")
-  .addEventListener("click", e => e.stopPropagation());
-
-    // For the section buttons
-    function openPopup(event, id) {
+    /* ---------- SUB BUTTON POPUPS ---------- */
+function openSubPopup(event, id) {
   event.stopPropagation();
 
-  // close all first
+  // close all sub popups
   document.querySelectorAll(".hide-display-sub")
     .forEach(p => p.classList.remove("active"));
 
-  // open selected
-  document.getElementById(id).classList.add("active");
+  // open selected popup
+  const popup = document.getElementById(id);
+  if (popup) popup.classList.add("active");
 }
 
-// close when clicking outside
-document.addEventListener("click", () => {
+// click anywhere outside -> close sub popup
+document.addEventListener("click", function () {
   document.querySelectorAll(".hide-display-sub")
     .forEach(p => p.classList.remove("active"));
 });
 
-// prevent close when clicking inside popup
+// prevent closing when clicking inside popup
 document.querySelectorAll(".hide-display-sub")
-  .forEach(popup =>
-    popup.addEventListener("click", e => e.stopPropagation())
-  );
+  .forEach(popup => {
+    popup.addEventListener("click", e => e.stopPropagation());
+  });
 
     
 </script>
@@ -689,92 +688,98 @@ document.querySelectorAll(".hide-display-sub")
                 through curriculum-driven and practical learning.
             </p>
             <div class="btn-group">
-  <button class="sub-btn" onclick="openPopup(event, 'acsml')">ACSML</button>
-  <button class="sub-btn" onclick="openPopup(event, 'ncsml')">NCSML</button>
-  <button class="sub-btn" onclick="openPopup(event, 'dcsml')">DCSML</button>
+  <button class="sub-btn" onclick="openSubPopup(event,'acsml')">ACSML</button>
+  <button class="sub-btn" onclick="openSubPopup(event,'ncsml')">NCSML</button>
+  <button class="sub-btn" onclick="openSubPopup(event,'dcsml')">DCSML</button>
 </div>
+
 
 
 <!-- POPUP BELOW BUTTONS -->
 <div class="hide-display-sub" id="acsml">
   <div class="sub-pop">
     <h2>Sem-1</h2>
-
-    <a href="Eng.html">General english-I</a>
-        <a href="ve.html">Value education and Personality Development</a>
-        <a href="fit.html">Fundamentals of IT and data visualization</a>
-        <a href="dem.html">Differential Equations and Matrices</a>
-        <a href="c.html">Problem solving and Programming in C</a>
-        <a href="bec.html">Basic electronics and circuits</a>
+        <ul>
+        <li><a href="Eng.html">General english-I</a></li>
+        <li><a href="ve.html">Value education and Personality Development</a></li>
+        <li><a href="fit.html">Fundamentals of IT and data visualization</a></li>
+        <li><a href="dem.html">Differential Equations and Matrices</a></li>
+        <li><a href="c.html">Problem solving and Programming in C</a></li>
+        <li><a href="bec.html">Basic electronics and circuits</a></li>
            <hr><br>
         <a href="ascmlsyll.pdf"> Syllabus PDF</a>
+        </ul>
     <hr><hr>
         <h2>Sem-2</h2>
-        <a href="enng.html">General English-II</a>
-        <a href="ihc.html">Indian Heritage and Culture</a>
-        <a href="psml.html">Probability & Statistics for ML</a>
-        <a href="vcnt.html">Vector Calculus & Number Theory </a>
-        <a href="fdsc.html">Fundamentals of Data Structures Using C</a>
-        <a href="pp.html">Python Programming </a>
+        <ul>
+        <li><a href="enng.html">General English-II</a></li>
+        <li><a href="ihc.html">Indian Heritage and Culture</a></li>
+        <li><a href="psml.html">Probability & Statistics for ML</a></li>
+        <li><a href="vcnt.html">Vector Calculus & Number Theory </a></li>
+        <li><a href="fdsc.html">Fundamentals of Data Structures Using C</a></li>
+        <li><a href="pp.html">Python Programming </a></li>
            <hr><br>
         <a href="ascmlsyll.pdf"> Syllabus PDF</a>
+        </ul>
     </div>
   </div>
-</div>
-</div>
             
 <div class="hide-display-sub" id="ncsml">
   <div class="sub-pop">
     <h2>Sem-3</h2>
-
-     <a href="evs.html">Environmental studies and Generalisation</a>
-        <a href="dm.html">Discrete Mathematics</a>
-         <a href="dbms.html">DataBase Management System/a>
-        <a href="dld.html">Digital Logic and Design</a>
-        <a href="ai.html">Introduction to AI</a>
-         <a href="ge1.html">General Elective</a>>
+     <ul>
+     <li><a href="evs.html">Environmental studies and Generalisation</a></li>
+        <li><a href="dm.html">Discrete Mathematics</a></li>
+         <li><a href="dbms.html">DataBase Management System</a></li>
+        <li><a href="dld.html">Digital Logic and Design</a></li>
+        <li><a href="ai.html">Introduction to AI</a></li>
+         <li><a href="ge1.html">General Elective</a></li>
                 <hr><br>
         <a href="nscmlsyll.pdf"> Syllabus PDF</a>
+        </ul>
     <hr><hr>
         <h2>Sem-4</h2>
-        <a href="evs.html">Environmental studies and Generalisation</a>
-        <a href="dm.html">Discrete Mathematics</a>
-         <a href="dbms.html">DataBase Management System/a>
-        <a href="dld.html">Digital Logic and Design</a>
-        <a href="ai.html">Introduction to AI</a>
+        <ul>
+        <li><a href="evs.html">Environmental studies and Generalisation</a></li>
+        <li><a href="dm.html">Discrete Mathematics</a></li>
+         <li><a href="dbms.html">DataBase Management System</a></li>
+        <li><a href="dld.html">Digital Logic and Design</a></li>
+        <li><a href="ai.html">Introduction to AI</a></li>
          <a href="ge1.html">General Elective</a>>
                 <hr><br>
         <a href="nscmlsyll.pdf"> Syllabus PDF</a>
+        </ul>
     </div>
   </div>
-</div>
-</div>
+
+
 
 <div class="hide-display-sub" id="dcsml">
   <div class="sub-pop">
     <h2>Sem-5</h2>
-
-    <a href="./bigdata.html">Big Data Analysis</a><br>
-    <a href="./sm.html">Social Media Analysis</a><br>
-    <a href="./ds.html">Data Security</a><br>
-    <a href="./cs.html">Cyber Security</a><br>
-    <a href="./ot.html">Optimization Theory</a><br>
-    <a href="./dl.html">Deep Learning</a><br>
-    <a href="./cc.html">Cognitive Computing</a><br>
-    <a href="./nlp.html">Natural Language Processing</a><br>
+    <ul>
+    <li><a href="./bigdata.html">Big Data Analysis</a></li>
+    <li><a href="./sm.html">Social Media Analysis</a></li>
+    <li><a href="./ds.html">Data Security</a></li>
+    <li><a href="./cs.html">Cyber Security</a></li>
+    <li><a href="./ot.html">Optimization Theory</a></li>
+    <li><a href="./dl.html">Deep Learning</a></li>
+    <li><a href="./cc.html">Cognitive Computing</a></li>
+    <li><a href="./nlp.html">Natural Language Processing</a></li>
+        </ul>
     <hr><hr>
         <h2>Sem-6</h2>
-        <a href="cc2.html">Cloud Computing</a>
-        <a href="hci.html">Human Computer Interaction</a>
-        <a href="iot.html">Internet Of Things</a>
-        <a href="bc.html">Block Chain</a>
-        <a href="cv.html">Computer Vision</a>
+        <ul>
+        <li><a href="cc2.html">Cloud Computing</a></li>
+        <li><a href="hci.html">Human Computer Interaction</a></li>
+        <li><a href="iot.html">Internet Of Things</a></li>
+        <li><a href="bc.html">Block Chain</a></li>
+        <li><a href="cv.html">Computer Vision</a></li>
               <hr><br>
-        <a href="dscmlsyll.pdf"> Syllubas PDF</a>
+        <a href="dscmlsyll.pdf"> Syllabus PDF</a>
     </div>
   </div>
-</div>
-</div>
+
 
 
     </section>
