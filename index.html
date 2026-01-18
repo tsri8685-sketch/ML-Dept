@@ -623,19 +623,30 @@ document.getElementById("popupBox")
   .addEventListener("click", e => e.stopPropagation());
 
     // For the section buttons
-    function openPopup(event) {
+    function openPopup(event, id) {
   event.stopPropagation();
-  document.getElementById("popupBox").classList.add("active");
+
+  // close all first
+  document.querySelectorAll(".hide-display-sub")
+    .forEach(p => p.classList.remove("active"));
+
+  // open selected
+  document.getElementById(id).classList.add("active");
 }
 
-// close popup when clicking outside
+// close when clicking outside
 document.addEventListener("click", () => {
-  document.getElementById("popupBox").classList.remove("active");
+  document.querySelectorAll(".hide-display-sub")
+    .forEach(p => p.classList.remove("active"));
 });
 
-// prevent popup close when clicking inside
-document.getElementById("popupBox")
-  .addEventListener("click", e => e.stopPropagation());
+// prevent close when clicking inside popup
+document.querySelectorAll(".hide-display-sub")
+  .forEach(popup =>
+    popup.addEventListener("click", e => e.stopPropagation())
+  );
+
+    
 </script>
 
 
@@ -677,25 +688,26 @@ document.getElementById("popupBox")
                 Artificial Intelligence, Data Science, and intelligent systems
                 through curriculum-driven and practical learning.
             </p>
-            <div class="btn-group" onclick="event.stopPropagation()">
-  <button class="sub-btn" onclick="openPopup(event)">ACSML</button>
-  <button class="sub-btn" onclick="openPopup(event)">NCSML</button>
-  <button class="sub-btn" onclick="openPopup(event)">DCSML</button>
+            <div class="btn-group">
+  <button class="sub-btn" onclick="openPopup(event, 'acsml')">ACSML</button>
+  <button class="sub-btn" onclick="openPopup(event, 'ncsml')">NCSML</button>
+  <button class="sub-btn" onclick="openPopup(event, 'dcsml')">DCSML</button>
 </div>
 
+
 <!-- POPUP BELOW BUTTONS -->
-<div class="hide-display-sub" id="popupBox">
+<div class="hide-display-sub" id="acsml">
   <div class="sub-pop">
     <h2>Sem-1</h2>
 
-    <a href="./bigdata.html">Big Data Analysis</a><br>
-    <a href="./sm.html">Social Media Analysis</a><br>
-    <a href="./ds.html">Data Security</a><br>
-    <a href="./cs.html">Cyber Security</a><br>
-    <a href="./ot.html">Optimization Theory</a><br>
-    <a href="./dl.html">Deep Learning</a><br>
-    <a href="./cc.html">Cognitive Computing</a><br>
-    <a href="./nlp.html">Natural Language Processing</a><br>
+    <a href="Eng.html">General english-I</a>
+        <a href="ve.html">Value education and Personality Development</a>
+        <a href="fit.html">Fundamentals of IT and data visualization</a>
+        <a href="dem.html">Differential Equations and Matrices</a>
+        <a href="c.html">Problem solving and Programming in C</a>
+        <a href="bec.html">Basic electronics and circuits</a>
+           <hr><br>
+        <a href="ascmlsyll.pdf"> Syllabus PDF</a>
     <hr><hr>
         <h2>Sem-2</h2>
         <a href="enng.html">General English-II</a>
@@ -711,7 +723,7 @@ document.getElementById("popupBox")
 </div>
 </div>
             
-<div class="hide-display-sub" id="popupBox">
+<div class="hide-display-sub" id="ncsml">
   <div class="sub-pop">
     <h2>Sem-3</h2>
 
@@ -738,7 +750,7 @@ document.getElementById("popupBox")
 </div>
 </div>
 
-<div class="hide-display-sub" id="popupBox">
+<div class="hide-display-sub" id="dcsml">
   <div class="sub-pop">
     <h2>Sem-5</h2>
 
