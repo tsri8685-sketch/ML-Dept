@@ -125,9 +125,28 @@ nav a:hover {
     font-size: 1.2rem;
     margin-bottom: 25px;
 }
+.hide-display-sub {
+  display: none;
+  margin: 25px auto 0;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 12px;
+}
+.hide-display-sub.active {
+  display: block;
+}
 
-.btn {
-     display: inline-block;
+
+/* ===== BUTTON STYLE ===== */
+.sub-btn {
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 114, 255, 0.35);
+  display: inline-block;
     padding: 12px 25px;
     background: #00c6ff;
     color: #000;
@@ -137,10 +156,39 @@ nav a:hover {
     font-weight: bold;
 }
 
-.btn:hover {
-    background: #009ecf;
+.sub-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
 }
 
+.sub-btn:active {
+  transform: scale(0.95);
+}
+
+
+.sub-pop{
+   background: #fff;
+  max-width: 500px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.sub a{
+  font-size: 16px;
+  text-align: justify;
+  color: #333;
+  line-height: 1.7;
+}
+
+#sub-toggle {
+  display: none;
+}
+#sub-toggle:checked ~ .hide-display-sub {
+  display: block;
+}
 /* ================= SECTIONS ================= */
 section {
     padding: 60px 80px;
@@ -151,6 +199,7 @@ section h2 {
     color: #0a1f44;
       font-size: 26px;
 }
+
 
 
 /* ================= VISION & MISSION ================= */
@@ -558,6 +607,35 @@ document.querySelectorAll(".about-pop, .out-reach-pop")
   .forEach(pop =>
     pop.addEventListener("click", e => e.stopPropagation())
   );
+
+     function openPopup(event) {
+  event.stopPropagation();
+  document.getElementById("popupBox").classList.add("active");
+}
+
+// close popup when clicking outside
+document.addEventListener("click", () => {
+  document.getElementById("popupBox").classList.remove("active");
+});
+
+// prevent popup close when clicking inside
+document.getElementById("popupBox")
+  .addEventListener("click", e => e.stopPropagation());
+
+    // For the section buttons
+    function openPopup(event) {
+  event.stopPropagation();
+  document.getElementById("popupBox").classList.add("active");
+}
+
+// close popup when clicking outside
+document.addEventListener("click", () => {
+  document.getElementById("popupBox").classList.remove("active");
+});
+
+// prevent popup close when clicking inside
+document.getElementById("popupBox")
+  .addEventListener("click", e => e.stopPropagation());
 </script>
 
 
@@ -599,12 +677,33 @@ document.querySelectorAll(".about-pop, .out-reach-pop")
                 Artificial Intelligence, Data Science, and intelligent systems
                 through curriculum-driven and practical learning.
             </p>
+            <div class="btn-group" onclick="event.stopPropagation()">
+  <button class="sub-btn" onclick="openPopup(event)">ACSML</button>
+  <button class="sub-btn" onclick="openPopup(event)">NCSML</button>
+  <button class="sub-btn" onclick="openPopup(event)">DCSML</button>
+</div>
 
-            <a href="#" class="btn">ACSML</a>
-            <a href="#" class="btn">NCSML</a>
-            <a href="#" class="btn">DCSML</a>
-            
-        </div>
+<!-- POPUP BELOW BUTTONS -->
+<div class="hide-display-sub" id="popupBox">
+  <div class="sub-pop">
+    <h2>Theory</h2>
+
+    <a href="./bigdata.html">Big Data Analysis</a><br>
+    <a href="./sm.html">Social Media Analysis</a><br>
+    <a href="./ds.html">Data Security</a><br>
+    <a href="./cs.html">Cyber Security</a><br>
+    <a href="./ot.html">Optimization Theory</a><br>
+    <a href="./dl.html">Deep Learning</a><br>
+    <a href="./cc.html">Cognitive Computing</a><br>
+    <a href="./nlp.html">Natural Language Processing</a><br>
+    <hr>
+    <a href="dscmlsyll.pdf">Syllabus PDF</a><hr><hr>
+      
+      
+  </div>
+</div>
+
+
     </section>
 
 
