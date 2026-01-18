@@ -18,7 +18,862 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Segoe UI", Arial, sans-serif;
+}<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Department of Machine Learning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<style>
+    
+    /* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
+
+body {
+    line-height: 1.6;
+    color: #333;
+    user-select: none;        /* prevents text selection */
+   -webkit-user-select: none;
+   -moz-user-select: none;
+}
+
+/* ================= HEADER ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0a1f44;
+    color: #fff;
+    padding: 15px 40px;
+    user-select: none;        /* prevents text selection */
+   -webkit-user-select: none;
+   -moz-user-select: none;
+}
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 50px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #00c6ff;
+}
+
+/* ================= HERO SECTION ================= */
+#hero {
+    position: relative;
+    height: 80vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+#hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #00c6ff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #009ecf;
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 60px 80px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+    color: #0a1f44;
+}
+
+/* ================= VISION & MISSION ================= */
+#vision-mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #f4f6f8;
+}
+
+/* ================= PROGRAM CARDS ================= */
+.program-card {
+    background: #fff;
+    padding: 25px;
+    border-left: 5px solid #00c6ff;
+    width: 500px;
+}
+
+.faculty_det {
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    gap: 20px;
+    justify-content: center;
+}
+
+/* ================= FACULTY CARD ================= */
+.faculty-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    text-align: center;
+
+    /* IMPORTANT FOR EQUAL HEIGHT */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ================= FACULTY IMAGE ================= */
+.faculty-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+/* ================= ROLE ================= */
+.role {
+    font-weight: bold;
+    color: #0a1f44;
+}
+
+/* ================= VIEW ALL CARD ================= */
+.view-all-card {
+    /* background: #0a1f44; */
+    /* display: flex; */
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.view-all-card .btn {
+    margin-top: 40px;
+    background: #00c6ff;
+    color: #000;
+}
+
+/* ================= Out Reach Card ================= */
+
+#Out-Reach {
+    display: grid;
+    gap: 40px;
+    background: #f4f6f8;
+
+}
+
+/* Out Reach Popup Container */
+.out-reach-pop {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+
+/* Text */
+.out-reach-pop p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+
+/* Image */
+.out-reach-pop img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #101112;
+  text-align: center;
+}
+
+
+.hide-display {
+  display: none;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px 25px;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border-radius: 10px;
+}
+
+/* ================= MOBILE FRIENDLY ================= */
+
+@media (max-width: 768px) {
+  .out-reach-pop {
+    grid-template-columns: 1fr;
+  }
+
+  .hide-display {
+    width: 95%;
+  }
+}
+
+
+
+/* ================= Read More ================= */
+
+.sample {
+  display: flex;
+  justify-content: left;
+  gap: 80px;
+  margin-top: 30px;
+  color: #4f3ea3;
+}
+
+/* hide checkbox */
+#about-toggle {
+  display: none;
+}
+
+.about,
+.toggle-coke,
+.toggle-bsnl,
+.toggle-thub {
+  cursor: pointer;
+  user-select: none;        /* prevents text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+#hide-display {
+  display: none;
+  width: 70%;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(236, 234, 234, 0.2);
+  border-radius: 10px;
+}
+
+/* content */
+.about-pop p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #333;
+}
+.sample img{
+            margin-top: 10px;
+            border: 2px solid #101112;
+            border-radius: 10px;
+            height: 350px;
+            width: 650px;
+}
+
+.about-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0b3c6d;
+  margin-top: 20px;
+  border-left: 4px solid #0b3c6d;
+  padding-left: 10px;
+}
+
+.abot-pop ol {
+  margin-left: 20px;
+}
+
+
+/* hide checkbox */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* hidden content */
+/* Popup overlay */
+.hide-display {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  padding: 40px 20px;
+}
+
+/* Active popup */
+.hide-display.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup content */
+.about-pop,
+.out-reach-pop {
+  background: #fff;
+  max-width: 1000px;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.outreach-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.outreach-images img {
+  width: 240px;
+  border-radius: 8px;
+  border: 2px solid #101112;
+}
+
+
+
+.out-reach-pop p {
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+  color: #333;
+}
+
+.out-reach-pop {
+  display: block;
+}
+
+.out-reach li{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    background: #f4f6f8;
+}
+
+.out-reach small{
+    display: flex;
+  justify-content: left;
+  gap: 80px;
+  margin-top: 30px;
+  color: #4f3ea3;
+}
+
+
+#about-toggle:checked ~ #hide-display {
+  display: block;
+}
+
+
+/* show content when checked */
+#toggle-coke:checked ~ .hide-display,
+#toggle-bsnl:checked ~ .hide-display,
+#toggle-thub:checked ~ .hide-display {
+  display: block;
+}
+
+
+.sample small{
+    font-size: 14px;
+    color: #325980;
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+    background: #0a1f44;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+.footer-map-container {
+  width: 350px;
+  max-width: 90%;
+  margin: 15px auto;
+}
+
+.footer-map-container iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+
+</style>
+
+
+
+
+<script>
+    const hero = document.getElementById("hero");
+
+    const images = [
+        "images/ml1.jpg",
+        "images/ml2.jpg",
+        "images/ml3.jpg"
+    ];
+
+    let index = 0;
+
+    function changeBackground() {
+        hero.style.background =
+            `url(${images[index]}) center/cover no-repeat`;
+        index = (index + 1) % images.length;
+    }
+
+    changeBackground();
+    setInterval(changeBackground, 4000);
+</script>
+
+
+    <!-- ================= JS FOR POPUP ================= -->
+
+
+<script>
+function openPopup(el) {
+  event.stopPropagation();
+
+  // popup must be the NEXT sibling
+  const popup = el.nextElementSibling;
+
+  if (popup && popup.classList.contains("hide-display")) {
+    popup.classList.add("active");
+  }
+}
+
+// click anywhere outside → close popup
+document.addEventListener("click", function () {
+  document.querySelectorAll(".hide-display.active")
+    .forEach(popup => popup.classList.remove("active"));
+});
+
+// prevent closing when clicking inside popup
+document.querySelectorAll(".about-pop, .out-reach-pop")
+  .forEach(pop =>
+    pop.addEventListener("click", e => e.stopPropagation())
+  );
+</script>
+
+
+
+<body>
+
+    <!-- ================= HEADER / NAVBAR ================= -->
+    <header class="dept-header">
+        <div class="dept-brand">
+            <img src="logo.png" alt="Department Logo">
+            <div>
+                <h1>Department of Machine Learning</h1>
+                <p class="college-name">Loyola Academy, Degree and PG College, Old Alwal, Secundrabad</p>
+            </div>
+        </div>
+
+        <nav class="dept-nav">
+            <ul>
+                <li><a href="#hme">Home</a></li>
+                <li><a href="#about">About Dept</a></li>
+                <li><a href="#faculty">Faculty</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#lab">Labs</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#cntacts">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+    <section id="hero" class="dept-hero">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h2>Advancing Education in Machine Learning & AI</h2>
+            <p>
+                A dedicated academic department focusing on Machine Learning,
+                Artificial Intelligence, Data Science, and intelligent systems
+                through curriculum-driven and practical learning.
+            </p>
+
+            <a href="#" class="btn">ACSML</a>
+            <a href="#" class="btn">NCSML</a>
+            <a href="#" class="btn">DCSML</a>
+            
+        </div>
+    </section>
+
+
+
+    <!-- ================= ABOUT DEPARTMENT ================= -->
+    <section id="out-reach">
+        <h2>About the Department</h2>
+        <p>
+            The Department of Machine Learning focuses on building strong
+            foundations in Artificial Intelligence, Data Science, and
+            intelligent systems through academic excellence and practical exposure.
+        </p>
+
+        <!-- hidden checkbox -->
+<span class="about" onclick="openPopup(this)">
+            <u><small>Read More</small></u></span>
+
+<!-- popup -->
+<div class="hide-display">
+  <div class="about-pop">
+    <p>
+      The <strong>B.Sc. Computer Science and Machine Learning (CSML)</strong> program
+      at Loyola Academy integrates the fundamental principles of Computer Science
+      with advanced Machine Learning concepts. The curriculum is designed to equip
+      students with a strong foundation in algorithms, data structures, artificial
+      intelligence, programming, databases, and software engineering.<br>
+    
+      The program enables students to understand how machines learn from data and
+      apply intelligent techniques to solve real-world problems. Graduates are
+      prepared for careers in data science, software development, artificial
+      intelligence, and related technological domains.<br>
+
+      Emphasis is placed on experiential learning through workshops, industrial
+      visits, guest lectures, seminars, internships, and hands-on project work.
+      These opportunities help students develop analytical skills, teamwork,
+      communication abilities, and professional confidence.<br>
+    </p>
+  </div>
+</div>
+</section>
+
+    <!-- ================= VISION & MISSION ================= -->
+    <section id="vision-mission">
+        <div class="vision">
+            <div class="about-title">Vision</div><br>
+            <p>
+                 To become a globally recognized center of excellence by offering outstanding
+                 education in Artificial Intelligence and Machine Learning, fostering innovation,
+                 ethical values, and societal development.
+            </p>
+        </div>
+
+        <div class="mission">
+            <div class="about-title">Mission</div><br>
+            <ul>
+                <li>To provide high-quality, skill-oriented education with strong value systems in the field of Machine Learning.</li>
+                <li>To enhance student's technical proficiency and encourage creativity andinnovation.</li>
+                <li>To align academic learning with industry requirements and emerging technologies.</li>
+                <li>To cultivate ethical, responsible, and socially conscious professionals.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ================= Out Reach  ================= -->
+<section id="about">
+        <h2>Out Reach</h2>
+          <p>
+            The college organizes outreach programs and industrial visits to provide students with practical exposure beyond the classroom. 
+            Through these IVs, students interact with industry professionals, understand real-world applications of their subjects, and gain insights into industrial processes, 
+            technologies, and work culture. Outreach activities also help students develop social responsibility, teamwork, and professional skills while bridging the gap between academic 
+            learning and industry requirements.
+          </p><br><br>
+
+        <ul>
+        <section id="Out-Reach">
+         <li><div class="about-title">Coca-Cola Factory Visit</div><br>
+
+
+          <span class="toggle-coke" onclick="openPopup(this)">
+            <u><small>Read More</small></u></span>
+
+            <div class="hide-display">
+               <div class="out-reach-pop">
+                  <p>
+                      We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility. 
+                      The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
+                      and quality at every stage.<br>
+                      During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
+                      From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled
+                      Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.<br>
+                      The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
+                       The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver a trusted 
+                      product to consumers.<br>
+                      At the beginning of the visit, we were warmly welcomed by the factory team and were offered 
+                      refreshing welcome drinks, which added a pleasant touch to the experience. Overall, the visit provided valuable insight into 
+                     large-scale beverage manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.</p>
+
+                  </p>
+
+                  <img src="acsml 1.jpeg" alt="Coca-Cola Factory">
+              </div>
+          </div>
+        </li>
+
+         <li><div class="about-title">Bsnl Industrial Visit</div><br>
+
+            <span class="toggle-bsnl" onclick="openPopup(this)">
+            <u><small>Read More</small></u></span>
+
+              <div class="hide-display">
+                <div class="out-reach-pop">
+                    <p>
+                        Through an exploration of facilities and training tools, BSNL sought to provide students with a practical grasp of the 
+                           telecommunication infrastructure. It also provided the opportunity to explore BSNL’s operations and highlight its role in preserving 
+                           and growing the country’s telecom network.<br>
+                           The first session is about the Telecommunication Networking by Mr. Ramesh from 10:00 A.M. to 11:15 A.M. During the discussion, they spoke about
+                           communication channels, or transmission media. They addressed about a variety of data transmission techniques, including satellite and terrestrial 
+                           transmission, guided and unguided media and more. During the orientation, fundamentals of landline communications, including copper and fibre optic 
+                           connections were presented.<br>
+                           And the second session is about Battery and Power Connections by Mr. Krishna Reddy from 11:15 A.M. to 12:15 P.M.
+                           The main topics of discussion at the session included current supply, different types of current, and how to connect mobile calls. The way battery’s 
+                           function and the relationship between plants and batteries.<br>
+                           In the third session it was about Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+                           varieties of routers used by business users as well as individual users.<br>
+                           And the last session is Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+                           varieties of routers used by business users as well as individual users.<br>
+                           To help students understand how RTTC, Hyderabad contributes to the skill development of telecom workers, and to introduce them to the training programs
+                           offered by the center. It was intended to bridge the gap between academic understanding and real – world applications in the ever – 
+                          evolving telecom industry
+
+                        </p>
+
+                       <img src="do.jpeg.jpeg" alt="Bsnl Industrial Visit">
+                </div>
+            </div>
+         </li>
+
+         <li><div class="about-title">T-Hub Industrial Visit</div><br>
+
+         <span class="toggle-thub" onclick="openPopup(this)">
+            <u><small>Read More</small></u></span>
+
+
+            <div class="hide-display">
+                 <div class="out-reach-pop">
+                       <p>
+                            The Department organized an Industrial Visit (IV) to T-Hub, Hyderabad, with the objective of providing students with practical exposure to innovation,
+                             entrepreneurship, and industry-oriented learning.<br>
+                             The visit commenced at 9:00 AM, with students and faculty departing from the college campus. 
+                             The group reached T-Hub at 10:30 AM, where the participants were warmly welcomed by the T-Hub team. Upon arrival, welcome drinks were served, 
+                             creating a pleasant and engaging environment for the students.<br>
+                             The first session was delivered by Mr. Srinivas Rao Mahankali, Vice President of T-Hub. He provided valuable insights into the history, vision, and growth of T-Hub, 
+                             explaining its establishment, objectives, and role in fostering startups and innovation. The session was highly interactive, with Mr. Srinivas Rao Mahankali actively 
+                             engaging with the students, encouraging them to ask questions and think creatively about entrepreneurship and innovation.<br>
+                             Students from four different colleges—Loyola Academy, Little Flower Degree College, Mahatma Gandhi Institute, and Guru Nanak Institutions—participated in the industrial visit. 
+                             All participating colleges were actively involved throughout the event. During the interaction session, students were encouraged to share their startup ideas, and 
+                             representatives from each college enthusiastically presented their concepts, leading to productive discussions and knowledge exchange.<br>
+                             At around 1:00 PM, lunch was provided within the T-Hub office premises. Following lunch, the students were taken on a guided tour of the T-Hub facility, where they 
+                             explored each and every floor of the building. During this visit, students interacted with the staff members, gained insights into the working environment, and received 
+                             feedback and reviews about the startup ecosystem and professional opportunities available at T-Hub.<br>
+                             The Industrial Visit was both educational and enjoyable, offering students firsthand exposure to a dynamic innovation ecosystem while also providing an engaging and memorable
+                             experience. Overall, the visit greatly enhanced the students’ understanding of entrepreneurship, collaboration, and real-world industry practices, making it a highly successful
+                             and enjoyable IV.
+                        </p>
+                       <img src="nout01.jpeg" alt="Coca-Cola Factory">
+                 </div>
+             </div>
+             </li>
+             </ul>
+        </section>
+
+</section>
+
+
+    <!-- ================= PROGRAMS OFFERED ================= -->
+    <section id="programs">
+        <h2>Programs Offered</h2>
+
+        <div class="program-card">
+            <h3>B.Sc Computer Science and Machine Learning</h3>
+            <p>Duration: 3 Years</p>
+            <p>Focus: AI, Data Science, Deep Learning</p>
+        </div>
+    </section>
+
+    <!-- ================= CURRICULUM HIGHLIGHTS ================= -->
+    <section id="curriculum">
+        <h2>Curriculum Highlights</h2>
+
+        <ul>
+            <li>Industry-aligned Machine Learning curriculum</li>
+            <li>Strong foundation in Python, Mathematics, and Statistics</li>
+            <li>Core concepts of Supervised and Unsupervised Learning</li>
+            <li>Hands-on training through dedicated ML laboratories</li>
+            <li>Exposure to Data Science and Data Visualization</li>
+            <li>Introduction to Artificial Intelligence and Deep Learning</li>
+            <li>Real-world projects and case-based learning</li>
+            <li>Guest lectures, workshops, and industrial visits</li>
+            <li>Internship and certification guidance</li>
+            <li>Focus on innovation, research, and employability</li>
+        </ul>
+    </section>
+
+    <!-- ================= LABS & INFRASTRUCTURE ================= -->
+    <section id="labs">
+        <h2>Laboratories & Infrastructure</h2>
+
+        <div class="lab-list">
+            <p>✔ Machine Learning Lab</p>
+            <p>✔ Artificial Intelligence Lab</p>
+            <p>✔ Data Science Lab</p>
+        </div>
+    </section>
+
+    <!-- ================= FACULTY SNAPSHOT ================= -->
+    <section id="faculty">
+        <h2>Faculty</h2>
+
+        <div class="faculty_det">
+
+            <div class="faculty-card">
+            <img src="venugopal sir.jpeg" alt="Venugopal">
+            <h3>Mr. A. Venugopal</h3>
+            <p class="role">Designation:Asst. Prof. in Comp. Sci. & HoD</p>
+            <p>Qualification:M.Sc., M.Phil. (CS)., TG-SET</p>
+            </div>
+
+            <div class="faculty-card">
+                 <img src="shanthi mam.jpeg" alt="Shanthi">
+                 <h3>Dr. C. Shanthi</h3>
+                <p class="role">Asst. Prof. in Electronics</p>
+                <p>Qualification: M.Tech, Ph.D. (MBA)</p>
+                <p> Specialization: Electronics</p>
+            </div>
+
+            <div class="faculty-card">
+                <img src="rajini mam.jpeg" alt="Rajini">
+                <h3>Dr. B. Rajini</h3>
+                <p class="role">Asst. Prof. in Comp. Sci.</p>
+                <p>Qualification: M.Sc. (CS), Ph.D.</p>
+                <p>Specialization: Deep Learning</p>
+            </div>
+
+            <div class="faculty-card">
+                 <img src="naveen sir.jpeg" alt="Naveen">
+                 <h3>Mr. N. Naveen</h3>
+                 <p class="role">Asst. Prof. in Comp. Sci.</p>
+                 <p>Qualification: M.Sc. Computer Science</p>
+                 <p>Specialization: NLP</p>
+            </div>
+
+            <div class="faculty-card">
+               <img src="kavya mam.jpeg" alt="Kavya">
+               <h3>Mrs. B. Kavya</h3>
+               <p class="role">Asst. Prof. in Comp. Sci.</p>
+               <p>Qualification: M.Sc. Computer Science</p>
+               <p>Specialization: NLP</p>
+            </div>
+
+            <!-- VIEW ALL FACULTY -->
+            <div class="view-all-card">
+                <a href="#" class="btn">View All Faculty</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= STUDENT RESOURCES ================= -->
+    <section id="resources">
+        <h2>Student Resources</h2>
+
+        <ul>
+            <li><a href="#">Study Materials</a></li>
+            <li><a href="#">Previous Question Papers</a></li>
+            <li><a href="#">Seminars & Workshops</a></li>
+            <li><a href="#">Coding Club Activities</a></li>
+        </ul>
+    </section>
+
+    <!-- ================= NEWS & EVENTS ================= -->
+    <section id="news">
+        <h2>News & Events</h2>
+
+        <article>
+            <h4>Guest Lecture on AI Trends</h4>
+            <p>Date: 10 March 2026</p>
+        </article>
+
+        <article>
+            <h4>Machine Learning Workshop</h4>
+            <p>Date: 25 February 2026</p>
+        </article>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>
+            © 2026 Department of Machine Learning<br>
+            LOYOLA ACADEMY Degree & PG College (Autonomous)
+        </p>
+
+        <div class="footer-map-container">
+           <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
+        </div>
+
+        <p>Email Id: Info@loyolaacademy.edu.in | Phone: +91 89770 12915
+        </p>
+    </footer>
+
+</body>
+
+</html>
 
 body {
     line-height: 1.6;
