@@ -72,7 +72,12 @@ body {
 
 .dept-logo {
   width: 60px;
-  height: auto;
+  height: 60px;
+  border-radius: 50%;      /* makes it circular */
+  object-fit: cover;       /* prevents image stretch */
+  border: 2px solid #fff;  /* optional – clean white border */
+  background: #fff;  
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
 .header-text h1 {
