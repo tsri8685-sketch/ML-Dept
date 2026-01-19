@@ -54,29 +54,48 @@ body {
 }
 
 /* ================= HEADER ================= */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #0a1f44;
-    color: #fff;
-    padding: 15px 40px;
-    user-select: none;        /* prevents text selection */
-   -webkit-user-select: none;
-   -moz-user-select: none;
+/* HEADER FIX */
+.dept-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0a1f44;
+  padding: 15px 40px;
+  color: white;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
-.logo {
-    display: flex;
-    align-items: center;
+.dept-logo {
+  width: 60px;
+  height: auto;
+}
+
+.header-text h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.college-name {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 768px) {
+  .dept-header {
+    flex-direction: column;
+    text-align: center;
     gap: 15px;
-}
+  }
 
-.dept-brand img {
-    width: 60px;       /* adjust as needed */
-    height: auto;      /* keeps proportions */
-    object-fit: contain;
+  .header-left {
+    flex-direction: column;
+  }
 }
 
 
@@ -641,14 +660,17 @@ function openSubPopup(event, id) {
 <body>
 
     <!-- ================= HEADER / NAVBAR ================= -->
-    <header class="dept-header">
-       <div class="dept-brand">
-            <img src="logo_ml.jpeg" alt="Department Logo">
+<header class="dept-header">
+  <div class="header-left">
+    <img src="logo_ml.jpeg" alt="Department Logo" class="dept-logo">
 
-                <h1>Department of Machine Learning</h1>
-                <p class="college-name">Loyola Academy, Degree and PG College, Old Alwal, Secundrabad</p>
-            </div>
-        </div>
+    <div class="header-text">
+      <h1>Department of Machine Learning</h1>
+      <p class="college-name">
+        Loyola Academy, Degree and PG College, Old Alwal, Secunderabad
+      </p>
+    </div>
+  </div>
 
         <nav class="dept-nav">
             <ul>
