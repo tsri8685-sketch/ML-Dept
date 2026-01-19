@@ -73,9 +73,12 @@ header {
     gap: 15px;
 }
 
-.logo img {
-    width: 15px;
+.dept-brand img {
+    width: 60px;       /* adjust as needed */
+    height: auto;      /* keeps proportions */
+    object-fit: contain;
 }
+
 
 nav ul {
     list-style: none;
@@ -639,9 +642,9 @@ function openSubPopup(event, id) {
 
     <!-- ================= HEADER / NAVBAR ================= -->
     <header class="dept-header">
-        <div class="dept-brand">
+       <div class="dept-brand">
             <img src="logo_ml.jpeg" alt="Department Logo">
-            <div>
+
                 <h1>Department of Machine Learning</h1>
                 <p class="college-name">Loyola Academy, Degree and PG College, Old Alwal, Secundrabad</p>
             </div>
