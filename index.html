@@ -262,18 +262,62 @@ section h2 {
     
 /* ================= FACULTY ================= */
     
-.faculty_det { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; justify-content:center; }
-.faculty-card { background:#f9f9f9; padding:20px; border-radius:6px; box-shadow:0 2px 6px rgba(0,0,0,0.08); text-align:center; display:flex; flex-direction:column; justify-content:space-between; }
+.faculty_det {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
 
+.faculty-card {
+  height: 260px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-.faculty-card img { width:120px; height:120px; object-fit:cover; border-radius:50%; margin:0 auto 15px; }
-.role { font-weight:bold; color:#0a1f44; }
-.view-all-card { padding:30px; text-align:center; }
-.view-all-card .btn { margin-top:40px; background:#00c6ff; color:#000; border:none; padding:12px 25px; border-radius:6px; cursor:pointer; }
-.view-all-card .btn:hover { background:#009ecf; }
-.extra-faculty { display:none; }
-.faculty_det.show-all .extra-faculty { display:block; }
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.faculty-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+  border: 3px solid #ddd;
+}
+
+.faculty-card:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: translateY(-6px);
+}
+
+.faculty-card:hover h3,
+.faculty-card:hover .role {
+  color: #fff;
+}
+
+.faculty-card:hover img {
+  border-color: #fff;
+}
+
+.extra-faculty {
+  display: none;
+}
+
+.faculty_det.show-all .extra-faculty {
+  display: flex;
+}
+
+.faculty-btn-wrap {
+  text-align: center;
+  margin-top: 30px;
+}
+
 
     
 /* ================= Out Reach Card ================= */
@@ -627,25 +671,26 @@ document.querySelectorAll(".hide-display-sub")
 
     /* ---------- VIEW ALL FACULTY BUTTON ---------- */
   document.addEventListener("DOMContentLoaded", function () {
-    const grid = document.getElementById("facultyGrid");
-    const btn = document.getElementById("viewBtn");
+  const grid = document.getElementById("facultyGrid");
+  const btn = document.getElementById("viewBtn");
 
-    // Open extra faculty
-    btn.addEventListener("click", function (e) {
-        e.stopPropagation();          // only stop on button
-        grid.classList.add("show-all");
-        btn.style.display = "none";
-    });
+  // Open faculty
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    grid.classList.add("show-all");
+    btn.style.display = "none";
+  });
 
-    // Click ANYWHERE → close
-    document.addEventListener("click", function () {
-        grid.classList.remove("show-all");
-        btn.style.display = "inline-block";
+  // Click anywhere → close faculty
+  document.addEventListener("click", function () {
+    grid.classList.remove("show-all");
+    btn.style.display = "inline-block";
+  });
 
-        // close course popups also
-        document.querySelectorAll(".hide-display-sub")
-            .forEach(p => p.classList.remove("active"));
-    });
+  // Prevent closing when clicking inside faculty grid
+  grid.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
 });
 
 // Course popup
@@ -1005,31 +1050,30 @@ function openSubPopup(event, id) {
 
     <!-- ================= FACULTY SNAPSHOT ================= -->
 <section id="faculty">
-<h2>Faculty</h2>
-<div class="faculty_det" id="facultyGrid">
+  <h2>Faculty</h2>
+
+  <div class="faculty_det" id="facultyGrid">
+
+    <!-- Visible -->
     <div class="faculty-card"><img src="venugopal sir.jpeg"><h3>Mr. A. Venugopal</h3><p class="role">Asst. Prof. in Comp. Sci & HoD</p></div>
     <div class="faculty-card"><img src="shanthi mam.jpeg"><h3>Dr. C. Shanthi</h3><p class="role">Asst. Prof. Electronics</p></div>
     <div class="faculty-card"><img src="rajini mam.jpeg"><h3>Dr. B. Rajini</h3><p class="role">Asst. Prof. in Comp. Sci</p></div>
     <div class="faculty-card"><img src="naveen sir.jpeg"><h3>Mr. N. Naveen</h3><p class="role">Asst. Prof. in Comp. Sci</p></div>
     <div class="faculty-card"><img src="kavya mam.jpeg"><h3>Mrs. B. Kavya</h3><p class="role">Asst. Prof. in Comp. Sci</p></div>
 
-    <div class="view-all-card">
-        <button class="btn" id="viewBtn">View All Faculty</button>
-    </div>
-
+    <!-- Hidden -->
     <div class="faculty-card extra-faculty"><img src="os_sir.jpeg"><h3>Mr. P. Venkata Jaya Krishna Ramana Teja</h3><p class="role">Asst. Prof. in Comp. Sci</p></div>
     <div class="faculty-card extra-faculty"><img src="bindhu_mam.jpeg"><h3>Mrs. Bindhu Babu</h3><p class="role">Asst. Prof. in Mathematics</p></div>
     <div class="faculty-card extra-faculty"><img src="kiran_sir.jpeg"><h3>Mr. K. Kiran Kumar</h3><p class="role">Asst. Prof. in Mathematics</p></div>
     <div class="faculty-card extra-faculty"><img src="sravani_mam.jpeg"><h3>Mrs. P. Sravani</h3><p class="role">Asst. Prof. in Statistics</p></div>
     <div class="faculty-card extra-faculty"><img src="sirisha_mam.jpeg"><h3>Ms. Sirisha</h3><p class="role">Asst. Prof. in Mathematics</p></div>
-    <div class="faculty-card extra-faculty"><img src="pritivika_mam.jpeg"><h3>Dr. S. Prithivika</h3><p class="role">Asst. Prof. in English</p></div>
-    <div class="faculty-card extra-faculty"><img src="hep_mam.jpeg"><h3>Ms. B. Hepzibah Spooorthi </h3><p class="role">Asst. Prof. in English</p></div>
-    <div class="faculty-card extra-faculty"><img src="evs.jpeg"><h3>Dr. B. Usha Rani </h3><p class="role">Asst. Prof. in EVS </p></div>
-    <div class="faculty-card extra-faculty"><img src="musalaya_sir.jpg"><h3>Mr. K. Musalaiah</h3><p class="role">Asst. Prof. in IHC </p></div>
 
-</div>
+  </div>
+
+  <div class="faculty-btn-wrap">
+    <button id="viewBtn" class="btn">View All Faculty</button>
+  </div>
 </section>
-
 
     <!-- ================= STUDENT RESOURCES ================= -->
     <section id="resources">
