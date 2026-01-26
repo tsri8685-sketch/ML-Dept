@@ -318,242 +318,187 @@ section h2 {
   margin-top: 30px;
 }
 
+    #viewBtn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 114, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+#viewBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+}
+
+/* Click effect */
+#viewBtn:active {
+  transform: scale(0.95);
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+  #viewBtn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
 
     
 /* ================= Out Reach Card ================= */
 
-#Out-Reach {
-    display: grid;
-    gap: 40px;
-    background: #f4f6f8;
-
-}
-
-/* Out Reach Popup Container */
-.out-reach-pop {
+.outreach-card {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1.1fr 2fr;
   gap: 25px;
-  align-items: start;
-}
-
-
-/* Text */
-.out-reach-pop p {
-  margin: 0;
-  text-align: justify;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #333;
-}
-
-
-/* Image */
-.out-reach-pop img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 8px;
-  border: 2px solid #101112;
-  text-align: center;
-}
-
-
-.hide-display {
-  display: none;
-  width: 90%;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px 25px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  border-radius: 10px;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(4px);
-}
-
-/* ================= MOBILE FRIENDLY ================= */
-
-@media (max-width: 768px) {
-  .out-reach-pop {
-    grid-template-columns: 1fr;
-  }
-
-  .hide-display {
-    width: 95%;
-  }
-}
-
-
-
-/* ================= Read More ================= */
-
-.sample {
-  display: flex;
-  justify-content: left;
-  gap: 80px;
-  margin-top: 30px;
-  color: #4f3ea3;
-}
-
-
-.toggle-coke,
-.toggle-bsnl,
-.toggle-thub {
-  cursor: pointer;
-  user-select: none;        /* prevents text selection */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-   color: #1a4fa3;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.toggle-coke:hover,
-.toggle-bsnl:hover,
-.toggle-thub:hover {
-  color: #0f3575;
-}
-
-#hide-display {
-  display: none;
-  width: 70%;
-  margin: 30px auto;
-  padding: 25px;
   background: #ffffff;
-  box-shadow: 0 8px 20px rgba(236, 234, 234, 0.2);
-  border-radius: 10px;
-}
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 35px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 
-}
-.sample img{
-            margin-top: 10px;
-            border: 2px solid #101112;
-            border-radius: 10px;
-            height: 350px;
-            width: 650px;
-}
-
-.about-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #0b3c6d;
-  margin-top: 20px;
-  border-left: 4px solid #0b3c6d;
-  padding-left: 10px;
-}
-
-.abot-pop ol {
-  margin-left: 20px;
-}
-
-
-/* hide checkbox */
-input[type="checkbox"] {
-  display: none;
-}
-
-/* hidden content */
-/* Popup overlay */
-.hide-display {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 9999;
-  padding: 40px 20px;
-}
-
-/* Active popup */
-.hide-display.active {
-  display: flex;
-  justify-content: center;
+  /* 🔑 THIS IS THE FIX */
   align-items: center;
 }
 
-/* Popup content */
-.about-pop,
-.out-reach-pop {
-  background: #fff;
-  max-width: 1000px;
+
+/* Card hover */
+.outreach-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 114, 255, 0.25);
+}
+
+/* Image */
+.outreach-card img {
   width: 100%;
-  padding: 25px;
-  border-radius: 10px;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
-.outreach-images {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  align-items: center;      
-}
-
-.outreach-images img {
-  /* width: 240px; */
-  border-radius: 8px;
-  border: 2px solid #101112;
-  width: 260px;
-  height: 180px;
+  height: 260px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Image hover */
+.outreach-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Right box */
+.outreach-box {
+  background: #f6faff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tag */
+.outreach-tag {
+  background: #e3efff;
+  color: #0056b3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+/* Bottom meta container */
+.outreach-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+/* Individual info boxes */
+.outreach-meta div {
+  background: #eaf3ff;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 13px;
+  color: #0a1f44;
+  font-weight: 500;
+  box-shadow: inset 0 0 0 1px #cfe3ff;
+  transition: all 0.3s ease;
+}
+
+/* Info box hover */
+.outreach-meta div:hover {
+  background: #d9ebff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 114, 255, 0.35);
+}
+
+/* Title inside info boxes */
+.outreach-meta strong {
   display: block;
-  margin: 0 auto;            /* fallback centering */
-  max-width: 100%;
+  font-size: 12px;
+  color: #0056b3;
+  margin-bottom: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .outreach-card {
+    grid-template-columns: 1fr;
+  }
+
+  .outreach-card img {
+    height: 220px;
+  }
+
+  .outreach-meta {
+    grid-template-columns: 1fr;
+  }
 }
 
 
-
-
-.out-reach-pop p {
-  font-size: 16px;
-  line-height: 1.8;
-  text-align: justify;
-  color: #333;
+/* Tag */
+.tag {
+  display: inline-block;
+  background: #e8f1ff;
+  color: #0056b3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
 }
 
-.out-reach-pop {
-  display: block;
+/* Meta info */
+.meta {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: #555;
+  margin: 10px 0;
+  flex-wrap: wrap;
 }
 
-.out-reach li{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    background: #f4f6f8;
-}
+/* Mobile view */
+@media (max-width: 768px) {
+  .outreach-card {
+    grid-template-columns: 1fr;
+  }
 
-.out-reach small{
-    display: flex;
-  justify-content: left;
-  gap: 80px;
-  margin-top: 30px;
-  color: #4f3ea3;
-}
+  .outreach-section {
+    padding: 40px 20px;
+  }
 
-
-#about-toggle:checked ~ #hide-display {
-  display: block;
-}
-
-
-/* show content when checked */
-#toggle-coke:checked ~ .hide-display,
-#toggle-bsnl:checked ~ .hide-display,
-#toggle-thub:checked ~ .hide-display {
-  display: block;
-}
-
-
-.sample small{
-    font-size: 14px;
-    color: #325980;
-}
-
+  .outreach-card img {
+    height: 200px;
+  }
 
 /* ================= FOOTER ================= */
 footer {
@@ -896,117 +841,118 @@ function openSubPopup(event, id) {
     </section>
 
     <!-- ================= Out Reach  ================= -->
-<section id="about">
-        <h2>Out Reach</h2>
-          <p>
-            The college organizes outreach programs and industrial visits to provide students with practical exposure beyond the classroom. 
-            Through these IVs, students interact with industry professionals, understand real-world applications of their subjects, and gain insights into industrial processes, 
-            technologies, and work culture. Outreach activities also help students develop social responsibility, teamwork, and professional skills while bridging the gap between academic 
-            learning and industry requirements.
-          </p><br><br>
+<section id="outreach" class="outreach-section">
+  <h2>Out Reach</h2>
 
-        <ul>
-        <section id="Out-Reach">
-         <li><div class="about-title">Coca-Cola Factory Visit</div><br>
+  <!-- Coca-Cola -->
+  <div class="outreach-card">
+    <img src="acsml 1.jpeg" alt="Coca-Cola Factory Visit">
 
+    <div class="outreach-box">
+      <span class="outreach-tag">Industrial Visit</span>
 
-          <span class="toggle-coke" onclick="openPopup(this)">
-            <u><small>Read More</small></u></span>
+      <h3>Coca-Cola Factory Visit</h3>
 
-            <div class="hide-display">
-               <div class="out-reach-pop">
-                  <p>
-                      We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility. 
-                      The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
-                      and quality at every stage.<br>
-                      During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
-                      From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled
-                      Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.<br>
-                      The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
-                       The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver a trusted 
-                      product to consumers.<br>
-                      At the beginning of the visit, we were warmly welcomed by the factory team and were offered 
-                      refreshing welcome drinks, which added a pleasant touch to the experience. Overall, the visit provided valuable insight into 
-                     large-scale beverage manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.</p>
+      <p>
+         We had an insightful and memorable visit to the Coca-Cola factory, where we were given a complete guided tour of the facility. 
+        The entire production process is highly advanced and fully operated using modern machinery, ensuring efficiency, consistency,
+        and quality at every stage.<br>
+        During the factory round, we observed how the manufacturing process is organized into different levels, each with a specific function.
+        From raw material handling and mixing to bottling, labeling, and packaging, every stage is carefully monitored and controlled
+        Automated machines handle most of the work, reducing manual intervention and maintaining high standards of hygiene and safety.<br>
+        The staff explained how quality checks are carried out at multiple levels to ensure that every bottle meets Coca-Cola’s global standards.
+        The smooth coordination between machines and skilled operators demonstrated how technology and teamwork work together to deliver a trusted 
+        product to consumers.<br>
+        At the beginning of the visit, we were warmly welcomed by the factory team and were offered 
+        refreshing welcome drinks, which added a pleasant touch to the experience. Overall, the visit provided valuable insight into 
+        large-scale beverage manufacturing and showcased Coca-Cola’s commitment to innovation, quality, and customer satisfaction.</p>
+      </p>
 
-                  </p>
+      <div class="outreach-meta">
+        <div><strong>Date</strong><br>2025</div>
+        <div><strong>Venue</strong><br>Coca-Cola Factory</div>
+        <div><strong>Participants</strong><br> 50+ </div>
+      </div>
+    </div>
+  </div>
 
-                  <img src="acsml 1.jpeg" alt="Coca-Cola Factory">
-              </div>
-          </div>
-        </li>
+  <!-- BSNL -->
+  <div class="outreach-card">
+    <img src="do.jpeg" alt="BSNL Industrial Visit">
 
-         <li><div class="about-title">Bsnl Industrial Visit</div><br>
+    <div class="outreach-box">
+      <span class="outreach-tag">Industrial Visit</span>
 
-            <span class="toggle-bsnl" onclick="openPopup(this)">
-            <u><small>Read More</small></u></span>
+      <h3>BSNL Industrial Visit</h3>
 
-              <div class="hide-display">
-                <div class="out-reach-pop">
-                    <p>
-                        Through an exploration of facilities and training tools, BSNL sought to provide students with a practical grasp of the 
-                           telecommunication infrastructure. It also provided the opportunity to explore BSNL’s operations and highlight its role in preserving 
-                           and growing the country’s telecom network.<br>
-                           The first session is about the Telecommunication Networking by Mr. Ramesh from 10:00 A.M. to 11:15 A.M. During the discussion, they spoke about
-                           communication channels, or transmission media. They addressed about a variety of data transmission techniques, including satellite and terrestrial 
-                           transmission, guided and unguided media and more. During the orientation, fundamentals of landline communications, including copper and fibre optic 
-                           connections were presented.<br>
-                           And the second session is about Battery and Power Connections by Mr. Krishna Reddy from 11:15 A.M. to 12:15 P.M.
-                           The main topics of discussion at the session included current supply, different types of current, and how to connect mobile calls. The way battery’s 
-                           function and the relationship between plants and batteries.<br>
-                           In the third session it was about Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
-                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
-                           varieties of routers used by business users as well as individual users.<br>
-                           And the last session is Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
-                           The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
-                           varieties of routers used by business users as well as individual users.<br>
-                           To help students understand how RTTC, Hyderabad contributes to the skill development of telecom workers, and to introduce them to the training programs
-                           offered by the center. It was intended to bridge the gap between academic understanding and real – world applications in the ever – 
-                          evolving telecom industry
+      <p>
+        Through an exploration of facilities and training tools, BSNL sought to provide students with a practical grasp of the 
+        telecommunication infrastructure. It also provided the opportunity to explore BSNL’s operations and highlight its role in preserving 
+        and growing the country’s telecom network.<br>
+        The first session is about the Telecommunication Networking by Mr. Ramesh from 10:00 A.M. to 11:15 A.M. During the discussion, they spoke about
+        communication channels, or transmission media. They addressed about a variety of data transmission techniques, including satellite and terrestrial 
+        transmission, guided and unguided media and more. During the orientation, fundamentals of landline communications, including copper and fibre optic 
+        connections were presented.<br>
+        And the second session is about Battery and Power Connections by Mr. Krishna Reddy from 11:15 A.M. to 12:15 P.M.
+        The main topics of discussion at the session included current supply, different types of current, and how to connect mobile calls. The way battery’s 
+        function and the relationship between plants and batteries.<br>
+        In the third session it was about Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+        The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+        varieties of routers used by business users as well as individual users.<br>
+        And the last session is Networking lab by Mr. Prasanth, SDE from 12:00 P.M. to 1:00 P.M.
+        The focus of the session was on using a router for network access and communications. The process of accessing a router both locally and worldwide,
+        varieties of routers used by business users as well as individual users.<br>
+        To help students understand how RTTC, Hyderabad contributes to the skill development of telecom workers, and to introduce them to the training programs
+        offered by the center. It was intended to bridge the gap between academic understanding and real – world applications in the ever – 
+        evolving telecom industry
+      </p>
 
-                        </p>
+      <div class="outreach-meta">
+        <div><strong>Date</strong><br>2025</div>
+        <div><strong>Venue</strong><br>BSNL Industrial Vist</div>
+        <div><strong>Participants</strong><br>10+</div>
+      </div>
+    </div>
+  </div>
 
-                       <img src="do.jpeg" alt="Bsnl Industrial Visit">
-                </div>
-            </div>
-         </li>
+  <!-- T-Hub -->
+  <div class="outreach-card">
+    <img src="nout.jpeg" alt="T-Hub Industrial Visit">
 
-         <li><div class="about-title">T-Hub Industrial Visit</div><br>
+    <div class="outreach-box">
+      <span class="outreach-tag">T-Hub Industrial Visit</span>
 
-         <span class="toggle-thub" onclick="openPopup(this)">
-            <u><small>Read More</small></u></span>
+      <h3>T-Hub Industrial Visit</h3>
 
+      <p>
+        The Department organized an Industrial Visit (IV) to T-Hub, Hyderabad, with the objective of providing students with practical exposure to innovation,
+        entrepreneurship, and industry-oriented learning.<br>
+        The visit commenced at 9:00 AM, with students and faculty departing from the college campus. 
+        The group reached T-Hub at 10:30 AM, where the participants were warmly welcomed by the T-Hub team. Upon arrival, welcome drinks were served, 
+        creating a pleasant and engaging environment for the students.<br>
+        The first session was delivered by Mr. Srinivas Rao Mahankali, Vice President of T-Hub. He provided valuable insights into the history, vision, and growth of T-Hub, 
+        explaining its establishment, objectives, and role in fostering startups and innovation. The session was highly interactive, with Mr. Srinivas Rao Mahankali actively 
+        engaging with the students, encouraging them to ask questions and think creatively about entrepreneurship and innovation.<br>
+        Students from four different colleges—Loyola Academy, Little Flower Degree College, Mahatma Gandhi Institute, and Guru Nanak Institutions—participated in the industrial visit. 
+        All participating colleges were actively involved throughout the event. During the interaction session, students were encouraged to share their startup ideas, and 
+        representatives from each college enthusiastically presented their concepts, leading to productive discussions and knowledge exchange.<br>
+        At around 1:00 PM, lunch was provided within the T-Hub office premises. Following lunch, the students were taken on a guided tour of the T-Hub facility, where they 
+        explored each and every floor of the building. During this visit, students interacted with the staff members, gained insights into the working environment, and received 
+        feedback and reviews about the startup ecosystem and professional opportunities available at T-Hub.<br>
+        The Industrial Visit was both educational and enjoyable, offering students firsthand exposure to a dynamic innovation ecosystem while also providing an engaging and memorable
+        experience. Overall, the visit greatly enhanced the students’ understanding of entrepreneurship, collaboration, and real-world industry practices, making it a highly successful
+        and enjoyable IV.
+      </p>
 
-            <div class="hide-display">
-                 <div class="out-reach-pop">
-                       <p>
-                            The Department organized an Industrial Visit (IV) to T-Hub, Hyderabad, with the objective of providing students with practical exposure to innovation,
-                             entrepreneurship, and industry-oriented learning.<br>
-                             The visit commenced at 9:00 AM, with students and faculty departing from the college campus. 
-                             The group reached T-Hub at 10:30 AM, where the participants were warmly welcomed by the T-Hub team. Upon arrival, welcome drinks were served, 
-                             creating a pleasant and engaging environment for the students.<br>
-                             The first session was delivered by Mr. Srinivas Rao Mahankali, Vice President of T-Hub. He provided valuable insights into the history, vision, and growth of T-Hub, 
-                             explaining its establishment, objectives, and role in fostering startups and innovation. The session was highly interactive, with Mr. Srinivas Rao Mahankali actively 
-                             engaging with the students, encouraging them to ask questions and think creatively about entrepreneurship and innovation.<br>
-                             Students from four different colleges—Loyola Academy, Little Flower Degree College, Mahatma Gandhi Institute, and Guru Nanak Institutions—participated in the industrial visit. 
-                             All participating colleges were actively involved throughout the event. During the interaction session, students were encouraged to share their startup ideas, and 
-                             representatives from each college enthusiastically presented their concepts, leading to productive discussions and knowledge exchange.<br>
-                             At around 1:00 PM, lunch was provided within the T-Hub office premises. Following lunch, the students were taken on a guided tour of the T-Hub facility, where they 
-                             explored each and every floor of the building. During this visit, students interacted with the staff members, gained insights into the working environment, and received 
-                             feedback and reviews about the startup ecosystem and professional opportunities available at T-Hub.<br>
-                             The Industrial Visit was both educational and enjoyable, offering students firsthand exposure to a dynamic innovation ecosystem while also providing an engaging and memorable
-                             experience. Overall, the visit greatly enhanced the students’ understanding of entrepreneurship, collaboration, and real-world industry practices, making it a highly successful
-                             and enjoyable IV.
-                        </p>
-                       <img src="nout.jpeg" alt="T-Hub IV">
-                 </div>
-             </div>
-             </li>
-             </ul>
-        </section>
+      <div class="outreach-meta">
+        <div><strong>Date</strong><br>2025</div>
+        <div><strong>Venue</strong><br>T-Hub Hyderabad</div>
+        <div><strong>Participants</strong><br>60+</div>
+      </div>
+    </div>
+  </div>
 
 </section>
-
 
     <!-- ================= PROGRAMS OFFERED ================= -->
     <section id="programs">
