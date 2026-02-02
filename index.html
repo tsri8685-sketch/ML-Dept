@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Department of Machine Learning</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 
 
@@ -575,40 +578,75 @@ section h2 {
   .outreach-card img {
     height: 200px;
   }
+}
 
 /* ================= FOOTER ================= */
-footer {
-    background: #0a1f44;
-    color: white;
-    text-align: center;
-    padding: 25px;
-    margin-top: 40px;
+
+
+.main-footer {
+  background: linear-gradient(135deg, #0a1f44, #00142d);
+  padding: 30px 20px;
+  color: #fff;
 }
 
-.footer-map-container {
-  width: 350px;
-  max-width: 90%;
-  margin: 15px auto;
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  gap: 25px;
 }
 
-.footer-map-container iframe {
+/* LEFT & RIGHT ICONS */
+.footer-left,
+.footer-right {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-left a,
+.footer-right a {
+  color: #fff;
+  font-size: 22px;
+  transition: 0.3s ease;
+}
+
+.footer-left a:hover,
+.footer-right a:hover {
+  color: #00c6ff;
+  transform: scale(1.2);
+}
+
+/* CENTER CONTENT */
+.footer-center {
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-map {
+  margin-top: 12px;
+}
+
+.footer-map iframe {
   width: 100%;
-  height: 200px;
-  border-radius: 8px;
+  height: 180px;
+  border-radius: 10px;
+  border: none;
 }
 
-
-@keyframes popupFade {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(20px);
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+
+  .footer-map iframe {
+    height: 200px;
   }
 }
-
 
 
 </style>
@@ -1106,19 +1144,51 @@ function openSubPopup(event, id) {
     </section>
 
     <!-- ================= FOOTER ================= -->
-    <footer>
-        <p>
-            © 2026 Department of Machine Learning<br>
-            LOYOLA ACADEMY Degree & PG College (Autonomous)
-        </p>
+<footer class="main-footer">
+  <div class="footer-content">
 
-        <div class="footer-map-container">
-           <iframe src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"></iframe>
-        </div>
+    <!-- LEFT : Contact Icons -->
+    <div class="footer-left">
+      <a href="tel:+918977012915" title="Call">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="mailto:Info@loyolaacademy.edu.in" title="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
 
-        <p>Email Id: Info@loyolaacademy.edu.in | Phone: +91 89770 12915
-        </p>
-    </footer>
+    <!-- CENTER : Text + Map -->
+    <div class="footer-center">
+      <p>
+        © 2026 Department of Machine Learning<br>
+        LOYOLA ACADEMY Degree & PG College (Autonomous)
+      </p>
+
+      <div class="footer-map">
+        <iframe 
+          src="https://www.google.com/maps?q=Loyola%20Academy%20Alwal%20Hyderabad&output=embed"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- RIGHT : Social Icons -->
+    <div class="footer-right">
+      <a href="https://wa.me/918977012915" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="#" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+
 
 </body>
 
