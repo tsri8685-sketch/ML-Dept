@@ -34,27 +34,62 @@
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-
-    
-    /* ================= RESET ================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  font-family: "Merriweather", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
-    font-family: "Merriweather", serif;
-   background: #cddaed;
-   color: #2c2c2c;
-    line-height: 1.6;
-    color: #333;
-    user-select: none;        /* prevents text selection */
-   -webkit-user-select: none;
-   -moz-user-select: none;
+  background: #f4f6fb;
+  color: #2c2c2c;
+  line-height: 1.7;
+  overflow-x: hidden;
 }
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.hero-content h2 {
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-content p {
+  opacity: 0.95;
+}
+
+.program-card {
+  border-radius: 18px;
+  background: #fff;
+}
+
+.faculty-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+.footer-left a,
+.footer-right a {
+  background: rgba(255,255,255,0.12);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
 /* ================= HEADER ================= */
 /* HEADER FIX */
@@ -359,23 +394,19 @@ section h2 {
 
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #f4f8fc;
-            color: #222;
-        }
-
-        /* Wrapper */
+      
         .outreach-wrapper {
             width: 90%;
             margin: auto;
             padding: 60px 0;
         }
+
+        /* Outreach Program Card – Blue Left & Right Borders */
+.outreach-wrapper .program-card {
+  border-left: 6px solid #1e90ff;
+  border-right: 6px solid #1e90ff;
+}
+
 
         /* Header */
         .outreach-header {
@@ -416,9 +447,9 @@ section h2 {
     .program-details {
      width: 55%;
       }
-    body {
+    /* body {
       overflow-x: hidden;
-      }
+      } */
 
 
         /* Card */
