@@ -859,8 +859,6 @@ section h2 {
 
 
 <script>
-
- // <!-- ================= Achivments ================= -->
 const newsData = {
   news1: {
     img: "images/ncsml_ach.jpg",
@@ -886,11 +884,12 @@ function openNewsPopup(id) {
 
 function closeNewsPopup() {
   document.getElementById("newsPopup").style.display = "none";
+}
+</script>
 
 
- // <!-- ================= Hero Section ================= -->
 
-    
+<script>
     const hero = document.getElementById("hero");
 
     const images = [
@@ -910,6 +909,7 @@ function closeNewsPopup() {
     changeBackground();
     setInterval(changeBackground, 4000);
 </script>
+
 
 
     <!-- ================= JS FOR POPUP ================= -->
@@ -1385,7 +1385,7 @@ function openSubPopup(event, id) {
 
     <!-- Card 1 -->
     <div class="news-card" onclick="openNewsPopup('news1')">
-      <img src="images/acsml_ach.jpeg" alt="Seek And Find">
+      <img src="acsml_ach.jpeg" alt="AI Guest Lecture">
       <div class="news-overlay">
         <span>View Details</span>
       </div>
@@ -1393,7 +1393,7 @@ function openSubPopup(event, id) {
 
     <!-- Card 2 -->
     <div class="news-card" onclick="openNewsPopup('news2')">
-      <img src="images/ncsml_ach.jpeg" alt="Hackathon">
+      <img src="ncsml_ach.jpeg" alt="ML Workshop">
       <div class="news-overlay">
         <span>View Details</span>
       </div>
