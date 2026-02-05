@@ -671,6 +671,112 @@ section h2 {
   }
 }
 
+
+ /* <!-- ================= Achivemnets ================= --> */
+    
+/* ===== NEWS POPUP ===== */
+.news-popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.news-popup {
+  background: #fff;
+  width: 90%;
+  max-width: 650px;
+  padding: 25px;
+  border-radius: 18px;
+  position: relative;
+  animation: popupFade 0.35s ease;
+}
+
+.news-popup img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 15px;
+}
+
+.news-popup h3 {
+  color: #0a1f44;
+  margin-bottom: 5px;
+}
+
+.popup-date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 28px;
+  cursor: pointer;
+}
+/* ===== NEWS GALLERY ===== */
+.news-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.news-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(84, 83, 83, 0.18);
+  background: #e7e4e4;
+}
+
+/* Image wrapper */
+.news-card img {
+  width: 50%;
+  aspect-ratio: 10 / 5;  
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+
+
+/* Zoom image on hover */
+.news-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Overlay */
+.news-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,31,68,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.news-card:hover .news-overlay {
+  opacity: 1;
+}
+
+.news-overlay span {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border: 2px solid #00c6ff;
+  border-radius: 30px;
+  background: rgba(0,0,0,0.2);
+}
+
 /* ================= FOOTER ================= */
 
 .main-footer {
@@ -753,6 +859,38 @@ section h2 {
 
 
 <script>
+
+ // <!-- ================= Achivments ================= -->
+const newsData = {
+  news1: {
+    img: "images/ncsml_ach.jpg",
+    title: "1st Prize in Seek and Find",
+    date: "Conducted on 2025",
+    desc: "The department CS organized an event Seek and Find in which G.A.Sneha won the 1st prize"
+  },
+  news2: {
+    img: "images/acsml_ach.jpg",
+    title: "1st Prize in Intellexa Hackathon",
+    date: "Conducted on  2025",
+    desc: "The department AI organized an event INTELEXA HACKATHON in which Prasad,Manohar and Nikhl won the 1st prize."
+  }
+};
+function openNewsPopup(id) {
+  const data = newsData[id];
+  document.getElementById("popupImg").src = data.img;
+  document.getElementById("popupTitle").innerText = data.title;
+  document.getElementById("popupDate").innerText = data.date;
+  document.getElementById("popupDesc").innerText = data.desc;
+  document.getElementById("newsPopup").style.display = "flex";
+}
+
+function closeNewsPopup() {
+  document.getElementById("newsPopup").style.display = "none";
+
+
+ // <!-- ================= Hero Section ================= -->
+
+    
     const hero = document.getElementById("hero");
 
     const images = [
@@ -1240,22 +1378,42 @@ function openSubPopup(event, id) {
     </section>
 
     <!-- ================= NEWS & EVENTS ================= -->
-    <section id="programs">
-      
-        <h2>News & Events</h2>
+<section id="news">
+  <h2>Events</h2>
 
-        <article>
-            <h4>Guest Lecture on AI Trends</h4>
-            <p>Date: 10 March 2026</p>
-        </article>
+  <div class="news-gallery">
 
-        <article>
-            <h4>Machine Learning Workshop</h4>
-            <p>Date: 25 February 2026</p>
-        </article>
-        
-    </section>
+    <!-- Card 1 -->
+    <div class="news-card" onclick="openNewsPopup('news1')">
+      <img src="images/acsml_ach.jpeg" alt="Seek And Find">
+      <div class="news-overlay">
+        <span>View Details</span>
+      </div>
+    </div>
 
+    <!-- Card 2 -->
+    <div class="news-card" onclick="openNewsPopup('news2')">
+      <img src="images/ncsml_ach.jpeg" alt="Hackathon">
+      <div class="news-overlay">
+        <span>View Details</span>
+      </div>
+    </div>
+
+<!-- NEWS POPUP -->
+<div class="news-popup-overlay" id="newsPopup">
+  <div class="news-popup">
+    <span class="close-btn" onclick="closeNewsPopup()">&times;</span>
+
+    <img id="popupImg" src="">
+    <h3 id="popupTitle"></h3>
+    <p class="popup-date" id="popupDate"></p>
+    <p id="popupDesc"></p>
+  </div>
+</div>
+
+
+  </div>
+</section>
     <!-- ================= FOOTER ================= -->
 <footer class="main-footer">
   <div class="footer-content">
