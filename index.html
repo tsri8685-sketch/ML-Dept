@@ -674,108 +674,74 @@ section h2 {
 
  /* <!-- ================= Achivemnets ================= --> */
     
-/* ===== NEWS POPUP ===== */
-.news-popup-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  z-index: 9999;
-  align-items: center;
-  justify-content: center;
-}
-
-.news-popup {
-  background: #fff;
-  width: 90%;
-  max-width: 650px;
-  padding: 25px;
-  border-radius: 18px;
-  position: relative;
-  animation: popupFade 0.35s ease;
-}
-
-.news-popup img {
-  width: 100%;
-  border-radius: 14px;
-  margin-bottom: 15px;
-}
-
-.news-popup h3 {
-  color: #0a1f44;
-  margin-bottom: 5px;
-}
-
-.popup-date {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 12px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 28px;
-  cursor: pointer;
-}
-/* ===== NEWS GALLERY ===== */
 .news-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(4, 1fr); /* 🔥 4 cards */
+  gap: 25px;
+  margin-top: 30px;
 }
 
-
+/* Card size */
 .news-card {
   position: relative;
+  width: 100%;
+  height: 220px;              /* 🔥 fixed height */
+  border-radius: 16px;
   overflow: hidden;
-  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   cursor: pointer;
-  box-shadow: 0 14px 35px rgba(0,0,0,0.18);
-  background: #000;
-  height: 220px; 
 }
 
+/* Image fills card */
 .news-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
 }
 
-
-
-/* Zoom image on hover */
-.news-card:hover img {
-  transform: scale(1.08);
-}
-
-/* Overlay */
-.news-overlay {
+/* Tooltip overlay */
+.news-tooltip {
   position: absolute;
   inset: 0;
-  background: rgba(10,31,68,0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.news-card:hover .news-overlay {
-  opacity: 1;
-}
-
-.news-overlay span {
+  background: rgba(10, 31, 68, 0.95);
   color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  padding: 10px 24px;
-  border: 2px solid #00c6ff;
-  border-radius: 30px;
-  background: rgba(0,0,0,0.2);
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  opacity: 0;
+  visibility: hidden;
+  z-index: 5;
+
+  transform: translateY(12px);
+  transition: all 0.35s ease;
+}
+
+.news-card:hover .news-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.news-tooltip h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #00c6ff;
+}
+
+.news-tooltip p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tooltip-date {
+  font-size: 12px;
+  margin-top: 8px;
+  opacity: 0.85;
 }
 
 /* ================= FOOTER ================= */
@@ -855,55 +821,6 @@ section h2 {
 
 
 </style>
-
-
-
-
-<script>
-const newsData = {
-  news1: {
-      img: "acsml_ach.jpg",
-    title: "1st Prize in Intellexa Hackathon",
-    date: "Conducted on  2025",
-    desc: "The department AI organized an event INTELEXA HACKATHON in which Prasad, Manohar and Nikhl won the 1st prize."
-  },
-  news2: {
-
-    img: "ncsml_ach.jpg",
-    title: "1st Prize in Seek and Find",
-    date: "Conducted on 2025",
-    desc: "The department CS organized an event Seek and Find in which G.A.Sneha won the 1st prize"
-},
-
-  news3: {
-
-    img: "ncsml2_ach.jpg",
-    title: "Vastrakala Event",
-    date: "Conducted on 2025",
-    desc: "Swasthi Prasad and Pavan participated in the event."
-  },
-
-  news4: {
-
-    img: "ncsml3_ach.jpg",
-    title: "1st Prize in Painting Competition",
-    date: "Conducted on 2025",
-    desc: "The English department  organized an event in which Hima Bindhu won the 2nd prize"
-}
-};
-function openNewsPopup(id) {
-  const data = newsData[id];
-  document.getElementById("popupImg").src = data.img;
-  document.getElementById("popupTitle").innerText = data.title;
-  document.getElementById("popupDate").innerText = data.date;
-  document.getElementById("popupDesc").innerText = data.desc;
-  document.getElementById("newsPopup").style.display = "flex";
-}
-
-function closeNewsPopup() {
-  document.getElementById("newsPopup").style.display = "none";
-}
-</script>
 
 
 
@@ -1399,52 +1316,52 @@ function openSubPopup(event, id) {
 <section id="news">
   <h2>Events</h2>
 
+  <!-- 🔥 GRID CONTAINER (THIS WAS MISSING) -->
   <div class="news-gallery">
 
-    <!-- Card 1 -->
-    <div class="news-card" onclick="openNewsPopup('news1')">
+    <div class="news-card">
       <img src="acsml_ach.jpeg" alt="AI Guest Lecture">
-      <div class="news-overlay">
-        <span>View Details</span>
+      <div class="news-tooltip">
+        <h4>1st Prize – Intellexa Hackathon</h4>
+        <p>
+          The Department of AI organized the Intellexa Hackathon in which
+          Prasad, Manohar, and Nikhil secured the 1st prize.
+        </p>
+        <span class="tooltip-date">2025</span>
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="news-card" onclick="openNewsPopup('news2')">
-      <img src="ncsml_ach.jpeg" alt="ML Workshop">
-      <div class="news-overlay">
-        <span>View Details</span>
+    <div class="news-card">
+      <img src="ncsml_ach.jpeg" alt="AI Guest Lecture">
+      <div class="news-tooltip">
+        <h4>1st Prize – Seek And Find</h4>
+        <p>
+          The Department of CS organized the Seek And Find event in which
+          G.A. Sneha secured the 1st prize.
+        </p>
+        <span class="tooltip-date">2025</span>
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="news-card" onclick="openNewsPopup('news2')">
-      <img src="ncsml2_ach.jpeg" alt="ML Workshop">
-      <div class="news-overlay">
-        <span>View Details</span>
+    <div class="news-card">
+      <img src="ncsml2_ach.jpeg" alt="AI Guest Lecture">
+      <div class="news-tooltip">
+        <h4>Vastrakala Event</h4>
+        <span class="tooltip-date">2025</span>
       </div>
     </div>
 
-    <!-- Card 4 -->
-    <div class="news-card" onclick="openNewsPopup('news2')">
-      <img src="ncsml3_ach.jpeg" alt="ML Workshop">
-      <div class="news-overlay">
-        <span>View Details</span>
+    <div class="news-card">
+      <img src="ncsml_ach.jpeg" alt="AI Guest Lecture">
+      <div class="news-tooltip">
+        <h4>2nd Prize – Painting Competition</h4>
+        <p>
+          The Department of English organized the Painting Competition in which
+          Hima Bindhu secured the 2nd prize.
+        </p>
+        <span class="tooltip-date">2025</span>
       </div>
     </div>
-
-<!-- NEWS POPUP -->
-<div class="news-popup-overlay" id="newsPopup">
-  <div class="news-popup">
-    <span class="close-btn" onclick="closeNewsPopup()">&times;</span>
-
-    <img id="popupImg" src="">
-    <h3 id="popupTitle"></h3>
-    <p class="popup-date" id="popupDate"></p>
-    <p id="popupDesc"></p>
-  </div>
-</div>
-
 
   </div>
 </section>
