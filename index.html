@@ -862,17 +862,34 @@ section h2 {
 <script>
 const newsData = {
   news1: {
-    img: "images/ncsml_ach.jpg",
+      img: "acsml_ach.jpg",
+    title: "1st Prize in Intellexa Hackathon",
+    date: "Conducted on  2025",
+    desc: "The department AI organized an event INTELEXA HACKATHON in which Prasad, Manohar and Nikhl won the 1st prize."
+  },
+  news2: {
+
+    img: "ncsml_ach.jpg",
     title: "1st Prize in Seek and Find",
     date: "Conducted on 2025",
     desc: "The department CS organized an event Seek and Find in which G.A.Sneha won the 1st prize"
+},
+
+  news3: {
+
+    img: "ncsml2_ach.jpg",
+    title: "Vastrakala Event",
+    date: "Conducted on 2025",
+    desc: "Swasthi Prasad and Pavan participated in the event."
   },
-  news2: {
-    img: "images/acsml_ach.jpg",
-    title: "1st Prize in Intellexa Hackathon",
-    date: "Conducted on  2025",
-    desc: "The department AI organized an event INTELEXA HACKATHON in which Prasad,Manohar and Nikhl won the 1st prize."
-  }
+
+  news4: {
+
+    img: "ncsml3_ach.jpg",
+    title: "1st Prize in Painting Competition",
+    date: "Conducted on 2025",
+    desc: "The English department  organized an event in which Hima Bindhu won the 2nd prize"
+}
 };
 function openNewsPopup(id) {
   const data = newsData[id];
@@ -1395,6 +1412,22 @@ function openSubPopup(event, id) {
     <!-- Card 2 -->
     <div class="news-card" onclick="openNewsPopup('news2')">
       <img src="ncsml_ach.jpeg" alt="ML Workshop">
+      <div class="news-overlay">
+        <span>View Details</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="news-card" onclick="openNewsPopup('news2')">
+      <img src="ncsml2_ach.jpeg" alt="ML Workshop">
+      <div class="news-overlay">
+        <span>View Details</span>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="news-card" onclick="openNewsPopup('news2')">
+      <img src="ncsml3_ach.jpeg" alt="ML Workshop">
       <div class="news-overlay">
         <span>View Details</span>
       </div>
