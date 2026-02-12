@@ -1,176 +1,816 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Previous Year Question Papers – ML Department</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      font-family: "Merriweather", serif;
-      background: #eef3f9;
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
 
-    header {
-      background: #0a1f44;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
 
-    h1 {
-      margin: 0;
-    }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
 
-    section {
-      max-width: 1100px;
-      margin: 30px auto;
-      padding: 20px;
-    }
+        .semester {
+            margin-bottom: 30px;
+        }
 
-    .semester {
-      background: #ffffff;
-      border-left: 6px solid #0072ff;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-    }
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
 
-    .semester h2 {
-      color: #0a1f44;
-      margin-bottom: 15px;
-    }
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
 
-    .papers {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-    }
-
-    .paper {
-      background: #f4f6f8;
-      padding: 15px;
-      border-radius: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .paper a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #1a4fa3;
-    }
-
-    .paper a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #0a1f44;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-  </style>
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-  <h1>Previous Year Question Papers</h1>
-  <p>B.Sc Computer Science & Machine Learning</p>
+    <h1>Previous Year Question Papers</h1>
 </header>
 
-<section>
+<div class="container">
 
-  <!-- SEM 1 -->
-  <div class="semester">
-    <h2>Semester – 1</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">General English – I</a></div>
-      <div class="paper"><a href="#">Value Education</a></div>
-      <div class="paper"><a href="#">Fundamentals of IT</a></div>
-      <div class="paper"><a href="#">Differential Equations & Matrices</a></div>
-      <div class="paper"><a href="#">C Programming</a></div>
-      <div class="paper"><a href="#">Basic Electronics</a></div>
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
     </div>
-  </div>
 
-  <!-- SEM 2 -->
-  <div class="semester">
-    <h2>Semester – 2</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">General English – II</a></div>
-      <div class="paper"><a href="#">Indian Heritage & Culture</a></div>
-      <div class="paper"><a href="#">Probability & Statistics for ML</a></div>
-      <div class="paper"><a href="#">Vector Calculus</a></div>
-      <div class="paper"><a href="#">Data Structures Using C</a></div>
-      <div class="paper"><a href="#">Python Programming</a></div>
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
     </div>
-  </div>
 
-  <!-- SEM 3 -->
-  <div class="semester">
-    <h2>Semester – 3</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">Environmental Studies</a></div>
-      <div class="paper"><a href="#">Discrete Mathematics</a></div>
-      <div class="paper"><a href="#">DBMS</a></div>
-      <div class="paper"><a href="#">Digital Logic Design</a></div>
-      <div class="paper"><a href="#">Introduction to AI</a></div>
-      <div class="paper"><a href="#">General Elective</a></div>
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
     </div>
-  </div>
 
-  <!-- SEM 4 -->
-  <div class="semester">
-    <h2>Semester – 4</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">Operating Systems</a></div>
-      <div class="paper"><a href="#">Design & Analysis of Algorithms</a></div>
-      <div class="paper"><a href="#">Software Engineering</a></div>
-      <div class="paper"><a href="#">Machine Learning</a></div>
-      <div class="paper"><a href="#">Web Technologies</a></div>
-      <div class="paper"><a href="#">Skill Enhancement Course</a></div>
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
     </div>
-  </div>
 
-  <!-- SEM 5 -->
-  <div class="semester">
-    <h2>Semester – 5</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">Big Data Analytics</a></div>
-      <div class="paper"><a href="#">Social Media Analysis</a></div>
-      <div class="paper"><a href="#">Cyber Security</a></div>
-      <div class="paper"><a href="#">Data Security</a></div>
-      <div class="paper"><a href="#">Deep Learning</a></div>
-      <div class="paper"><a href="#">Optimization Theory</a></div>
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
     </div>
-  </div>
 
-  <!-- SEM 6 -->
-  <div class="semester">
-    <h2>Semester – 6</h2>
-    <div class="papers">
-      <div class="paper"><a href="#">Cloud Computing</a></div>
-      <div class="paper"><a href="#">Internet of Things</a></div>
-      <div class="paper"><a href="#">Computer Vision</a></div>
-      <div class="paper"><a href="#">Natural Language Processing</a></div>
-      <div class="paper"><a href="#">Blockchain</a></div>
-      <div class="paper"><a href="#">Project Viva / Internship</a></div>
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
     </div>
-  </div>
 
-</section>
+</div>
 
-<footer>
-  © Department of Machine Learning – Loyola Academy
-</footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
+
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+            margin-bottom: 30px;
+        }
+
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Previous Year Question Papers</h1>
+</header>
+
+<div class="container">
+
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
+
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+            margin-bottom: 30px;
+        }
+
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Previous Year Question Papers</h1>
+</header>
+
+<div class="container">
+
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
+
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+            margin-bottom: 30px;
+        }
+
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Previous Year Question Papers</h1>
+</header>
+
+<div class="container">
+
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
+
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+            margin-bottom: 30px;
+        }
+
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Previous Year Question Papers</h1>
+</header>
+
+<div class="container">
+
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
+    </div>
+
+</div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Question Papers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f4f7;
+            margin: 0;
+        }
+
+        header {
+            background: #1f2a44;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        .semester {
+            margin-bottom: 30px;
+        }
+
+        .semester h2 {
+            background: #1f2a44;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .subject {
+            display: block;
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9eef6;
+            text-decoration: none;
+            color: #1f2a44;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .subject:hover {
+            background: #dfe7f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Previous Year Question Papers</h1>
+</header>
+
+<div class="container">
+
+    <!-- Semester 1 -->
+    <div class="semester">
+        <h2>Semester 1</h2>
+        <a href="general-english1.html" class="subject">General English-I</a>
+        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
+        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
+        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
+        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
+        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
+    </div>
+
+    <!-- Semester 2 -->
+    <div class="semester">
+        <h2>Semester 2</h2>
+        <a href="general-english2.html" class="subject">General English-II</a>
+        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
+        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
+        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
+        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
+        <a href="python-programming.html" class="subject">Python Programming</a>
+    </div>
+
+    <!-- Semester 3 -->
+    <div class="semester">
+        <h2>Semester 3</h2>
+        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
+        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
+        <a href="dbms.html" class="subject">DataBase Management System</a>
+        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
+        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
+    </div>
+
+    <!-- Semester 4 -->
+    <div class="semester">
+        <h2>Semester 4</h2>
+        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
+        <a href="data-mining.html" class="subject">Data Mining</a>
+        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
+        <a href="operating-system.html" class="subject">Operating System</a>
+        <a href="software-engineering.html" class="subject">Software Engineering</a>
+        <a href="web-technologies.html" class="subject">Web Technologies</a>
+    </div>
+
+    <!-- Semester 5 -->
+    <div class="semester">
+        <h2>Semester 5</h2>
+        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
+        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
+        <a href="data-security.html" class="subject">Data Security</a>
+        <a href="cyber-security.html" class="subject">Cyber Security</a>
+        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
+        <a href="deep-learning.html" class="subject">Deep Learning</a>
+        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
+        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
+    </div>
+
+    <!-- Semester 6 -->
+    <div class="semester">
+        <h2>Semester 6</h2>
+        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
+        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
+        <a href="internet-of-things.html" class="subject">Internet of Things</a>
+        <a href="blockchain.html" class="subject">Block Chain</a>
+        <a href="computer-vision.html" class="subject">Computer Vision</a>
+    </div>
+
+</div>
 
 </body>
 </html>
