@@ -1,136 +1,1267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Previous Year Question Papers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Previous Year Papers - ML Department</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f4f7;
-            margin: 0;
-        }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI",sans-serif;
+}
 
-        header {
-            background: #1f2a44;
-            color: white;
-            text-align: center;
-            padding: 15px;
-        }
+/* ====== LAYOUT ====== */
+body {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f7fb;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.1);
-        }
+.main {
+  flex: 1;
+  padding: 50px 30px;
+  max-width: 1200px;
+}
 
-        .semester {
-            margin-bottom: 30px;
-        }
+/* ====== SIDEBAR ====== */
+.sidebar{
+  width:240px;
+  background:#0a1f44;
+  padding:40px 25px;
+  display:flex;
+  flex-direction:column;
+}
 
-        .semester h2 {
-            background: #1f2a44;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-        }
+.sidebar h2{
+  color:white;
+  font-size:18px;
+  margin-bottom:35px;
+  font-weight:600;
+}
 
-        .subject {
-            display: block;
-            padding: 12px;
-            margin: 8px 0;
-            background: #e9eef6;
-            text-decoration: none;
-            color: #1f2a44;
-            font-weight: bold;
-            border-radius: 5px;
-        }
+.sidebar a{
+  color:#cbd5ff;
+  text-decoration:none;
+  margin-bottom:15px;
+  padding:10px 12px;
+  border-radius:6px;
+  font-size:14px;
+  transition:0.3s;
+}
 
-        .subject:hover {
-            background: #dfe7f5;
-        }
-    </style>
+.sidebar a:hover{
+  background:#1c3faa;
+  color:white;
+}
+
+.sidebar a.active{
+  background:white;
+  color:#0a1f44;
+  font-weight:600;
+}
+
+/* ====== MAIN CONTENT ====== */
+.header{
+  margin-bottom:40px;
+}
+
+.header h1{
+  color:#0a1f44;
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.header p{
+  color:#666;
+  font-size:14px;
+}
+
+/* FILTER SECTION */
+.filter-box{
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+
+select{
+  padding:9px 14px;
+  border-radius:8px;
+  border:1px solid #d6dbe6;
+  font-size:14px;
+  background:#f9fbff;
+  cursor:pointer;
+}
+
+/* PAPER GRID */
+.paper-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+  gap:20px;
+}
+
+/* CARD */
+.paper-card{
+  background:white;
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.05);
+  aspect-ratio:1/1;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:0.3s;
+}
+
+.paper-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+}
+
+.paper-card h3{
+  color:#0a1f44;
+  font-size:17px;
+  margin-bottom:8px;
+}
+
+.meta{
+  font-size:13px;
+  color:#777;
+  margin-bottom:15px;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:auto;
+}
+
+.buttons a{
+  flex:1;
+  text-align:center;
+  padding:8px 0;
+  border-radius:6px;
+  font-size:13px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.view-btn{
+  background:#eef3ff;
+  color:#1c3faa;
+}
+
+.view-btn:hover{
+  background:#dce6ff;
+}
+
+.download-btn{
+  background:#0a1f44;
+  color:white;
+}
+
+.download-btn:hover{
+  background:#1c3faa;
+}
+</style>
 </head>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const yearFilter = document.getElementById("yearFilter");
+  const semFilter = document.getElementById("semFilter");
+  const cards = document.querySelectorAll(".paper-card");
+
+  function filterPapers() {
+    const yearValue = yearFilter.value;
+    const semValue = semFilter.value;
+
+    cards.forEach(card => {
+      const cardYear = card.dataset.year;
+      const cardSem = card.dataset.sem;
+
+      const yearMatch = (yearValue === "all" || yearValue === cardYear);
+      const semMatch = (semValue === "all" || semValue === cardSem);
+
+      card.style.display = (yearMatch && semMatch) ? "block" : "none";
+    });
+  }
+
+  yearFilter.addEventListener("change", filterPapers);
+  semFilter.addEventListener("change", filterPapers);
+});
+</script>
+
 
 <body>
 
-<header>
-    <h1>Previous Year Question Papers</h1>
-</header>
-
-<div class="container">
-
-    <!-- Semester 1 -->
-    <div class="semester">
-        <h2>Semester 1</h2>
-        <a href="general-english1.html" class="subject">General English-I</a>
-        <a href="value-education.html" class="subject">Value Education And Personality Development</a>
-        <a href="fundamental-of-it.html" class="subject">Fundamental of IT and Data Visualization</a>
-        <a href="differential-equations-and-matrices.html" class="subject">Differential Equations and Matrices</a>
-        <a href="problem-solving-and-programming-in-c.html" class="subject">Problem Solving and Programming in C</a>
-        <a href="basic-electronics-and-circuits.html" class="subject">Basic Electronics and Circuits</a>
-    </div>
-
-    <!-- Semester 2 -->
-    <div class="semester">
-        <h2>Semester 2</h2>
-        <a href="general-english2.html" class="subject">General English-II</a>
-        <a href="indian-heritage-and-culture.html" class="subject">Indian Heritage and Culture</a>
-        <a href="probability-and-statistics-for-ml.html" class="subject">Probability and Statistics for ML</a>
-        <a href="vector-calculus-and-number-theory.html" class="subject">Vector Calculus and Number Theory</a>
-        <a href="fundamentals-of-data-structures-using-c.html" class="subject">Fundamentals of Data Structures Using C</a>
-        <a href="python-programming.html" class="subject">Python Programming</a>
-    </div>
-
-    <!-- Semester 3 -->
-    <div class="semester">
-        <h2>Semester 3</h2>
-        <a href="environmental-science-and-generalisation.html" class="subject">Environmental Science and Generalisation</a>
-        <a href="discrete-mathematics.html" class="subject">Discrete Mathematics</a>
-        <a href="dbms.html" class="subject">DataBase Management System</a>
-        <a href="digital-logic.html" class="subject">Digital Logic and Design</a>
-        <a href="introduction-to-ai.html" class="subject">Introduction to AI</a>
-    </div>
-
-    <!-- Semester 4 -->
-    <div class="semester">
-        <h2>Semester 4</h2>
-        <a href="introduction-to-machine-learning.html" class="subject">Introduction to Machine Learning</a>
-        <a href="data-mining.html" class="subject">Data Mining</a>
-        <a href="design-and-analysis-of-algorithms.html" class="subject">Design and Analysis of Algorithms</a>
-        <a href="operating-system.html" class="subject">Operating System</a>
-        <a href="software-engineering.html" class="subject">Software Engineering</a>
-        <a href="web-technologies.html" class="subject">Web Technologies</a>
-    </div>
-
-    <!-- Semester 5 -->
-    <div class="semester">
-        <h2>Semester 5</h2>
-        <a href="big-data-analysis.html" class="subject">Big Data Analysis</a>
-        <a href="social-media-analytics.html" class="subject">Social Media Analytics</a>
-        <a href="data-security.html" class="subject">Data Security</a>
-        <a href="cyber-security.html" class="subject">Cyber Security</a>
-        <a href="optimization-theory.html" class="subject">Optimization Theory</a>
-        <a href="deep-learning.html" class="subject">Deep Learning</a>
-        <a href="cognitive-computing.html" class="subject">Cognitive Computing</a>
-        <a href="natural-language-processing.html" class="subject">Natural Language Processing</a>
-    </div>
-
-    <!-- Semester 6 -->
-    <div class="semester">
-        <h2>Semester 6</h2>
-        <a href="cloud-computing.html" class="subject">Cloud Computing</a>
-        <a href="human-computer-interaction.html" class="subject">Human Computer Interaction</a>
-        <a href="internet-of-things.html" class="subject">Internet of Things</a>
-        <a href="blockchain.html" class="subject">Block Chain</a>
-        <a href="computer-vision.html" class="subject">Computer Vision</a>
-    </div>
-
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>ML Department</h2>
+<a href="index.html">Home</a>
+<a href="#" class="active">Previous Papers</a>
+<a href="#">Syllabus</a>
+<a href="#">Faculty</a>
+<a href="#">Contact</a>
 </div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<div class="header">
+<h1>Previous Year Question Papers</h1>
+<p>Machine Learning Department | 2023 – 2025</p>
+</div>
+
+<div class="filter-box">
+<select id="yearFilter">
+<option value="all">All Years</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+</select>
+
+<select id="semFilter">
+<option value="all">All Semesters</option>
+<option value="1">Semester 1</option>
+<option value="2">Semester 2</option>
+<option value="3">Semester 3</option>
+<option value="4">Semester 4</option>
+<option value="5">Semester 5</option>
+<option value="6">Semester 6</option>
+</select>
+</div>
+
+<div class="paper-container">
+
+<!-- ===== 2023 ===== -->
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>General English - I</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>Value Education and Personality Development</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>Fundamentals of IT and Data Visualization</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>Differential Equations and Matrices</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>Problem Solving and Programming in C</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="1">
+<h3>Basic Electronic and Circuits</h3>
+<div class="meta">2023 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- Sem2 -->
+
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>General English - II</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>Indian Heritage & Culture</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>Probability and Statistics for ML</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>Vector Calculus & Number Theory</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>Fundamentals of Data Structures Using C</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="2">
+<h3>Python Programming</h3>
+<div class="meta">2023 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- sem3 -->
+
+<div class="paper-card" data-year="2023" data-sem="3">
+<h3>Environmental Science and Generalisation</h3>
+<div class="meta">2023 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="3">
+<h3>Discrete Mathematics</h3>
+<div class="meta">2023 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="3">
+<h3>DataBase Management System</h3>
+<div class="meta">2023 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="3">
+<h3>Digital Logic and Design</h3>
+<div class="meta">2023 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2023" data-sem="3">
+<h3>Introduction to AI</h3>
+<div class="meta">2023 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem4 -->
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Introduction to Machine Learning</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Data Mining</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Design and Analysis of Algorithms</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Operating System</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Software Engineering</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="4">
+<h3>Web Technologies</h3>
+<div class="meta">2023 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+<!-- Sem5 -->
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Big Data Analysis</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Social Media Analysis</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Data Security</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Cyber Security</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Optimization Theory</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Cognitive Computing</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2023 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem6 -->
+
+<div class="paper-card" data-year="2023" data-sem="6">
+<h3>Cloud Computing</h3>
+<div class="meta">2023 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="6">
+<h3>Human Computer Interaction</h3>
+<div class="meta">2023 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="6">
+<h3>Internet of Things</h3>
+<div class="meta">2023 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="6">
+<h3>Block Chain</h3>
+<div class="meta">2023 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2023" data-sem="6">
+<h3>Computer Vision</h3>
+<div class="meta">2023 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<!-- ===== 2024 ===== -->
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>General English - I</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>Value Education and Personality Development</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>Fundamentals of IT and Data Visualization</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>Differential Equations and Matrices</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>Problem Solving and Programming in C</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="1">
+<h3>Basic Electronic and Circuits</h3>
+<div class="meta">2024 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- Sem2 -->
+
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>General English - II</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>Indian Heritage & Culture</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>Probability and Statistics for ML</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>Vector Calculus & Number Theory</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>Fundamentals of Data Structures Using C</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="2">
+<h3>Python Programming</h3>
+<div class="meta">2024 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- sem3 -->
+
+<div class="paper-card" data-year="2024" data-sem="3">
+<h3>Environmental Science and Generalisation</h3>
+<div class="meta">2024 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="3">
+<h3>Discrete Mathematics</h3>
+<div class="meta">2024 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="3">
+<h3>DataBase Management System</h3>
+<div class="meta">2024 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="3">
+<h3>Digital Logic and Design</h3>
+<div class="meta">2024 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2024" data-sem="3">
+<h3>Introduction to AI</h3>
+<div class="meta">2024 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem4 -->
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Introduction to Machine Learning</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Data Mining</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Design and Analysis of Algorithms</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Operating System</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Software Engineering</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="4">
+<h3>Web Technologies</h3>
+<div class="meta">2024 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+<!-- Sem5 -->
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Big Data Analysis</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Social Media Analysis</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Data Security</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Cyber Security</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Optimization Theory</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Cognitive Computing</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2024 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem6 -->
+
+<div class="paper-card" data-year="2024" data-sem="6">
+<h3>Cloud Computing</h3>
+<div class="meta">2024 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="6">
+<h3>Human Computer Interaction</h3>
+<div class="meta">2024 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="6">
+<h3>Internet of Things</h3>
+<div class="meta">2024 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="6">
+<h3>Block Chain</h3>
+<div class="meta">2024 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2024" data-sem="6">
+<h3>Computer Vision</h3>
+<div class="meta">2024 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<!-- ===== 2025 ===== -->
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>General English - I</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>Value Education and Personality Development</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>Fundamentals of IT and Data Visualization</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>Differential Equations and Matrices</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>Problem Solving and Programming in C</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="1">
+<h3>Basic Electronic and Circuits</h3>
+<div class="meta">2025 • Semester 1</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- Sem2 -->
+
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>General English - II</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>Indian Heritage & Culture</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>Probability and Statistics for ML</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>Vector Calculus & Number Theory</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>Fundamentals of Data Structures Using C</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="2">
+<h3>Python Programming</h3>
+<div class="meta">2025 • Semester 2</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+<!-- sem3 -->
+
+<div class="paper-card" data-year="2025" data-sem="3">
+<h3>Environmental Science and Generalisation</h3>
+<div class="meta">2025 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="3">
+<h3>Discrete Mathematics</h3>
+<div class="meta">2025 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="3">
+<h3>DataBase Management System</h3>
+<div class="meta">2025 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="3">
+<h3>Digital Logic and Design</h3>
+<div class="meta">2025 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+<div class="paper-card" data-year="2025" data-sem="3">
+<h3>Introduction to AI</h3>
+<div class="meta">2025 • Semester 3</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem4 -->
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Introduction to Machine Learning</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Data Mining</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Design and Analysis of Algorithms</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Operating System</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Software Engineering</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="4">
+<h3>Web Technologies</h3>
+<div class="meta">2025 • Semester 4</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+<!-- Sem5 -->
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Big Data Analysis</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Social Media Analysis</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Data Security</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Cyber Security</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Optimization Theory</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Cognitive Computing</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="5">
+<h3>Deep Learning</h3>
+<div class="meta">2025 • Semester 5</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+
+
+
+<!-- Sem6 -->
+
+<div class="paper-card" data-year="2025" data-sem="6">
+<h3>Cloud Computing</h3>
+<div class="meta">2025 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="6">
+<h3>Human Computer Interaction</h3>
+<div class="meta">2025 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="6">
+<h3>Internet of Things</h3>
+<div class="meta">2025 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="6">
+<h3>Block Chain</h3>
+<div class="meta">2025 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+
+<div class="paper-card" data-year="2025" data-sem="6">
+<h3>Computer Vision</h3>
+<div class="meta">2025 • Semester 6</div>
+<div class="buttons">
+<a href="#" class="view-btn">View</a>
+<a href="#" class="download-btn">Download</a>
+</div>
+</div>
+</div> <!-- END PAPER CONTAINER -->
+
+</div> <!-- END MAIN -->
+
 
 </body>
 </html>
+ 
