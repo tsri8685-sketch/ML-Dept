@@ -143,127 +143,80 @@ body {
     user-select: none;        /* prevents text selection */
    -webkit-user-select: none;
    -moz-user-select: none;
+  
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
 }
 
 
 /* ================= SIDEBAR ================= */
 
-body {
-  display: flex;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-.sidebar {
-  width: 260px;
-  height: 100vh;
-  background: linear-gradient(180deg, #0a1f44, #00142d);
-  position: fixed;
-  left: 0;
-  top: 0;
-  padding: 30px 20px;
+.main-content {
+  margin-top: 100px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 4px 0 30px rgba(0,0,0,0.2);
+}
+/* ================= TOP NAVBAR ================= */
+
+.top-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;   /* increased height */
+  background: linear-gradient(135deg, #0a1f44, #00142d);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  z-index: 1000;
 }
 
-.sidebar-logo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: 3px solid #00c6ff;
-  box-shadow: 0 0 20px rgba(0,198,255,0.4);
-}
-.sidebar-nav a {
-  color: #dce6f5;
-  text-decoration: none;
-  font-size: 15px;
+.nav-left {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 15px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.sidebar-nav a::before {
-  content: "";
-  position: absolute;
-  left: -10px;
-  width: 4px;
-  height: 0%;
-  background: #00c6ff;
-  transition: 0.3s ease;
-}
-
-.sidebar-nav a:hover {
-  background: rgba(0,198,255,0.15);
   color: #fff;
+  font-weight: 600;
+  font-size: 18px;
 }
 
-.sidebar-nav a.active {
-  background: rgba(0,198,255,0.25);
-  color: #fff;
+.nav-logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #00c6ff;
 }
 
-.sidebar-nav a.active::before {
-  height: 100%;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
 }
 
-.sidebar-nav a.active {
-  background: #00c6ff;
-  color: #000;
+.nav-links a {
+  text-decoration: none;
+  color: #dce6f5;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
-@media (max-width: 900px) {
-
-  .sidebar {
-    transform: translateX(-100%);
-    transition: 0.3s ease;
-  }
-
-    .main-content {
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  min-height: 100vh;
+.nav-links a:hover {
+  color: #00c6ff;
 }
 
-#hero {
+/* Push content below navbar */
+.main-content {
+  margin-top: 70px;
   width: 100%;
-  position: relative;
-}
-  .sidebar.active {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-  }
+  padding: 0;
 }
 /* ================= MAIN CONTENT ================= */
 
-/* .main-content {
-  margin-left: 250px;
-  width: calc(100% - 250px);
-  padding: 0 40px;
-} */
 
-.main-content {
-  margin-left: 260px;
-  width: calc(100% - 260px);
-  padding: 0 40px;
-
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Smooth Scroll */
-/* html {
-  scroll-behavior: smooth;
-} */
 
 .main-footer {
   margin-top: auto;
@@ -903,20 +856,7 @@ body {
   }
 }
 
-.main-content {
-  margin-left: 260px;
-  width: calc(100% - 260px);
 
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-}
-
-.main-footer {
-  margin-top: auto;
-  width: 100%;
-}
 
 
 
@@ -1080,26 +1020,24 @@ function openSubPopup(event, id) {
   <div class="loader-spinner"></div>
 </div>
 
-<!-- ================= LEFT SIDEBAR ================= -->
- <div class="layout">
-<div class="sidebar">
-  <div class="sidebar-top">
-    <img src="logo_ml.jpeg" class="sidebar-logo">
-    <h3>ML Department</h3>
-    <p>Loyola Academy</p>
+
+<!-- ================= TOP NAVBAR ================= -->
+<nav class="top-navbar">
+  <div class="nav-left">
+    <img src="logo_ml.jpeg" class="nav-logo">
+    <span>ML Department</span>
   </div>
 
-  <ul class="sidebar-nav">
-    <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
-    <li><a href="#about"><i class="fas fa-building"></i> About</a></li>
-    <li><a href="#vision-mission"><i class="fas fa-eye"></i> Vision & Mission</a></li>
-    <li><a href="#faculty"><i class="fas fa-users"></i> Faculty</a></li>
-    <li><a href="#curriculum"><i class="fas fa-book"></i> Curriculum</a></li>
-    <li><a href="#labs"><i class="fas fa-laptop"></i> Labs</a></li>
-    <li><a href="#news"><i class="fas fa-trophy"></i> Events</a></li>
-    <li><a href="#cntacts"><i class="fas fa-phone"></i> Contact</a></li>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#out-reach">About</a></li>
+    <li><a href="#vision-mission">Vision & Mission</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#news">Events</a></li>
+    <li><a href="#cntacts">Contact</a></li>
   </ul>
-</div>
+</nav>
 
 
     <!-- ================= HERO SECTION ================= -->
