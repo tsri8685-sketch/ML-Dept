@@ -167,8 +167,8 @@ body {
 }
 
 .nav-logo {
-  width: 45px;
-  height: 45px;
+  width: 85px;
+  height: 85px;
   border-radius: 50%;
   border: 2px solid #00c6ff;
 }
@@ -837,6 +837,7 @@ body {
     height: 200px;
   }
 }
+
 
 
 
