@@ -141,6 +141,33 @@ body {
 }
 /* ================= TOP NAVBAR ================= */
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+  .header-left {
+    flex-direction: column;
+  }
+
+.header-text h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.college-name {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
 .top-navbar {
   position: fixed;
   top: 0;
@@ -835,6 +862,7 @@ body {
     height: 200px;
   }
 }
+
 
 
 
