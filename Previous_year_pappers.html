@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const yearMatch = (yearValue === "all" || yearValue === cardYear);
       const semMatch = (semValue === "all" || semValue === cardSem);
 
-      card.style.display = (yearMatch && semMatch) ? "block" : "none";
+      card.style.display = (yearMatch && semMatch) ? "flex" : "none";
     });
   }
 
@@ -314,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
 <a href="#" class="download-btn">Download</a>
 </div>
 </div>
+  
 <div class="paper-card" data-year="2023" data-sem="2">
 <h3>Probability and Statistics for ML</h3>
 <div class="meta">2023 • Semester 2</div>
@@ -521,7 +522,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 </div>
 
-</div>
 
 
 
