@@ -98,6 +98,31 @@ body{
 .units li{
     margin:6px 0;
 }
+
+/* Floating Chat Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.chat-icon:hover {
+    transform: scale(1.1);
+}
+
 </style>
 
 <script>
@@ -109,11 +134,31 @@ function toggle(id){
         x.style.display="none";
     }
 }
+
+
+function toggleChat(){
+    let chatBox = document.querySelector(".chat-container");
+    if(chatBox.style.display === "flex"){
+        chatBox.style.display = "none";
+    } else {
+        chatBox.style.display = "flex";
+    }
+}
+
 </script>
+
+
 
 </head>
 
 <body>
+
+<div class="chat-header">
+    📘 Exam Preparation Assistant
+    <span style="float:right; cursor:pointer;" onclick="toggleChat()">✖</span>
+</div>
+
+<div class="chat-icon" onclick="toggleChat()">💬</div>
 
 <header class="topbar">
     <div><strong>Department of Machine Learning</strong></div>
