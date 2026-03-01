@@ -20,6 +20,30 @@ body {
     min-height: 100vh;
 }
 
+    /* Floating Chat Icon */
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: 0.3s;
+    z-index: 1001;
+}
+
+.chat-icon:hover {
+    transform: scale(1.1);
+}
+
 /* Chat Container */
 .chat-container {
     width: 400px;
@@ -27,7 +51,6 @@ body {
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-    display: none; /* HIDDEN BY DEFAULT */
     flex-direction: column;
     overflow: hidden;
 
@@ -45,6 +68,7 @@ body {
     text-align: center;
     font-weight: 600;
     font-size: 18px;
+    position: relative;
 }
 
 /* Chat Messages */
@@ -125,9 +149,10 @@ body {
 
 <div class="chat-container">
 
-    <div class="chat-header">
-        📘 Exam Preparation Assistant
-    </div>
+<div class="chat-header">
+    📘 Exam Preparation Assistant
+    <span style="position:absolute; right:20px; cursor:pointer;" onclick="toggleChat()">✖</span>
+</div>
 
     <div class="chat-messages" id="chatMessages">
         <div class="message bot">Hello 👋 Ask me your study doubts!</div>
@@ -141,30 +166,14 @@ body {
 </div>
 
 <script>
-function sendMessage() {
-    let inputField = document.getElementById("userInput");
-    let message = inputField.value.trim();
-    if(message === "") return;
+function toggleChat() {
+    let chatBox = document.querySelector(".chat-container");
 
-    let chat = document.getElementById("chatMessages");
-
-    // User message
-    let userMsg = document.createElement("div");
-    userMsg.className = "message user";
-    userMsg.innerText = message;
-    chat.appendChild(userMsg);
-
-    inputField.value = "";
-    chat.scrollTop = chat.scrollHeight;
-
-    // Fake bot reply (connect backend later)
-    setTimeout(() => {
-        let botMsg = document.createElement("div");
-        botMsg.className = "message bot";
-        botMsg.innerText = "Analyzing your question... 🤖";
-        chat.appendChild(botMsg);
-        chat.scrollTop = chat.scrollHeight;
-    }, 800);
+    if (chatBox.style.display === "flex") {
+        chatBox.style.display = "none";
+    } else {
+        chatBox.style.display = "flex";
+    }
 }
 </script>
 
