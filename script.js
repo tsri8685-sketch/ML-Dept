@@ -1,8 +1,6 @@
 
-
-let role = localStorage.getItem("role");
-if(!role){
-    window.location.href = "login.html";
+if(!localStorage.getItem("role")){
+  window.location.href = "login.html";
 }
 
 
@@ -148,5 +146,6 @@ function openSubPopup(event, id) {
         .forEach(p => p.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
+
 
 
