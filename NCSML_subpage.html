@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width", initial-scale="1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NCSML Syllabus Portal</title>
 
 <style>
@@ -41,18 +41,20 @@ body{
 }
 .sidebar li{
     margin:15px 0;
-    cursor:pointer;
 }
-.sidebar li:hover{
+.sidebar a{
+    color:white;
+    text-decoration:none;
+}
+.sidebar a:hover{
     color:#1abc9c;
 }
 
-
+/* Content */
 .content{
     flex:1;
     padding:30px;
 }
-
 
 .card{
     background:white;
@@ -65,7 +67,6 @@ body{
 .card h2{
     color:#1e3c72;
 }
-
 
 .sem-btn{
     background:#1e3c72;
@@ -80,7 +81,6 @@ body{
     background:#16305a;
 }
 
-
 .subject{
     font-weight:600;
     margin:12px 0;
@@ -90,7 +90,6 @@ body{
     color:#1abc9c;
 }
 
-
 .units{
     display:none;
     margin-left:20px;
@@ -99,66 +98,154 @@ body{
     margin:6px 0;
 }
 
-/* Floating Chat Icon */
+/* Chatbox */
 .chat-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     color: white;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28px;
+    font-size: 24px;
     cursor: pointer;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    z-index: 1000;
-    transition: 0.3s;
 }
 
-.chat-icon:hover {
-    transform: scale(1.1);
+.chat-container{
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 420px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
 }
 
+.chat-header{
+    background:#1e3c72;
+    color:white;
+    padding:12px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.chat-body{
+    flex:1;
+    padding:10px;
+    overflow-y:auto;
+    font-size:14px;
+}
+
+.chat-input{
+    display:flex;
+    border-top:1px solid #ddd;
+}
+
+.chat-input input{
+    flex:1;
+    padding:10px;
+    border:none;
+    outline:none;
+}
+
+.chat-input button{
+    background:#1e3c72;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    cursor:pointer;
+}
+.chat-input button:hover{
+    background:#16305a;
+}
+
+.message{
+    margin:8px 0;
+}
+.user{
+    text-align:right;
+    color:#1e3c72;
+}
+.bot{
+    text-align:left;
+    color:#333;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .layout{
+        flex-direction:column;
+    }
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+}
 </style>
 
 <script>
-function toggle(id){
-    var x=document.getElementById(id);
-    if(x.style.display==="none" || x.style.display===""){
-        x.style.display="block";
-    }else{
-        x.style.display="none";
-    }
-}
 
+function toggle(id){
+    let x=document.getElementById(id);
+    x.style.display = (x.style.display === "block") ? "none" : "block";
+}
 
 function toggleChat(){
-    let chatBox = document.querySelector(".chat-container");
-    if(chatBox.style.display === "flex"){
-        chatBox.style.display = "none";
-    } else {
-        chatBox.style.display = "flex";
-    }
+    let chat=document.getElementById("chatBox");
+    chat.style.display = (chat.style.display === "flex") ? "none" : "flex";
 }
 
-</script>
+function sendMessage(){
+    let input=document.getElementById("chatInput");
+    let message=input.value.trim();
+    if(message==="") return;
 
+    let chatBody=document.getElementById("chatBody");
+
+    chatBody.innerHTML += `<div class="message user">${message}</div>`;
+    
+    let response="Please ask syllabus related doubts.";
+    
+    if(message.toLowerCase().includes("dbms")){
+        response="DBMS is in Semester 3. It includes SQL, Relational Model, Transactions.";
+    }
+    if(message.toLowerCase().includes("machine learning")){
+        response="Machine Learning is in Semester 4. Topics include Supervised & Unsupervised Learning.";
+    }
+
+    setTimeout(()=>{
+        chatBody.innerHTML += `<div class="message bot">${response}</div>`;
+        chatBody.scrollTop=chatBody.scrollHeight;
+    },500);
+
+    input.value="";
+}
+
+/* ✅ ENTER KEY SUPPORT */
+document.addEventListener("DOMContentLoaded", function(){
+    document.getElementById("chatInput")
+    .addEventListener("keypress", function(event){
+        if(event.key === "Enter"){
+            event.preventDefault();
+            sendMessage();
+        }
+    });
+});
+</script>
 
 
 </head>
 
 <body>
-
-<div class="chat-header">
-    📘 Exam Preparation Assistant
-    <span style="float:right; cursor:pointer;" onclick="toggleChat()">✖</span>
-</div>
-
-<div class="chat-icon" onclick="toggleChat()">💬</div>
 
 <header class="topbar">
     <div><strong>Department of Machine Learning</strong></div>
@@ -167,22 +254,13 @@ function toggleChat(){
 
 <div class="layout">
 
-
 <aside class="sidebar">
     <h3>Dashboard</h3>
     <ul>
-        <li>Overview</li>
-        <li href ="index.html">Home</li>
-        <li>Students</li>
-        <li>Attendance</li>
-        <li>Marks</li>
+        <li><a href="index.html">Home</a></li>
         <li><strong>Syllabus</strong></li>
-        <li>Materials</li>
-        <li>Placements</li>
-        <li>About</li>
     </ul>
 </aside>
-
 
 <main class="content">
 
@@ -199,153 +277,47 @@ function toggleChat(){
 
 <div id="sem3" class="card" style="display:none;">
 <h2>Semester 3</h2>
-
-<div class="subject" onclick="toggle('s3sub1')">Environmental Studies and Gender Sensitization</div>
-<ul id="s3sub1" class="units">
-<li>Unit 1 - Natural Resources, Ecosystem and Biodiversity</li>
-<li>Unit 2 - Environmental Pollution</li>
-<li>Unit 3 - Social Issues and Environment</li>
-<li>Unit 4 - Gender Studies</li>
-<li>Unit 5 - Gender & Labour - Gender Violence and Law</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub2')">Database Management System</div>
-<ul id="s3sub2" class="units">
+<div class="subject" onclick="toggle('dbms')">Database Management System</div>
+<ul id="dbms" class="units">
 <li>Unit 1 - Introduction</li>
 <li>Unit 2 - Relational Model</li>
 <li>Unit 3 - SQL</li>
 <li>Unit 4 - File Organization</li>
-<li>Unit 5 - Recovery System & Transactions</li>
+<li>Unit 5 - Recovery System</li>
 </ul>
-
-<div class="subject" onclick="toggle('s3sub3')">Discrete Mathematics</div>
-<ul id="s3sub3" class="units">
-<li>Unit 1 - Lattices</li>
-<li>Unit 2 - Graph Theory-I</li>
-<li>Unit 3 - Graph Theory-II</li>
-<li>Unit 4 - Graph Theory-III</li>
-<li>Unit 5 - Elements of Number Theory</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub4')">Digital Logic & Design</div>
-<ul id="s3sub4" class="units">
-<li>Unit 1 - Number System and Logic Gates</li>
-<li>Unit 2 - Boolean Algebra</li>
-<li>Unit 3 - Combinational Circuits</li>
-<li>Unit 4 - Sequential Circuits and Shift Registers</li>
-<li>Unit 5 - Counters & Memory</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub5')">Introduction to AI</div>
-<ul id="s3sub5" class="units">
-<li>Unit 1 - Introduction</li>
-<li>Unit 2 - Search Algorithms</li>
-<li>Unit 3 - Knowledge Based Agent</li>
-<li>Unit 4 - Forward & Backward Chaining</li>
-<li>Unit 5 - Introduction to Prolog</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub6')">General Elective Course</div>
-<ul id="s3sub6" class="units"></ul>
-
-<div class="subject" onclick="toggle('s3sub7')">DBMS Practical</div>
-<ul id="s3sub7" class="units">
-<li>SQL & PLSQL Programming</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub8')">Digital Logic & Design Practical</div>
-<ul id="s3sub8" class="units">
-<li>Experiments</li>
-</ul>
-
-<div class="subject" onclick="toggle('s3sub9')">Introduction to AI Practical</div>
-<ul id="s3sub9" class="units">
-<li>Prolog Programs</li>
-</ul>
-
 </div>
 
 <div id="sem4" class="card" style="display:none;">
 <h2>Semester 4</h2>
-
-<div class="subject" onclick="toggle('s4sub1')">Software Engineering & Agile Methodologies</div>
-<ul id="s4sub1" class="units">
-<li>Unit 1 - The Evolving Role of Software</li>
-<li>Unit 2 - Requirements Engineering Tasks</li>
-<li>Unit 3 - Design Process and Quality</li>
-<li>Unit 4 - Introduction to Components</li>
-<li>Unit 5 - Software Testing</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub2')">Web Technologies</div>
-<ul id="s4sub2" class="units">
-<li>Unit 1 - Origin & Evolution of HTML and XHTML</li>
-<li>Unit 2 - Cascading Style Sheets (CSS)</li>
-<li>Unit 3 - JavaScript</li>
-<li>Unit 4 - Event Handling JavaScript & XML</li>
-<li>Unit 5 - Overview of PHP</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub3')">Data Mining</div>
-<ul id="s4sub3" class="units">
-<li>Unit 1 - Moving towards the Evolution of Information Age</li>
-<li>Unit 2 - Data Mining Overview</li>
-<li>Unit 3 - Mining Association Rules in Large Databases</li>
-<li>Unit 4 - Introduction to Classification & Prediction</li>
-<li>Unit 5 - Introduction to Clustering</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub4')">Design & Analysis Algorithms</div>
-<ul id="s4sub4" class="units">
-<li>Unit 1 - Definition of an Algorithm & Elementary Data Structures</li>
-<li>Unit 2 - Divide and Conquer & The Greedy Method</li>
-<li>Unit 3 - Dynamic Programming & Search Techniques</li>
-<li>Unit 4 - Backtracking & Branch-Bound</li>
-<li>Unit 5 - NP-Hard & NP-Complete Problems</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub5')">Introduction to Machine Learning</div>
-<ul id="s4sub5" class="units">
-<li>Unit 1 - Introduction to Machine Learning</li>
+<div class="subject" onclick="toggle('ml')">Introduction to Machine Learning</div>
+<ul id="ml" class="units">
+<li>Unit 1 - Introduction</li>
 <li>Unit 2 - Supervised Learning</li>
 <li>Unit 3 - Unsupervised Learning</li>
 <li>Unit 4 - Neural Networks</li>
-<li>Unit 5 - Advanced Topics in Machine Learning</li>
+<li>Unit 5 - Advanced Topics</li>
 </ul>
-
-<div class="subject" onclick="toggle('s4sub6')">Operating System</div>
-<ul id="s4sub6" class="units">
-<li>Unit 1 - Introduction to Operating System</li>
-<li>Unit 2 - Process Concept</li>
-<li>Unit 3 - Process Synchronization</li>
-<li>Unit 4 - File System</li>
-<li>Unit 5 - Memory Management</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub7')">Web Technologies Practical</div>
-<ul id="s4sub7" class="units">
-<li>HTML, XML, DTD, PHP Programs</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub8')">Introduction to Machine Learning Practical</div>
-<ul id="s4sub8" class="units">
-<li>Practical Programs & Case Studies</li>
-</ul>
-
-<div class="subject" onclick="toggle('s4sub9')">Self Study Course</div>
-<ul id="s4sub9" class="units">
-<li>Unit 1 - Introduction to Cyber Law</li>
-<li>Unit 2 - Cyber Law - Intellectual Property Right</li>
-<li>Unit 3 - Cyber Law - Strategies for Cyber Security</li>
-<li>Unit 4 - Cyber Law - Policies to Mitigate Cyber Risk</li>
-<li>Unit 5 - Scheme of IT Act</li>
-</ul>
-
 </div>
 
 </main>
 </div>
 
+<!-- Chatbox -->
+<div class="chat-icon" onclick="toggleChat()">💬</div>
+
+<div class="chat-container" id="chatBox">
+    <div class="chat-header">
+        Exam Assistant
+        <span style="cursor:pointer;" onclick="toggleChat()">✖</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">Hello! Ask me syllabus doubts.</div>
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
 </body>
 </html>
-
