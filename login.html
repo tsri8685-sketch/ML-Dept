@@ -26,7 +26,6 @@ body{
   border-radius:10px;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
   background:#e0e4ed;
-  
 }
 
 .login-box h2{
@@ -75,15 +74,15 @@ button:hover{
   <h2>ML Department Login</h2>
 
   <form onsubmit="loginUser(); return false;">
-    <select id="role" required>
+    <select id="role">
       <option value="">Select Role</option>
       <option value="student">Student</option>
       <option value="faculty">Faculty</option>
       <option value="admin">Admin</option>
     </select>
 
-    <input type="text" id="username" placeholder="Enter Name" required>
-    <input type="password" id="password" placeholder="Enter Password" required>
+    <input type="text" id="username" placeholder="Enter Name">
+    <input type="password" id="password" placeholder="Enter Password">
 
     <button type="submit">Login</button>
   </form>
@@ -108,7 +107,6 @@ function loginUser(){
     return;
   }
 
-  // Accept any username & password
   localStorage.setItem("role", role);
   localStorage.setItem("username", username);
 
