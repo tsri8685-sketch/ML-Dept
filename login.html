@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NCSML Portal Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#011f4d;
+}
+
+/* Main Container */
+.login-wrapper{
+    display:flex;
+    width:850px;
+    height:500px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    overflow:hidden;
+}
+
+/* Left Branding Panel */
+.left-panel{
+    flex:1;
+    background:#1e3c72;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.left-panel h1{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.left-panel p{
+    text-align:center;
+    opacity:0.9;
+}
+
+/* Right Login Panel */
+.right-panel{
+    flex:1;
+    padding:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.right-panel h2{
+    color:#1e3c72;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+input, select{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ddd;
+    outline:none;
+    transition:0.3s;
+    font-size:14px;
+}
+
+input:focus, select:focus{
+    border-color:#1e3c72;
+    box-shadow:0 0 5px rgba(30,60,114,0.2);
+}
+
+/* Button */
+button{
+    padding:12px;
+    background:#1e3c72;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#16305a;
+}
+
+/* Accent Line */
+.accent-line{
+    width:50px;
+    height:4px;
+    background:#1abc9c;
+    margin-bottom:20px;
+}
+
+.error{
+    color:red;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .login-wrapper{
+        flex-direction:column;
+        width:90%;
+        height:auto;
+    }
+
+    .left-panel{
+        padding:30px;
+    }
+
+    .right-panel{
+        padding:30px;
+    }
+}
+</style>
+
+<script>
+function login(){
+    let role=document.getElementById("role").value;
+    let username=document.getElementById("username").value;
+    let password=document.getElementById("password").value;
+    let error=document.getElementById("error");
+
+    if(role==="student" && username==="student" && password==="123"){
+        localStorage.setItem("role","Student");
+        window.location.href="index.html";
+    }
+    else if(role==="faculty" && username==="faculty" && password==="123"){
+        localStorage.setItem("role","Faculty");
+        window.location.href="index.html";
+    }
+    else if(role==="admin" && username==="admin" && password==="123"){
+        localStorage.setItem("role","Admin");
+        window.location.href="index.html";
+    }
+    else{
+        error.innerText="Invalid Credentials!";
+    }
+}
+</script>
+
+</head>
+<body>
+
+<div class="login-wrapper">
+
+    <!-- Branding Side -->
+    <div class="left-panel">
+        <h1>NCSML Portal</h1>
+        <p>Department of Computer Science & Machine Learning<br>
+        Secure Academic Management System</p>
+    </div>
+
+    <!-- Login Side -->
+    <div class="right-panel">
+        <div class="accent-line"></div>
+        <h2>Login to Your Account</h2>
+
+        <div class="input-group">
+            <select id="role">
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+
+        <button onclick="login()">Login</button>
+        <div class="error" id="error"></div>
+    </div>
+
+</div>
+
+</body>
+</html>
