@@ -21,7 +21,6 @@ body{
     background:#011f4d;
 }
 
-/* Main Container */
 .login-wrapper{
     display:flex;
     width:850px;
@@ -32,7 +31,6 @@ body{
     overflow:hidden;
 }
 
-/* Left Branding Panel */
 .left-panel{
     flex:1;
     background:#1e3c72;
@@ -54,7 +52,6 @@ body{
     opacity:0.9;
 }
 
-/* Right Login Panel */
 .right-panel{
     flex:1;
     padding:50px;
@@ -87,7 +84,6 @@ input:focus, select:focus{
     box-shadow:0 0 5px rgba(30,60,114,0.2);
 }
 
-/* Button */
 button{
     padding:12px;
     background:#1e3c72;
@@ -104,7 +100,6 @@ button:hover{
     background:#16305a;
 }
 
-/* Accent Line */
 .accent-line{
     width:50px;
     height:4px;
@@ -118,47 +113,53 @@ button:hover{
     font-size:14px;
 }
 
-/* Responsive */
 @media(max-width:900px){
     .login-wrapper{
         flex-direction:column;
         width:90%;
         height:auto;
     }
-
-    .left-panel{
-        padding:30px;
-    }
-
-    .right-panel{
-        padding:30px;
-    }
 }
 </style>
 
 <script>
 function login(){
+
     let role=document.getElementById("role").value;
-    let username=document.getElementById("username").value;
-    let password=document.getElementById("password").value;
+    let username=document.getElementById("username").value.trim();
+    let password=document.getElementById("password").value.trim();
     let error=document.getElementById("error");
+
+    error.innerText="";
 
     if(role==="student" && username==="student" && password==="123"){
         localStorage.setItem("role","Student");
+        localStorage.setItem("isLoggedIn","true");
         window.location.href="index.html";
     }
     else if(role==="faculty" && username==="faculty" && password==="123"){
         localStorage.setItem("role","Faculty");
+        localStorage.setItem("isLoggedIn","true");
         window.location.href="index.html";
     }
     else if(role==="admin" && username==="admin" && password==="123"){
         localStorage.setItem("role","Admin");
+        localStorage.setItem("isLoggedIn","true");
         window.location.href="index.html";
     }
     else{
         error.innerText="Invalid Credentials!";
     }
 }
+
+/* ENTER KEY SUPPORT */
+document.addEventListener("DOMContentLoaded", function(){
+    document.addEventListener("keydown", function(e){
+        if(e.key === "Enter"){
+            login();
+        }
+    });
+});
 </script>
 
 </head>
@@ -166,14 +167,14 @@ function login(){
 
 <div class="login-wrapper">
 
-    <!-- Branding Side -->
     <div class="left-panel">
         <h1>NCSML Portal</h1>
-        <p>Department of Computer Science & Machine Learning<br>
-        Secure Academic Management System</p>
+        <p>
+        Department of Computer Science & Machine Learning<br>
+        Secure Academic Management System
+        </p>
     </div>
 
-    <!-- Login Side -->
     <div class="right-panel">
         <div class="accent-line"></div>
         <h2>Login to Your Account</h2>
