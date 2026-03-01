@@ -237,82 +237,38 @@ body {
     font-size: 1.2rem;
     margin-bottom: 25px;
 }
-.hide-display-sub {
-  display: none;
-  margin: 25px auto 0;
-  max-width: 1000px;
-  padding: 20px;
-  border-radius: 12px;
-  max-height: min-content;
-}
-.hide-display-sub.active {
-  display: block;
+/* ===== BUTTONS ===== */
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-
-/* ===== BUTTON STYLE ===== */
-.sub-btn {
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0, 114, 255, 0.35);
-  display: inline-block;
-    padding: 12px 25px;
-    background: #00c6ff;
-    color: #000;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 0 10px;
-    font-weight: bold;
+.sub-btn{
+    display:inline-block;
+    padding:12px 28px;
+    background:#0077ff;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:500;
+    transition:0.3s ease;
 }
 
-.sub-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 114, 255, 0.5);
+.sub-btn:hover{
+    background:#0056c7;
+    transform:translateY(-3px);
 }
 
-.sub-btn:active {
-  transform: scale(0.95);
-}
-
-
-/* ===== SUB POPUP CONTAINER (ALL POPUPS) ===== */
-.hide-display-sub{
-  display: none;
-  margin: 15px auto 0;
-  max-width: 500px;
-  max-height: 40vh;      /* reduce popup height */
-  overflow-y: auto;      /* scroll content */
-  padding: 15px;
-  border-radius: 12px;
-}
-
-
-.sub-pop{
-   background: #fff;
-  max-width: 500px;
-  width: 100%;
-  padding: 25px;
-  border-radius: 10px;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
-.sub a{
-  font-size: 16px;
-  text-align: justify;
-  color: #333;
-  line-height: 1.7;
-}
-
-#sub-toggle {
-  display: none;
-}
-#sub-toggle:checked ~ .hide-display-sub {
-  display: block;
+/* Responsive */
+@media(max-width:768px){
+    .hero-content h2{
+        font-size:28px;
+    }
+    .hero-content p{
+        font-size:16px;
+    }
 }
 /* ================= SECTIONS ================= */
 section {
@@ -837,6 +793,7 @@ body {
     height: 200px;
   }
 }
+
 
 
 
