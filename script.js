@@ -1,13 +1,7 @@
-document.addEventListener("DOMContentLoaded", function(){
 
-  const username = localStorage.getItem("username");
-
-  if(!username){
-    window.location.href = "./login.html";
+  if(sessionStorage.getItem("loggedIn") !== "true"){
+      window.location.href = "login.html";
   }
-
-});
-
 
 window.addEventListener("load", function(){
   document.getElementById("loader").style.display = "none";
@@ -150,6 +144,7 @@ function openSubPopup(event, id) {
         .forEach(p => p.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
+
 
 
 
