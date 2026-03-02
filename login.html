@@ -109,11 +109,7 @@ function loginUser(){
     return;
   }
 
-  // Store login info (use sessionStorage instead of localStorage)
-  sessionStorage.setItem("role", role);
-  sessionStorage.setItem("username", username);
-
-  alert("Login Successful!");
+  // No storage used
 
   window.location.href = "index.html";
 }
