@@ -109,15 +109,14 @@ function loginUser(){
     return;
   }
 
-  // Store login info
-  localStorage.setItem("role", role);
-  localStorage.setItem("username", username);
+  // Store login info (use sessionStorage instead of localStorage)
+  sessionStorage.setItem("role", role);
+  sessionStorage.setItem("username", username);
 
   alert("Login Successful!");
 
   window.location.href = "index.html";
 }
 </script>
-
 </body>
 </html>
